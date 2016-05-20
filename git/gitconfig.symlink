@@ -1,33 +1,50 @@
-# Local/private config goes in the include
-[include]
-        path = ~/.gitconfig.local
-[hub]
-        protocol = https
-[alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
-[color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
-[help]
-        autocorrect = 1
+	safecrlf = false
+	autocrlf = false
+	editor = vim
+	pager = less -FXRS -x4
+[gc]
+	reflogExpire = 14 days
+	reflogExpireUnreachable = 30 days
+[color]
+	status = auto
+	ui = auto
+[gui]
+	commitmsgwidth = 100
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+	default = upstream
+[fetch]
+	recurseSubmodules = true
+	prune = true
+[status]
+	submodulesummary = true
+[user]
+	name = Nate Genetzky
+	email = nathan.genetzky@daktronics.com
+[alias]
+	exec = "!exec "
+	co = checkout
+	sw = checkout
+	ci = commit
+	amend = commit --amend
+	st = status
+	sts = status -s
+	stsi = status -s --ignored
+	br = branch
+	nb = checkout -b
+	mrg = merge --no-ff --edit
+	com = checkout master
+	sm = submodule
+	ff = merge --ff-only 
+	k = "!exec gitk --all --date-order &"
+	kf = "!exec gitk --all --first-parent &"
+	g = "!exec git gui &"
+	revert = checkout --
+	subup = submodule update --init
+	gl = log --graph --oneline --date-order --decorate=short
+	gla = log --graph --oneline --date-order --decorate=short --all
+	gld = log --graph --oneline --date-order --decorate=short
+	glad = log --graph --oneline --date-order --decorate=short --all
+	glaf = log --graph --oneline --decorate=short --all --first-parent
+[credential]
+	helper = cache

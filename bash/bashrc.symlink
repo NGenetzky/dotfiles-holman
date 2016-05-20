@@ -1,0 +1,40 @@
+# shortcut to this dotfiles path is $ZSH
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$HOME/.dotfiles
+
+# your project folder that we can `c [tab]` to
+export PROJECTS=~/workspace
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+typeset -a source_files
+
+## Aliases
+source_files=($DOTFILES/**/aliases)
+for file in ${source_files};
+do
+    source $file
+done
+if [ -f ~/.bash.aliases ]; then
+    . ~/.bash.aliases
+fi
+
+## Prompt
+# Prompt is stored in a separate symlinked file.
+if [ -f ~/.bash.prompt ]; then
+    . ~/.bash.prompt
+fi
+
+## System
+source $DOTFILES/system/env
+source $DOTFILES/system/path
+
+## Source other files
+source $DOTFILES/bash/git_alias_completion.bash
+source $DOTFILES/bash/oldbashrc.bash

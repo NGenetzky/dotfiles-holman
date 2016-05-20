@@ -1,0 +1,4 @@
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+export RRD_DIR=/var/log/rrd
