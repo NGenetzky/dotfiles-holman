@@ -14,16 +14,21 @@ Plugin 'VundleVim/Vundle.vim'
 " --- Plugins ---
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
- Plugin 'tpope/vim-surround'
- Plugin 'tpope/vim-repeat'
- Plugin 'tpope/vim-fugitive'
- Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-obsession'
 
- Plugin 'scrooloose/syntastic'
-"Plugin ''
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
- " Disabled since I dont have Exuberant ctags 5.5
- " Plugin 'majutsushi/tagbar'
+Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Disabled since I dont have Exuberant ctags 5.5
+" Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
