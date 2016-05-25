@@ -3,10 +3,14 @@
 " References:
 " registers:http://stackoverflow.com/a/3997110
 " vimgrep+regex+magic:http://vi.stackexchange.com/a/2279
+" Example vimrc stuff: https://github.com/amix/vimrc
 
+set encoding=utf-8
+scriptencoding utf-8
 
 source ~/.dotfiles/vim/setup_vundle.vim
 source ~/.dotfiles/vim/setup_syntastic.vim
+source ~/.dotfiles/vim/setup_lightline.vim
 
 
 " Better command-line completion
@@ -37,6 +41,9 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " src: https://github.com/lukemetz/vim/blob/8466bdde18b0e33a000324fc22bb9092798dbe45/gvimrc
 " set listchars=trail:·,precedes:«,extends:»,tab:»
 set list
+
+" Shows syntax highlighting
+syntax on
 
 "------------------------------------------------------------
 " Indentation options {{{1
@@ -75,7 +82,15 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-nmap <F8> :TagbarToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
+
+" Defined in setup_syntastic
+" nmap <F5> :SyntasticCheck<CR>
+" nmap <F6> :SyntasticReset<CR>
+
+" nmap <F8> :TagbarToggle<CR>
+" Force the width to be 80 char wide
+nmap <F8> :vertical resize 80<CR>
 
 " Leader mappings   ---------------------------------------
 let mapleader=","       " leader is comma
@@ -109,6 +124,12 @@ noremap <leader>r :so ~/.vim/ngenetzky.vim
 
 " Add Trailing Semi-colon
 map <Leader>; g_a;<Esc>
+
+" Uses a tmp file as a global clipboard
+vmap <leader>y :w! /tmp/vitmp<CR>
+nmap <leader>p :r! cat /tmp/vitmp<CR>
+
+nmap <leader>8 80A <Esc>d80|
 "------------------------------------------------------------
 " }}}
 "------------------------------------------------------------

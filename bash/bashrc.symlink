@@ -13,7 +13,8 @@ then
   source ~/.localrc
 fi
 
-typeset -a source_files
+# Color Editor
+export TERM=xterm-256color
 
 ## Aliases
 source $DOTFILES/bash/aliases

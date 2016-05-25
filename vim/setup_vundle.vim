@@ -11,14 +11,15 @@ call vundle#begin('~/.dotfiles/vim/bundle')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" --- Plugins ---
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+" --- Plugins ---
+
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-obsession'
+"Plugin 'tpope/sensible.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -26,6 +27,15 @@ Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 
 Plugin 'ctrlpvim/ctrlp.vim'
+
+Plugin 'tomtom/tcomment_vim'
+
+" The Most Recently Used (MRU) plugin provides an easy access to a list of
+" recently opened/edited files in Vim.
+Plugin 'yegappan/mru'
+
+" A light and configurable statusline/tabline for Vim.
+Plugin 'itchyny/lightline.vim'
 
 " Disabled since I dont have Exuberant ctags 5.5
 " Plugin 'majutsushi/tagbar'
