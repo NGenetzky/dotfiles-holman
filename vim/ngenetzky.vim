@@ -11,6 +11,7 @@ scriptencoding utf-8
 source ~/.dotfiles/vim/setup_vundle.vim
 source ~/.dotfiles/vim/setup_syntastic.vim
 source ~/.dotfiles/vim/setup_lightline.vim
+source ~/.dotfiles/vim/setup_c.vim
 
 
 " Better command-line completion
@@ -83,12 +84,12 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
 
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 " Defined in setup_syntastic
 " nmap <F5> :SyntasticCheck<CR>
 " nmap <F6> :SyntasticReset<CR>
 
-" nmap <F8> :TagbarToggle<CR>
 " Force the width to be 80 char wide
 nmap <F8> :vertical resize 80<CR>
 
@@ -134,6 +135,9 @@ nmap <leader>8 80A <Esc>d80|
 " }}}
 "------------------------------------------------------------
 " Functions {{{1
+function! InstallVundle()
+    !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
+endfunction
 function! NGEmail()
     normal inathan@genetzky.us
 endfunction

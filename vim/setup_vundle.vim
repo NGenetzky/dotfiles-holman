@@ -21,6 +21,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-obsession'
 "Plugin 'tpope/sensible.vim'
 
+" Shows directory structure in pane.
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 
@@ -37,8 +38,22 @@ Plugin 'yegappan/mru'
 " A light and configurable statusline/tabline for Vim.
 Plugin 'itchyny/lightline.vim'
 
-" Disabled since I dont have Exuberant ctags 5.5
-" Plugin 'majutsushi/tagbar'
+" Conque is a Vim plugin which allows you to run interactive programs, such as
+" bash on linux or powershell.exe on Windows, inside a Vim buffer.
+Plugin 'vim-scripts/Conque-Shell'
+
+" Shows the current tag structure in a pane.
+Plugin 'majutsushi/tagbar'
+
+" Automated tag generation and syntax highlighting in Vim
+Plugin 'xolox/vim-misc' " Required for vim-easytags
+Plugin 'xolox/vim-easytags'
+
+" C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
+Plugin 'vim-scripts/c.vim'
+
+" TODO: Make it work. http://valloric.github.io/YouCompleteMe/
+" Valloric/YouCompleteMe
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
