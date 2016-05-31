@@ -46,6 +46,21 @@ set list
 " Shows syntax highlighting
 syntax on
 
+"" Color column
+" Set color of color column
+"highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" Set color of color column
+highlight ColorColumn ctermbg=235
+
+" Color column - Highlight column $textwidth with color $colorcolumn
+set textwidth=80
+let &colorcolumn=join(range(81,999),",")
+"set colorcolumn=80
+
+" Color column - Highlight any text longer than 80 char.
+"au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.\+',-1)
+"au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
+
 "------------------------------------------------------------
 " Indentation options {{{1
 " Indentation settings for using 4 spaces instead of tabs.
@@ -142,7 +157,7 @@ function! NGEmail()
     normal inathan@genetzky.us
 endfunction
 fu! Vimrc()
-    source ~/.vim/ngenetzky.vim
+    source ~/.vimrc
 endfunction
 fu! LoggerEditor()
     " Import logging library

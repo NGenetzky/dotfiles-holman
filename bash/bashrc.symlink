@@ -15,6 +15,7 @@ fi
 
 # Color Editor
 export TERM=xterm-256color
+set editing-mode vi
 
 ## Aliases
 source $DOTFILES/bash/aliases
@@ -35,5 +36,6 @@ source $DOTFILES/system/env
 source $DOTFILES/system/path
 
 ## Source other files
+source tmuxp.bash
 source $DOTFILES/bash/git_alias_completion.bash
 source $DOTFILES/bash/oldbashrc.bash

@@ -21,6 +21,14 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-obsession'
 "Plugin 'tpope/sensible.vim'
 
+" Conque is a Vim plugin which allows you to run interactive programs, such as
+" bash on linux or powershell.exe on Windows, inside a Vim buffer.
+Plugin 'vim-scripts/Conque-Shell'
+" C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
+Plugin 'vim-scripts/c.vim'
+" Zoom in/out of windows. Full screen a pane / revert to pane view.
+Plugin 'vim-scripts/ZoomWin'
+
 " Shows directory structure in pane.
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -38,10 +46,6 @@ Plugin 'yegappan/mru'
 " A light and configurable statusline/tabline for Vim.
 Plugin 'itchyny/lightline.vim'
 
-" Conque is a Vim plugin which allows you to run interactive programs, such as
-" bash on linux or powershell.exe on Windows, inside a Vim buffer.
-Plugin 'vim-scripts/Conque-Shell'
-
 " Shows the current tag structure in a pane.
 Plugin 'majutsushi/tagbar'
 
@@ -49,11 +53,14 @@ Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc' " Required for vim-easytags
 Plugin 'xolox/vim-easytags'
 
-" C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
-Plugin 'vim-scripts/c.vim'
+" Snippet Engine (requires python)
+Plugin 'SirVer/ultisnips'
+
+" Snippet repo.
+Plugin 'honza/vim-snippets'
 
 " TODO: Make it work. http://valloric.github.io/YouCompleteMe/
-" Valloric/YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
