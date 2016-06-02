@@ -10,3 +10,7 @@ let g:C_CodeSnippets        = expand('~/.dotfiles/vim/c-support/codesnippets')
 let g:C_FormatDate          = '%D'
 let g:C_FormatTime          = '%H:%M'
 let g:C_FormatYear          = 'year %Y'
+
+" Disable <c-j>. Context:
+" if !exists("g:C_Ctrl_j") || ( exists("g:C_Ctrl_j") && g:C_Ctrl_j != 'off' )
+let g:C_Ctrl_j='off'

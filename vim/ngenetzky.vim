@@ -4,14 +4,19 @@
 " registers:http://stackoverflow.com/a/3997110
 " vimgrep+regex+magic:http://vi.stackexchange.com/a/2279
 " Example vimrc stuff: https://github.com/amix/vimrc
+"
+" Check out : https://github.com/seejohnrun/dotfiles/blob/master/.vimrc
 
 set encoding=utf-8
 scriptencoding utf-8
 
 source ~/.dotfiles/vim/setup_vundle.vim
-source ~/.dotfiles/vim/setup_syntastic.vim
 source ~/.dotfiles/vim/setup_lightline.vim
 source ~/.dotfiles/vim/setup_c.vim
+source ~/.dotfiles/vim/setup_ycm.vim
+source ~/.dotfiles/vim/setup_project.vim
+source ~/.dotfiles/vim/setup_fugitive.vim
+source ~/.dotfiles/vim/setup_syntastic.vim
 
 
 " Better command-line completion
@@ -57,12 +62,14 @@ set textwidth=80
 let &colorcolumn=join(range(81,999),",")
 "set colorcolumn=80
 
+set previewheight=20
+
 " Color column - Highlight any text longer than 80 char.
 "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.\+',-1)
 "au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
 
 "------------------------------------------------------------
-" Indentation options {{{1
+" Indentation options {{{
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
 set shiftwidth=4
@@ -99,11 +106,13 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
 
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :TagbarToggle<CR>
+nmap <silent> <F3> <Plug>ToggleProject
+nmap <F4> :GundoToggle<CR>
+nmap <F5> :TagbarToggle<CR>
 
 " Defined in setup_syntastic
-" nmap <F5> :SyntasticCheck<CR>
-" nmap <F6> :SyntasticReset<CR>
+nmap <F9> :SyntasticCheck<CR>
+nmap <F12> :SyntasticReset<CR>
 
 " Force the width to be 80 char wide
 nmap <F8> :vertical resize 80<CR>
@@ -111,8 +120,9 @@ nmap <F8> :vertical resize 80<CR>
 " Leader mappings   ---------------------------------------
 let mapleader=","       " leader is comma
 
-" Save session
-nnoremap <leader>s :mksession<CR>
+" Save or load session
+nnoremap <leader>s :mksession ~/.vim/sessions/
+nnoremap <leader>l :source ~/.vim/sessions/
 
 " Insert a space and then return to visual mode
 noremap <leader><Space> i 
@@ -129,7 +139,7 @@ noremap <leader>d :put =strftime('%Y-%m-%d')<C-M>
 noremap <leader>t :put =strftime('%H:%M')<C-M>
 
 " Refresh my source file
-noremap <leader>r :so ~/.vim/ngenetzky.vim
+noremap <leader>r :so ~/.vimrc<CR>
 
 " Surround word with quote
 " Imported from:

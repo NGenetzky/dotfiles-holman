@@ -19,7 +19,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-obsession'
-"Plugin 'tpope/sensible.vim'
+Plugin 'tpope/vim-sensible'
 
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer.
@@ -59,8 +59,17 @@ Plugin 'SirVer/ultisnips'
 " Snippet repo.
 Plugin 'honza/vim-snippets'
 
-" TODO: Make it work. http://valloric.github.io/YouCompleteMe/
+" Completion Engine
 Plugin 'Valloric/YouCompleteMe'
+
+" Gundo.vim is Vim plugin to visualize your Vim undo tree.
+Plugin 'sjl/gundo.vim'
+
+" Organize/Navigate projects of files (like IDE/buffer explorer)
+Plugin 'vimplugin/project.vim'
+
+" The fancy start screen for Vim.
+Plugin 'mhinz/vim-startify'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

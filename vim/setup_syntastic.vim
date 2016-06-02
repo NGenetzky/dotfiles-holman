@@ -14,10 +14,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = 'X'
 let g:syntastic_warning_symbol = '!'
 
-" Only check when requested using F5 key
 let g:syntastic_mode_map = { 'mode': 'passive' }
-nmap <F5> :SyntasticCheck<CR>
-nmap <F6> :SyntasticReset<CR>
 
 " Python
 let g:syntastic_python_checkers = ['pep8', 'python', 'pylint']
