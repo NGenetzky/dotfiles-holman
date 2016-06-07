@@ -71,6 +71,16 @@ Plugin 'vimplugin/project.vim'
 " The fancy start screen for Vim.
 Plugin 'mhinz/vim-startify'
 
+" Bookmarks
+Plugin 'MattesGroeger/vim-bookmarks'
+
+" The unite or unite.vim plug-in can search and display information from
+" arbitrary sources like files, buffers, recently used files or registers.
+Plugin 'Shougo/unite.vim'
+
+" Always have a nice view for vim split windows!
+Plugin 'zhaocai/GoldenView.Vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

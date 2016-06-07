@@ -5,7 +5,9 @@
 " vimgrep+regex+magic:http://vi.stackexchange.com/a/2279
 " Example vimrc stuff: https://github.com/amix/vimrc
 "
-" Check out : https://github.com/seejohnrun/dotfiles/blob/master/.vimrc
+" Example vimrc
+" https://github.com/seejohnrun/dotfiles/blob/master/.vimrc
+" http://chibicode.com/vimrc/
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -17,7 +19,9 @@ source ~/.dotfiles/vim/setup_ycm.vim
 source ~/.dotfiles/vim/setup_project.vim
 source ~/.dotfiles/vim/setup_fugitive.vim
 source ~/.dotfiles/vim/setup_syntastic.vim
-
+source ~/.dotfiles/vim/setup_golden_view.vim
+source ~/.dotfiles/vim/setup_unite.vim
+source ~/.dotfiles/vim/setup_ctrl_p.vim
 
 " Better command-line completion
 " set wildmenu            " visual autocomplete for command menu
@@ -41,6 +45,12 @@ set backspace=indent,eol,start
 " line of a window
 set ruler
 
+" Shows syntax highlighting
+syntax on
+
+set undofile   " Maintain undo history between sessions
+set undodir=~/.vim/undo/
+
 " Replace bad characters with unicode so they are seen easily
 " src: Damian Conway, More Instanly Better Vim  Sep 10 2013 on Youtube
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -48,8 +58,6 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " set listchars=trail:·,precedes:«,extends:»,tab:»
 set list
 
-" Shows syntax highlighting
-syntax on
 
 "" Color column
 " Set color of color column

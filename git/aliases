@@ -10,3 +10,29 @@ alias gcb='git copy-branch-name'
 alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git add -A && git commit -m'
+
+# Defined in gitconfig
+alias gexec = "!exec "
+alias gco = 'checkout'
+alias gsw = 'checkout'
+alias gci = 'commit'
+alias gamend = 'commit --amend'
+alias gst = 'status'
+alias gsts = 'status -s'
+alias gstsi = 'status -s --ignored'
+alias gbr = 'branch'
+alias gnb = 'checkout -b'
+alias gmrg = 'merge --no-ff --edit'
+alias gcom = 'checkout master'
+alias gsm = 'submodule'
+alias gff = 'merge --ff-only '
+alias gk = "!exec gitk --all --date-order &"
+alias gkf = "!exec gitk --all --first-parent &"
+alias gg = "!exec git gui &"
+alias grevert = 'checkout --'
+alias gsubup = 'submodule update --init'
+alias gl = 'log --graph --oneline --date-order --decorate=short'
+alias gla = 'log --graph --oneline --date-order --decorate=short --all'
+alias gld = 'log --graph --oneline --date-order --decorate=short'
+alias glad = 'log --graph --oneline --date-order --decorate=short --all'
+alias glaf = 'log --graph --oneline --decorate=short --all --first-parent'
