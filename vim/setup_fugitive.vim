@@ -6,5 +6,4 @@ function! ToggleGStatus()
         Gstatus
     endif
 endfunction
-command ToggleGStatus :call ToggleGStatus()
-nmap <F9> :ToggleGStatus<CR>
+command! ToggleGStatus :call ToggleGStatus()

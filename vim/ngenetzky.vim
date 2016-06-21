@@ -45,6 +45,9 @@ set backspace=indent,eol,start
 " line of a window
 set ruler
 
+" Turn auto-wrapping off.
+set formatoptions-=t
+
 " Shows syntax highlighting
 syntax on
 
@@ -106,6 +109,12 @@ nnoremap ; :
 " which is the default
 map Y y$
 
+" Converting case
+" Change selected text from name_like_this to NameLikeThis.
+vnoremap crc :s/_\([a-z]\)/\u\1/g<CR>gUl
+" Change selected text from NameLikeThis to name_like_this.
+vnoremap crs :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
+
 " highlight last inserted text
  "nnoremap gV `[v`]
 
@@ -117,6 +126,7 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> <Plug>ToggleProject
 nmap <F4> :GundoToggle<CR>
 nmap <F5> :TagbarToggle<CR>
+nmap <F6> :ToggleGStatus<CR>
 
 " Defined in setup_syntastic
 nmap <F9> :SyntasticCheck<CR>
@@ -164,6 +174,13 @@ vmap <leader>y :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
 
 nmap <leader>8 80A <Esc>d80|
+
+" Saves all files that have been modified and runs make. \| is required to use
+" the bar/pipe inside the mapping.
+map <leader>m :update \| make <CR>
+
+vmap <leader>c :!column -t<CR>
+
 "------------------------------------------------------------
 " }}}
 "------------------------------------------------------------

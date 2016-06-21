@@ -12,7 +12,6 @@ set guifont=Monospace\ Bold\ 8
 set background=dark
 set mousehide
 set guioptions=aegimrLt
-
 set list
 set listchars=tab:>.,trail:.,nbsp:.
 
@@ -26,3 +25,10 @@ colorscheme desert
 set dir=/var/tmp
 
 :source ~/.dotfiles/vim/ngenetzky.vim
+
+" vimrc will autoload when this file is written to.
+" http://www.bestofvim.com/tip/auto-reload-your-vimrc/
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
