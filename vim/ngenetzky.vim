@@ -13,15 +13,17 @@ set encoding=utf-8
 scriptencoding utf-8
 
 source ~/.dotfiles/vim/setup_vundle.vim
-source ~/.dotfiles/vim/setup_lightline.vim
-source ~/.dotfiles/vim/setup_c.vim
-source ~/.dotfiles/vim/setup_ycm.vim
-source ~/.dotfiles/vim/setup_project.vim
-source ~/.dotfiles/vim/setup_fugitive.vim
-source ~/.dotfiles/vim/setup_syntastic.vim
-source ~/.dotfiles/vim/setup_golden_view.vim
-source ~/.dotfiles/vim/setup_unite.vim
-source ~/.dotfiles/vim/setup_ctrl_p.vim
+
+" source ~/.dotfiles/vim/setup_lightline.vim
+" source ~/.dotfiles/vim/setup_c.vim
+" source ~/.dotfiles/vim/setup_ycm.vim
+" source ~/.dotfiles/vim/setup_project.vim
+" source ~/.dotfiles/vim/setup_fugitive.vim
+" source ~/.dotfiles/vim/setup_syntastic.vim
+" source ~/.dotfiles/vim/setup_golden_view.vim
+" source ~/.dotfiles/vim/setup_unite.vim
+" call SetupUnite()
+" source ~/.dotfiles/vim/setup_ctrl_p.vim
 
 " Better command-line completion
 " set wildmenu            " visual autocomplete for command menu
@@ -185,84 +187,11 @@ vmap <leader>c :!column -t<CR>
 " }}}
 "------------------------------------------------------------
 " Functions {{{1
+function! InstallSPF13()
+    !curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+endfunction
 function! InstallVundle()
     !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
-endfunction
-function! NGEmail()
-    normal inathan@genetzky.us
-endfunction
-fu! Vimrc()
-    source ~/.vimrc
-endfunction
-fu! LoggerEditor()
-    " Import logging library
-    let @i = 'aimport logging'
-
-    " In every function
-    let @l = 'alogger = logging.getLogger(__name__)  # Obtain logger for this module.'
-    " replace <msg = >
-    let @m = ':s/msg = /logger.info(/ge'
-
-    " find logIt
-    let @n = '/logIt'
-    " Replace info message with error message
-    let @e = ':s/logger.info/logger.error/ge'
-
-    " Convert from % string style to format style
-    " replace < % >
-    let @f = ':s/ % /.format(/ge'
-
-    " Convert from % string style to format style
-    " replace < + >
-    let @g = ':s/ + /.format(/ge'
-
-    " replace <%s> and <%d>
-    let @d = ':s/%d/{}/ge'
-    let @s = ':s/%s/{}/ge'
-
-    " Insert text between first {} on line.
-    let @p = '^/{}a'
-
-    " Find all lines in python files longer than 80 characters
-    let @e = ':vimgrep /\(^.\{80,}\)\@<=./ **/*.py'
-
-    " Find all logger messages:
-    " /\(^\s*logger.*(\)\('.*\|'.*'\n\s*'.*\).*)/
-    "vimgrep /^\s*logger.*(.*' +\n.*)/ **/*.py
-
-    " replace <'>
-    "let @q = ':s/"/\'/ge'
-    "let @q = !normal :s/'/"€kb€kb€kb"/'/ge
-endfunction
-
-fu! Batch_mod_2015_11_19()
-    " Execute on all python in cwd and in any sub directories
-    args **/*.py
-    set hidden
-    " Will find logger and < +> on the same line. < +> must be at end of line
-    " example
-    "-logger.error('Burn probability directory does not exist: ' +
-    "-             bp_dir)
-    "+logger.error('Burn probability directory does not exist: {0}'
-    "+             .format(bp_dir))
-    argdo :%s/\(^\s*logger.*(.*\)' +\(\n\s*\)\(.*)\)/\1{0}'\2.format(\3)/e
-
-    " Will find logger and < + > on the same line
-    " example:
-    "-logger.info('Creating output directory ' + output_dir)
-    "+logger.info('Creating output directory {0}'.format(output_dir))
-    argdo :%s/\(^\s*logger.*('.*\)' + \(.*)\)/\1{0}'.format(\2)/e
-
-    " Will find logger on first line. Then find <' + > after a quoted string
-    " on the 2nd line.
-    " example:
-    " logger.error('Error resampling bands stack file.  No bands were '
-    "-             'specified in ' + stack_file)
-    "+             'specified in {0}'.format(stack_file))
-    argdo :%s/\(^\s*logger.*('.*'\n\s*'.*\)' + \(.*)\)/\1{0}'.format(\2)/e
-
-    " Write files
-    argdo update
 endfunction
 
 " Imported Preserve
