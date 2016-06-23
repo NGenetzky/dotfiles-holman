@@ -12,18 +12,144 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-source ~/.dotfiles/vim/setup_vundle.vim
 
+" Source files ------------------------------------------------------------ {{{
+source ~/.dotfiles/vim/functions.vim
+
+" Basic options ----------------------------------------------------------- {{{
+
+" Set 'nocompatible' to ward off unexpected things that your distro might
+" have made, as well as sanely reset options when re-sourcing .vimrc
+set nocompatible
+
+set shiftwidth=4
+set noic
+set noai
+set wrap
+set nospell
+
+" Mouse is only available in normal mode.
+set mouse=
+set mousehide
+
+" }}}
+" Plugin settings --------------------------------------------------------- {{{
+
+source ~/.dotfiles/vim/setup_fugitive.vim
+source ~/.dotfiles/vim/setup_syntastic.vim
+source ~/.dotfiles/vim/setup_project.vim
+" source ~/.dotfiles/vim/setup_vundle.vim
 " source ~/.dotfiles/vim/setup_lightline.vim
 " source ~/.dotfiles/vim/setup_c.vim
 " source ~/.dotfiles/vim/setup_ycm.vim
-" source ~/.dotfiles/vim/setup_project.vim
-" source ~/.dotfiles/vim/setup_fugitive.vim
-" source ~/.dotfiles/vim/setup_syntastic.vim
 " source ~/.dotfiles/vim/setup_golden_view.vim
 " source ~/.dotfiles/vim/setup_unite.vim
 " call SetupUnite()
 " source ~/.dotfiles/vim/setup_ctrl_p.vim
+
+" }}}
+" Searching and movement -------------------------------------------------- {{{
+
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
+
+" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
+" mapping of <C-L> below)
+set hlsearch
+
+" }}}
+
+" Indentation options ----------------------------------------------------- {{{
+
+" Indentation settings for using 4 spaces instead of tabs.
+" Do not change 'tabstop' from its default value of 8 with this setup.
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Indentation settings for using hard tabs for indent. Display tabs as
+" four characters wide.
+"set shiftwidth=4
+"set tabstop=4
+
+"------------------------------------------------------------
+" }}}
+
+" Font and Schemes -------------------------------------------------------- {{{
+
+" Color schemes (uncomment one of the rows below)
+colorscheme desert
+" colorscheme base16-atelierdune
+" colorscheme bubblegum
+" colorscheme base16-tomorrow
+" colorscheme base16-greenscreen
+" colorscheme base16-eighties
+" colorscheme darkburn
+
+set guifont=Monospace\ Bold\ 8
+"set guifont=Courier\ 10\ Pitch\ Bold\ 7
+"set guifont=Bitstream\ Vera\ Sans\ Mono\ Bold\ 7
+set background=dark
+set guioptions=aegimrLt
+
+" }}}
+
+" List -------------------------------------------------------------------- {{{
+" Replace bad characters with unicode so they are seen easily
+" src: Damian Conway, More Instanly Better Vim  Sep 10 2013 on Youtube
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+" src: https://github.com/lukemetz/vim/blob/8466bdde18b0e33a000324fc22bb9092798dbe45/gvimrc
+" set listchars=trail:·,precedes:«,extends:»,tab:»
+set list
+set listchars=tab:>.,trail:.,nbsp:.
+" }}}
+
+
+" Undo and Backups -------------------------------------------------------- {{{
+
+set undofile   " Maintain undo history between sessions
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set backup
+
+" }}}
+
+
+" Highlighting ------------------------------------------------------------- {{{
+
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+" "highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+if exists('+colorcolumn')
+    " All columns past 80.
+    let &colorcolumn=join(range(81,999),",")
+    " Just column 80
+    " set colorcolumn=80
+else
+" Color column - Highlight any text longer than 80 char.
+    au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
+endif
+
+" highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
+highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
+augroup colorcolumn
+    autocmd!
+    " autocmd ColorScheme solarized highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
+    autocmd ColorScheme * highlight ColorColumn term=reverse ctermbg=235 guibg=LightGrey
+augroup end
+
+" }}}
+
+au BufNewFile,BufRead  *.bash_*  set filetype=sh
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+let python_highlight_all = 1
+
+set dir=/var/tmp
+
 
 " Better command-line completion
 " set wildmenu            " visual autocomplete for command menu
@@ -31,14 +157,6 @@ set wildmode=longest:full,list:full
 
 " Show partial commands in the last line of the screen
 set showcmd
-
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
-" mapping of <C-L> below)
-set hlsearch
-
-" Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
 
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
@@ -53,48 +171,9 @@ set formatoptions-=t
 " Shows syntax highlighting
 syntax on
 
-set undofile   " Maintain undo history between sessions
-set undodir=~/.vim/undo/
-
-" Replace bad characters with unicode so they are seen easily
-" src: Damian Conway, More Instanly Better Vim  Sep 10 2013 on Youtube
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-" src: https://github.com/lukemetz/vim/blob/8466bdde18b0e33a000324fc22bb9092798dbe45/gvimrc
-" set listchars=trail:·,precedes:«,extends:»,tab:»
-set list
-
-
-"" Color column
-" Set color of color column
-"highlight ColorColumn ctermbg=235 guibg=#2c2d27
-" Set color of color column
-highlight ColorColumn ctermbg=235
-
-" Color column - Highlight column $textwidth with color $colorcolumn
-set textwidth=80
-let &colorcolumn=join(range(81,999),",")
-"set colorcolumn=80
-
 set previewheight=20
 
-" Color column - Highlight any text longer than 80 char.
-"au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%80v.\+',-1)
-"au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
-
-"------------------------------------------------------------
-" Indentation options {{{
-" Indentation settings for using 4 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" four characters wide.
-"set shiftwidth=4
-"set tabstop=4
-"------------------------------------------------------------
-" }}}
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
 "------------------------------------------------------------
 " Mappings {{{1
@@ -107,7 +186,7 @@ inoremap jk <esc>
 " use ; as :
 nnoremap ; :
 
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" Map Y to act like D and C, i.e. to yank until EOL, rather than act as
 " which is the default
 map Y y$
 
@@ -118,7 +197,7 @@ vnoremap crc :s/_\([a-z]\)/\u\1/g<CR>gUl
 vnoremap crs :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
 
 " highlight last inserted text
- "nnoremap gV `[v`]
+nnoremap gV `[v`]
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -185,7 +264,6 @@ vmap <leader>c :!column -t<CR>
 
 "------------------------------------------------------------
 " }}}
-"------------------------------------------------------------
 " Functions {{{1
 function! InstallSPF13()
     !curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
@@ -194,81 +272,4 @@ function! InstallVundle()
     !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
 endfunction
 
-" Imported Preserve
-" src: https://docwhat.org/vim-preserve-your-cursor-and-window-state/
-" A wrapper function to restore the cursor position, window position,
-" and last search after running a command.
-" Usage: nmap <silent> <Leader><space> :call Preserve("%s/\\s\\+$//e")<CR>
-function! Preserve(command)
-  " Save the last search
-  let last_search=@/
-  " Save the current cursor position
-  let save_cursor = getpos(".")
-  " Save the window position
-  normal H
-  let save_window = getpos(".")
-  call setpos('.', save_cursor)
-
-  " Do the business:
-  execute a:command
-
-  " Restore the last_search
-  let @/=last_search
-  " Restore the window position
-  call setpos('.', save_window)
-  normal zt
-  " Restore the cursor position
-  call setpos('.', save_cursor)
-endfunction
-
-" Imported RedirectOutput
-" src: http://unix.stackexchange.com/a/8296
-funct! RedirectOutput(command)
-    redir =>output
-    silent exec a:command
-    redir END
-    return output
-endfunct!
-
-" src: http://vim.1045645.n5.nabble.com/Saving-the-Quickfix-List-tp1179523p1179526.html
-function! SaveQuickFixList(fname) 
-    let list = getqflist() 
-    for i in range(len(list)) 
-        if has_key(list[i], 'bufnr') 
-            let list[i].filename = fnamemodify(bufname(list[i].bufnr), ':p') 
-            unlet list[i].bufnr 
-        endif 
-    endfor 
-    let string = string(list) 
-    let lines = split(string, "\n") 
-    call writefile(lines, a:fname) 
-endfunction 
-
-function! DoCmdInQuickfixFiles(command)
-    "Raised error last time it was used
-    for quickfix_item in getqflist()
-        execute a:command
-    endfor
-endfunction
-
-"{{ src: http://dalibornasevic.com/posts/43-12-vim-tips
-command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
-
-" populate the argument list with each of the files named in the quickfix list
-function! QuickfixFilenames()
-  let buffer_numbers = {}
-  for quickfix_item in getqflist()
-    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-  endfor
-  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
-"}} end of src: http://dalibornasevic.com/posts/43-12-vim-tips
-
-" src: http://vim.1045645.n5.nabble.com/Saving-the-Quickfix-List-tp1179523p1179526.html
-function! LoadQuickFixList(fname) 
-    let lines = readfile(a:fname) 
-    let string = join(lines, "\n") 
-    call setqflist(eval(string)) 
-endfunction 
-"------------------------------------------------------------
 " }}}
