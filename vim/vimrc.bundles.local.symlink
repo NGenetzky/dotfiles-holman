@@ -61,14 +61,21 @@ Bundle 'vimplugin/project.vim'
 " Bookmarks
 " " Bundle 'MattesGroeger/vim-bookmarks'
 
-" SPF13 Overrides ---------------------------------------------------------- {{{
+" space.vim - Smart Space key for Vim
+Bundle 'spiiph/vim-space'
+
+" vimscript for creating gists
+" Bundle 'mattn/webapi-vim'
+" Bundle 'mattn/gist-vim'
+
+" Always have a nice view for vim split windows!
+" Bundle 'zhaocai/GoldenView.Vim'
 
 " The unite or unite.vim plug-in can search and display information from
 " arbitrary sources like files, buffers, recently used files or registers.
 Bundle 'Shougo/unite.vim'
 
-" Always have a nice view for vim split windows!
-" Bundle 'zhaocai/GoldenView.Vim'
+" SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically
 "UnBundle 'MarcWeber/vim-addon-mw-utils'
@@ -80,10 +87,10 @@ Bundle 'Shougo/unite.vim'
 "UnBundle 'scrooloose/nerdtree'
 
 " precision colorscheme for the vim text editor
-UnBundle 'altercation/vim-colors-solarized'
+" UnBundle 'altercation/vim-colors-solarized'
 
 " Collection of color schemes for VIM
-UnBundle 'spf13/vim-colors'
+" UnBundle 'spf13/vim-colors'
 
 " quoting/parenthesizing made simple
 "UnBundle 'tpope/vim-surround'
@@ -104,7 +111,7 @@ UnBundle 'spf13/vim-colors'
 "UnBundle 'terryma/vim-multiple-cursors'
 
 " Vim session manager http://www.vim.org/scripts/script.php?script_id=2010
-UnBundle 'vim-scripts/sessionman.vim'
+" UnBundle 'vim-scripts/sessionman.vim'
 
 " extended % matching for HTML, LaTeX, and many other languages http://www.vim.org/scripts/script.php?script_id=39
 UnBundle 'matchit.zip'
@@ -113,7 +120,7 @@ UnBundle 'matchit.zip'
 "UnBundle 'bling/vim-airline'
 
 " super simple vim plugin to show the list of buffers in the command bar
-"UnBundle 'bling/vim-bufferline'
+UnBundle 'bling/vim-bufferline'
 
 " Vim motions on speed! http://www.vim.org/scripts/script.php?script_id=3526
 "UnBundle 'Lokaltog/vim-easymotion'
@@ -173,7 +180,7 @@ UnBundle 'reedes/vim-wordy'
 "UnBundle 'mattn/webapi-vim'
 
 " vimscript for creating gists
-UnBundle 'mattn/gist-vim'
+" UnBundle 'mattn/gist-vim'
 
 " Vim plugin for intensely orgasmic commenting
 "UnBundle 'scrooloose/nerdcommenter'
@@ -185,14 +192,17 @@ UnBundle 'mattn/gist-vim'
 "UnBundle 'godlygeek/tabular'
 
 " Ultimate auto-completion system for Vim
-UnBundle 'Shougo/neocomplcache'
+" UnBundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplete'
 
 " neo-snippet plugin contains neocomplcache snippets source
 "UnBundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet'
 
 " The standard snippets repository for neosnippet
 "UnBundle 'Shougo/neosnippet-snippets'
+Bundle 'Shougo/neosnippet-snippets'
 
 " vim-snipmate default snippets
 "UnBundle 'honza/vim-snippets'

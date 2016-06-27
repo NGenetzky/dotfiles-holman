@@ -253,6 +253,7 @@ map <Leader>; g_a;<Esc>
 " Uses a tmp file as a global clipboard
 vmap <leader>y :w! /tmp/vitmp<CR>
 nmap <leader>p :r! cat /tmp/vitmp<CR>
+nmap <leader>x :w! >>/tmp/vim_cut \|'<,'>d
 
 nmap <leader>8 80A <Esc>d80|
 
