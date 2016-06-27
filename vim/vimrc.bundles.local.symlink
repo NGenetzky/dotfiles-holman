@@ -4,6 +4,8 @@
 Bundle 'tpope/vim-unimpaired'
 " Bundle 'tpope/vim-obsession'
 " Bundle 'tpope/vim-sensible'
+"" speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
+Bundle 'tpope/vim-speeddating'
 
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer.
@@ -61,14 +63,40 @@ Bundle 'vimplugin/project.vim'
 " Bookmarks
 " " Bundle 'MattesGroeger/vim-bookmarks'
 
-" SPF13 Overrides ---------------------------------------------------------- {{{
+" space.vim - Smart Space key for Vim
+Bundle 'spiiph/vim-space'
+
+" vimscript for creating gists
+" Bundle 'mattn/webapi-vim'
+" Bundle 'mattn/gist-vim'
+
+" Always have a nice view for vim split windows!
+" Bundle 'zhaocai/GoldenView.Vim'
 
 " The unite or unite.vim plug-in can search and display information from
 " arbitrary sources like files, buffers, recently used files or registers.
 Bundle 'Shougo/unite.vim'
 
-" Always have a nice view for vim split windows!
-" Bundle 'zhaocai/GoldenView.Vim'
+" Tabmerge : Merge a tab's windows with the current tab 
+Bundle 'Tabmerge'
+
+" SplitJoin : A vim plugin that simplifies the transition between multiline and
+" single-line code http://www.vim.org/scripts/script.php?script_id=3613
+Bundle 'AndrewRadev/splitjoin.vim'
+
+"" Vimux effortless vim and tmux interaction
+Bundle 'benmills/vimux'
+
+""A simple, vimscript only, command runner for sending commands from vim to tmux.
+" Bundle 'christoomey/vim-tmux-runner'
+
+" A plugin to debug program with gdb by using vim
+Bundle 'skibyte/gdb-from-vim'
+
+" Macro Persistent Storage and Shareable Repository for VIM
+"Bundle 'vim-scripts/marvim'
+
+" SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically
 "UnBundle 'MarcWeber/vim-addon-mw-utils'
@@ -80,10 +108,10 @@ Bundle 'Shougo/unite.vim'
 "UnBundle 'scrooloose/nerdtree'
 
 " precision colorscheme for the vim text editor
-UnBundle 'altercation/vim-colors-solarized'
+" UnBundle 'altercation/vim-colors-solarized'
 
 " Collection of color schemes for VIM
-UnBundle 'spf13/vim-colors'
+" UnBundle 'spf13/vim-colors'
 
 " quoting/parenthesizing made simple
 "UnBundle 'tpope/vim-surround'
@@ -92,7 +120,7 @@ UnBundle 'spf13/vim-colors'
 "UnBundle 'tpope/vim-repeat'
 
 " Inserts matching bracket, paren, brace or quote http://www.vim.org/scripts/script.php?script_id=1849
-"UnBundle 'spf13/vim-autoclose'
+UnBundle 'spf13/vim-autoclose'
 
 " Fuzzy file, buffer, mru, tag, etc finder
 "UnBundle 'kien/ctrlp.vim'
@@ -104,7 +132,7 @@ UnBundle 'spf13/vim-colors'
 "UnBundle 'terryma/vim-multiple-cursors'
 
 " Vim session manager http://www.vim.org/scripts/script.php?script_id=2010
-UnBundle 'vim-scripts/sessionman.vim'
+" UnBundle 'vim-scripts/sessionman.vim'
 
 " extended % matching for HTML, LaTeX, and many other languages http://www.vim.org/scripts/script.php?script_id=39
 UnBundle 'matchit.zip'
@@ -113,7 +141,7 @@ UnBundle 'matchit.zip'
 "UnBundle 'bling/vim-airline'
 
 " super simple vim plugin to show the list of buffers in the command bar
-"UnBundle 'bling/vim-bufferline'
+UnBundle 'bling/vim-bufferline'
 
 " Vim motions on speed! http://www.vim.org/scripts/script.php?script_id=3526
 "UnBundle 'Lokaltog/vim-easymotion'
@@ -173,7 +201,7 @@ UnBundle 'reedes/vim-wordy'
 "UnBundle 'mattn/webapi-vim'
 
 " vimscript for creating gists
-UnBundle 'mattn/gist-vim'
+" UnBundle 'mattn/gist-vim'
 
 " Vim plugin for intensely orgasmic commenting
 "UnBundle 'scrooloose/nerdcommenter'
@@ -185,14 +213,18 @@ UnBundle 'mattn/gist-vim'
 "UnBundle 'godlygeek/tabular'
 
 " Ultimate auto-completion system for Vim
-UnBundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplete'
+" UnBundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache'
+" Bundle 'Shougo/neocomplete'
+
 
 " neo-snippet plugin contains neocomplcache snippets source
-"UnBundle 'Shougo/neosnippet'
+" UnBundle 'Shougo/neosnippet'
+Bundle 'Shougo/neosnippet'
 
 " The standard snippets repository for neosnippet
-"UnBundle 'Shougo/neosnippet-snippets'
+" UnBundle 'Shougo/neosnippet-snippets'
+Bundle 'Shougo/neosnippet-snippets'
 
 " vim-snipmate default snippets
 "UnBundle 'honza/vim-snippets'
