@@ -212,6 +212,14 @@ nnoremap gV `[v`]
 vmap < <gv
 vmap > >gv
 
+"" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
+noremap gh <C-W>h
+noremap gj <C-W>j
+noremap gk <C-W>k
+noremap gl <C-W>l
+
+noremap <leader>x :bn<CR>
+
 "" Buffer nav
 noremap <leader>z :bp<CR>
 noremap <leader>x :bn<CR>
