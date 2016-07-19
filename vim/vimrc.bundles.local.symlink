@@ -96,6 +96,9 @@ Bundle 'skibyte/gdb-from-vim'
 " Macro Persistent Storage and Shareable Repository for VIM
 "Bundle 'vim-scripts/marvim'
 
+" Clang format integration
+Bundle 'rhysd/vim-clang-format'
+
 " SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically

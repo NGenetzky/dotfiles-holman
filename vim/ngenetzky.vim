@@ -56,6 +56,7 @@ set previewheight=20
 " }}}
 " Plugin settings --------------------------------------------------------- {{{1
 
+source ~/.dotfiles/vim/setup_clang_format.vim
 source ~/.dotfiles/vim/setup_fugitive.vim
 source ~/.dotfiles/vim/setup_syntastic.vim
 source ~/.dotfiles/vim/setup_project.vim
@@ -229,9 +230,10 @@ noremap <C-t>h gT
 noremap <C-t>l gt
 
 "" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
+" This conditional would cause the system clipboard to be used by default.
+" if has('unnamedplus')
+"   set clipboard=unnamed,unnamedplus
+" endif
 noremap YY "+y
 noremap PP "+gP
 noremap XX "+x
@@ -298,9 +300,8 @@ noremap <leader>r :so ~/.vimrc<CR>
 " Surround word with quote
 " Imported from:
 " https://mkaz.github.io/2011/08/31/vim-cheat-sheet/
-" Not able to verify...
-map <Leader>' ysiw'
-map <Leader>" ysiw"
+nmap <Leader>' ysiw'
+nmap <Leader>" ysiw"
 
 " Add Trailing Semi-colon
 map <Leader>; g_a;<Esc>
