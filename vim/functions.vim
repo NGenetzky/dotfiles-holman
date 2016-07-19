@@ -1,3 +1,22 @@
+
+function! ExecuteEmbeddedBash()
+    "" Execute vim command in html comment and put output into code block
+    ""<!---
+    "":read !head ~/.dotfiles/vim/ngenetzky.vim -n2
+    ""-->
+    ""```
+    ""```
+    let searchfull='<!---\n.*\_.-->\n```\_.\{-}```'
+    let replace_output='jv^$h"ay/```oVnkdk:@a'
+    exec 'g/'.searchfull.'/normal '.replace_output
+endfunction
+
+function! OpenInNano(filename)
+  call VimuxOpenRunner()
+  VimuxRunCommand "nano " . a:filename
+  VimuxZoomRunner
+endfunction
+
 " Imported Preserve
 " src: https://docwhat.org/vim-preserve-your-cursor-and-window-state/
 " A wrapper function to restore the cursor position, window position,

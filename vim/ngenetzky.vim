@@ -38,6 +38,7 @@ set mousehide
 source ~/.dotfiles/vim/setup_fugitive.vim
 source ~/.dotfiles/vim/setup_syntastic.vim
 source ~/.dotfiles/vim/setup_project.vim
+source ~/.dotfiles/vim/setup_gdb_from_vim.vim
 " source ~/.dotfiles/vim/setup_vundle.vim
 " source ~/.dotfiles/vim/setup_lightline.vim
 " source ~/.dotfiles/vim/setup_c.vim
@@ -142,6 +143,14 @@ augroup end
 
 " }}}
 
+"------------------------------------------------------------
+" Markdown {{{1
+au! BufRead,BufNewFile *.markdown set filetype=mkd
+au! BufRead,BufNewFile *.md       set filetype=mkd
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+let g:markdown_syntax_conceal = 0
+" }}}
+
 au BufNewFile,BufRead  *.bash_*  set filetype=sh
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -198,9 +207,41 @@ vnoremap crs :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
 " highlight last inserted text
 nnoremap gV `[v`]
 
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+"" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
+noremap gh <C-W>h
+noremap gj <C-W>j
+noremap gk <C-W>k
+noremap gl <C-W>l
+
+noremap <leader>x :bn<CR>
+
+"" Buffer nav
+noremap <leader>z :bp<CR>
+noremap <leader>x :bn<CR>
+
+"" Tab nav
+noremap <leader>q gT
+noremap <leader>w gt
+noremap <C-t>h gT
+noremap <C-t>l gt
+
+"" Copy/Paste/Cut
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
+noremap YY "+y<CR>
+noremap PP "+gP<CR>
+noremap XX "+x<CR>
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+" Function Key Mappings ----------------------------------
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> <Plug>ToggleProject
@@ -218,19 +259,35 @@ nmap <F8> :vertical resize 80<CR>
 " Leader mappings   ---------------------------------------
 let mapleader=","       " leader is comma
 
+"" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+"" Git
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gsh :Gpush<CR>
+noremap <Leader>gll :Gpull<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiff<CR>
+noremap <Leader>gr :Gremove<CR>
+
 " Save or load session
 nnoremap <leader>s :mksession ~/.vim/sessions/
 nnoremap <leader>l :source ~/.vim/sessions/
+
+" session management (needs a plugin?)
+" nnoremap <leader>so :OpenSession
+" nnoremap <leader>ss :SaveSession
+" nnoremap <leader>sd :DeleteSession<CR>
+" nnoremap <leader>sc :CloseSession<CR>
 
 " Insert a space and then return to visual mode
 noremap <leader><Space> i 
 
 " Search for text within highlighted section only.
 vnoremap <leader>/ <Esc>/\%V
-
-" Make it easier to go to the h=^=front/end=$=l of lines
-noremap <leader>h ^
-noremap <leader>l $
 
 " Insert Date(d) or Time(t)
 noremap <leader>d :put =strftime('%Y-%m-%d')<C-M>
@@ -243,11 +300,21 @@ noremap <leader>r :so ~/.vimrc<CR>
 " Imported from:
 " https://mkaz.github.io/2011/08/31/vim-cheat-sheet/
 " Not able to verify...
-"map <Leader>' ysiw'
-"map <Leader>" ysiw"
+map <Leader>' ysiw'
+map <Leader>" ysiw"
 
 " Add Trailing Semi-colon
 map <Leader>; g_a;<Esc>
+
+"" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+nnoremap <leader>.. :lcd ..<CR>
+
+"" Opens an edit command with the path of the currently edited file filled in
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+"" Opens a tab edit command with the path of the currently edited file filled
+noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Uses a tmp file as a global clipboard
 vmap <leader>y :w! /tmp/vitmp<CR>
@@ -262,6 +329,10 @@ map <leader>m :update \| make <CR>
 
 vmap <leader>c :!column -t<CR>
 
+map <leader>w :w<CR>
+
+nmap <leader>n :call OpenInNano(expand('%:p'))<CR>
+
 "------------------------------------------------------------
 " }}}
 " Functions {{{1
@@ -271,5 +342,4 @@ endfunction
 function! InstallVundle()
     !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
 endfunction
-
 " }}}

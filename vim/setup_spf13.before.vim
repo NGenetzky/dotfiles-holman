@@ -77,5 +77,5 @@
 
     " disable omni complete (this was causing arrow key problems
     " when in insert mode)
-    let g:spf13_no_omni_complete = 1
+    " let g:spf13_no_omni_complete = 1
 "}
