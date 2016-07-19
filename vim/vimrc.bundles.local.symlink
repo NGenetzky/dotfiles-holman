@@ -215,7 +215,6 @@ UnBundle 'reedes/vim-wordy'
 " Ultimate auto-completion system for Vim
 " UnBundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplcache'
-<<<<<<< HEAD
 Bundle 'Shougo/neocomplete'
 
 " neo-snippet plugin contains neocomplcache snippets source
@@ -224,17 +223,6 @@ Bundle 'Shougo/neosnippet'
 
 " The standard snippets repository for neosnippet
 "UnBundle 'Shougo/neosnippet-snippets'
-=======
-" Bundle 'Shougo/neocomplete'
-
-
-" neo-snippet plugin contains neocomplcache snippets source
-" UnBundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet'
-
-" The standard snippets repository for neosnippet
-" UnBundle 'Shougo/neosnippet-snippets'
->>>>>>> fa2a2e99a5cd1854d3eaf04714aff149745171ae
 Bundle 'Shougo/neosnippet-snippets'
 
 " vim-snipmate default snippets
