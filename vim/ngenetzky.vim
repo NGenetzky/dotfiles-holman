@@ -107,7 +107,6 @@ set listchars=tab:>.,trail:.,nbsp:.
 
 
 " Undo and Backups -------------------------------------------------------- {{{
-
 set undofile   " Maintain undo history between sessions
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
