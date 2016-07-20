@@ -9,6 +9,7 @@
 " https://github.com/seejohnrun/dotfiles/blob/master/.vimrc
 " http://chibicode.com/vimrc/
 " https://github.com/skwp/dotfiles
+" https://github.com/joedicastro/dotfiles/tree/master/vim
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -50,6 +51,8 @@ set formatoptions-=t
 
 " Shows syntax highlighting
 syntax on
+
+set cryptmethod=blowfish
 
 set previewheight=20
 
@@ -170,6 +173,7 @@ augroup end
 " Markdown ------------------------------------------------------------{{{2
 au! BufRead,BufNewFile *.markdown set filetype=mkd
 au! BufRead,BufNewFile *.md       set filetype=mkd
+au! BufRead,BufNewFile *.md       set spell
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
 " }}}

@@ -99,6 +99,9 @@ Bundle 'skibyte/gdb-from-vim'
 " Clang format integration
 Bundle 'rhysd/vim-clang-format'
 
+" Plugin to toggle, display and navigate marks
+Bundle 'kshenoy/vim-signature'
+
 " SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically

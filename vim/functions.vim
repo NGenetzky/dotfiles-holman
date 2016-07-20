@@ -4,14 +4,31 @@ function! RmViews()
 endfunction
 
 function! ExecuteEmbeddedBash()
-    "" Execute vim command in html comment and put output into code block
+    "" Execute one-line bash command in html comment and put output into
+    "" code block
+    ""<!---
+    ""head ~/.dotfiles/vim/ngenetzky.vim -n2
+    ""-->
+    ""```
+    ""```
+    " let searchfull='<!---bash\n.*\_.-->\n```\_.\{-}```'
+    " let replace_output='j^v$h"ay/```oVnk"ap!!bash'
+    " exec 'g/'.searchfull.'/normal '.replace_output
+    "" As oneliner:
+    exec 'g/<!---bash\n.*\_.-->\n```\_.\{-}```/normal j^v$h"ay/```oVnk"ap!!bash'
+endfunction
+
+
+function! ExecuteEmbeddedVimscript()
+    "" Execute one-line vimscript command in html comment and put output into
+    "" code block
     ""<!---
     "":read !head ~/.dotfiles/vim/ngenetzky.vim -n2
     ""-->
     ""```
     ""```
-    let searchfull='<!---\n.*\_.-->\n```\_.\{-}```'
-    let replace_output='jv^$h"ay/```oVnkdk:@a'
+    let searchfull='<!---vimscript\n.*\_.-->\n```\_.\{-}```'
+    let replace_output='j^v$h"ay/```oVnkdk:@a'
     exec 'g/'.searchfull.'/normal '.replace_output
 endfunction
 
