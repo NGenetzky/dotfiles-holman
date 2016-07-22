@@ -29,10 +29,10 @@
     "   let g:spf13_no_neosnippet_expand = 1
 
     " Disable whitespace stripping
-    "   let g:spf13_keep_trailing_whitespace = 1
+    let g:spf13_keep_trailing_whitespace = 1
 
     " Enable powerline symbols
-    let g:airline_powerline_fonts = 1
+    " let g:airline_powerline_fonts = 1
 
     " vim files directory
     "   let g:spf13_consolidated_directory = <full path to desired directory>
@@ -77,5 +77,5 @@
 
     " disable omni complete (this was causing arrow key problems
     " when in insert mode)
-    let g:spf13_no_omni_complete = 1
+    " let g:spf13_no_omni_complete = 1
 "}

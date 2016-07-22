@@ -4,6 +4,8 @@
 Bundle 'tpope/vim-unimpaired'
 " Bundle 'tpope/vim-obsession'
 " Bundle 'tpope/vim-sensible'
+"" speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
+Bundle 'tpope/vim-speeddating'
 
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer.
@@ -75,6 +77,31 @@ Bundle 'spiiph/vim-space'
 " arbitrary sources like files, buffers, recently used files or registers.
 Bundle 'Shougo/unite.vim'
 
+" Tabmerge : Merge a tab's windows with the current tab 
+Bundle 'Tabmerge'
+
+" SplitJoin : A vim plugin that simplifies the transition between multiline and
+" single-line code http://www.vim.org/scripts/script.php?script_id=3613
+Bundle 'AndrewRadev/splitjoin.vim'
+
+"" Vimux effortless vim and tmux interaction
+Bundle 'benmills/vimux'
+
+""A simple, vimscript only, command runner for sending commands from vim to tmux.
+" Bundle 'christoomey/vim-tmux-runner'
+
+" A plugin to debug program with gdb by using vim
+Bundle 'skibyte/gdb-from-vim'
+
+" Macro Persistent Storage and Shareable Repository for VIM
+"Bundle 'vim-scripts/marvim'
+
+" Clang format integration
+Bundle 'rhysd/vim-clang-format'
+
+" Plugin to toggle, display and navigate marks
+Bundle 'kshenoy/vim-signature'
+
 " SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically
@@ -99,7 +126,7 @@ Bundle 'Shougo/unite.vim'
 "UnBundle 'tpope/vim-repeat'
 
 " Inserts matching bracket, paren, brace or quote http://www.vim.org/scripts/script.php?script_id=1849
-"UnBundle 'spf13/vim-autoclose'
+UnBundle 'spf13/vim-autoclose'
 
 " Fuzzy file, buffer, mru, tag, etc finder
 "UnBundle 'kien/ctrlp.vim'
@@ -194,15 +221,16 @@ UnBundle 'reedes/vim-wordy'
 " Ultimate auto-completion system for Vim
 " UnBundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplete'
+" Bundle 'Shougo/neocomplete'
+
 
 " neo-snippet plugin contains neocomplcache snippets source
-"UnBundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet'
+UnBundle 'Shougo/neosnippet'
+" Bundle 'Shougo/neosnippet'
 
 " The standard snippets repository for neosnippet
-"UnBundle 'Shougo/neosnippet-snippets'
-Bundle 'Shougo/neosnippet-snippets'
+UnBundle 'Shougo/neosnippet-snippets'
+" Bundle 'Shougo/neosnippet-snippets'
 
 " vim-snipmate default snippets
 "UnBundle 'honza/vim-snippets'
