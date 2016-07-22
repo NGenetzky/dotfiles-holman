@@ -17,3 +17,7 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+
+if [ -f ~/workspace/project_notebook/.aliases ]; then
+    source ~/workspace/project_notebook/.aliases
+fi
