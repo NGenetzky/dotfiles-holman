@@ -115,6 +115,7 @@ colorscheme desert
 " colorscheme base16-greenscreen
 " colorscheme base16-eighties
 " colorscheme darkburn
+ " colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
 
 set guifont=Monospace\ Bold\ 10
 "set guifont=Courier\ 10\ Pitch\ Bold\ 7
@@ -351,10 +352,16 @@ endfunction
 " Projects ------------------------------------------------------------{{{1
 set exrc
 set secure
-au BufRead ~/workspace/Kadoka/Kadoka/UserApplications/libraries/librrdb/* set tw=90
-au BufRead ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
+" augroup ProjectSetup
+" au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/libraries/librrdb/* set tw=90
+" au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
+" augroup END
 
-" function! ProjectBufRead()
+function! Project_librrdb()
+    set makeprg=make
+    nooremap <buffer> <localleader>t :make test
+    nooremap <buffer> <localleader>l :make test RrdtoolTestSuite
+endfunction
 "     let l:path = expand('%:p')
 "     if l:path == expand('~/workspace/Kadoka/Kadoka/UserApplications/libraries/librrdb/')
 "         let @m='iworks'
@@ -366,7 +373,6 @@ au BufRead ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
 "     elseif l:path == expand('~/workspace/Kadoka/Kadoka/UserApplications/k')
 "         let @m='iworks for both'
 "     endif
-    
 " endfunction
 
 

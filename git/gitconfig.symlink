@@ -48,3 +48,5 @@
 	glaf = log --graph --oneline --decorate=short --all --first-parent
 [credential]
 	helper = cache
+[github]
+	user = ngenetzky
