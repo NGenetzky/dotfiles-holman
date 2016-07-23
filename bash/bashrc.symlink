@@ -39,5 +39,6 @@ source $DOTFILES/system/path
 source tmuxp.bash
 source $DOTFILES/bash/git_alias_completion.bash
 source $DOTFILES/bash/oldbashrc.bash
+
 alias po="~/po-util.sh"
 alias p="particle"
