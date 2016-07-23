@@ -333,6 +333,9 @@ map <leader>w :w<CR>
 
 nmap <leader>n :call OpenInNano(expand('%:p'))<CR>
 
+" Use ctrl p to open buffer
+noremap <leader>b :CtrlPBuffer<CR>
+
 "------------------------------------------------------------
 " }}}
 " Functions {{{1
