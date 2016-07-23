@@ -91,3 +91,8 @@ alias lm='ll |more'        #  Pipe through 'more'
 alias lr='ll -R'           #  Recursive ls.
 alias la='ll -A'           #  Show hidden files.
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
+
+# Particle development
+# Enable only on c9 workspace
+alias po="~/po-util.sh"
+alias p="particle"
