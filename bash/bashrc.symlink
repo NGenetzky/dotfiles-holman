@@ -18,7 +18,7 @@ export TERM=xterm-256color
 set editing-mode vi
 
 ## Aliases
-source $DOTFILES/bash/aliases
+source ~/.bash.aliases
 source $DOTFILES/git/aliases
 source $DOTFILES/system/aliases
 if [ -f ~/.bash.aliases ]; then
