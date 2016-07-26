@@ -12,27 +12,27 @@ alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git add -A && git commit -m'
 
 # Defined in gitconfig
-alias gexec="!exec "
-alias gco='checkout'
-alias gsw='checkout'
-alias gci='commit'
-alias gamend='commit --amend'
-alias gst='status'
-alias gsts='status -s'
-alias gstsi='status -s --ignored'
-alias gbr='branch'
-alias gnb='checkout -b'
-alias gmrg='merge --no-ff --edit'
-alias gcom='checkout master'
-alias gsm='submodule'
-alias gff='merge --ff-only '
-alias gk="!exec gitk --all --date-order &"
-alias gkf="!exec gitk --all --first-parent &"
-alias gg="!exec git gui &"
-alias grevert='checkout --'
-alias gsubup='submodule update --init'
-alias gl='log --graph --oneline --date-order --decorate=short'
-alias gla='log --graph --oneline --date-order --decorate=short --all'
-alias gld='log --graph --oneline --date-order --decorate=short'
-alias glad='log --graph --oneline --date-order --decorate=short --all'
-alias glaf='log --graph --oneline --decorate=short --all --first-parent'
+alias gexec="git !exec "
+alias gco='git checkout'
+alias gsw='git checkout'
+alias gci='git commit'
+alias gamend='git commit --amend'
+alias gst='git status'
+alias gsts='git status -s'
+alias gstsi='git status -s --ignored'
+alias gbr='git branch'
+alias gnb='git checkout -b'
+alias gmrg='git merge --no-ff --edit'
+alias gcom='git checkout master'
+alias gsm='git submodule'
+alias gff='git merge --ff-only '
+alias gk="git !exec gitk --all --date-order &"
+alias gkf="git !exec gitk --all --first-parent &"
+alias gg="git !exec git gui &"
+alias grevert='git checkout --'
+alias gsubup='git submodule update --init'
+alias gl='git log --graph --oneline --date-order --decorate=short'
+alias gla='git log --graph --oneline --date-order --decorate=short --all'
+alias gld='git log --graph --oneline --date-order --decorate=short'
+alias glad='git log --graph --oneline --date-order --decorate=short --all'
+alias glaf='git log --graph --oneline --decorate=short --all --first-parent'

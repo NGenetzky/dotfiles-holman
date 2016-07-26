@@ -195,7 +195,7 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 " jk is escape in insert mode
 inoremap jk <esc>
 
-" use ; as :
+" use ; as :. By default it repeats last f/F/t/T movement.
 " nnoremap ; :
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy
@@ -216,15 +216,11 @@ vmap < <gv
 vmap > >gv
 
 "" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
-noremap gh <C-W>h
-noremap gj <C-W>j
-noremap gk <C-W>k
-noremap gl <C-W>l
+nnoremap gh <C-W>h
+nnoremap gj <C-W>j
+nnoremap gk <C-W>k
+nnoremap gl <C-W>l
 
-noremap <leader>x :bn<CR>
-
-"" Buffer nav
-noremap <leader>z :bp<CR>
 noremap <leader>x :bn<CR>
 
 "" Tab nav
@@ -245,6 +241,21 @@ noremap XX "+x
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+" Unimparied like mappings {{{
+
+" Jump list
+nnoremap [j <C-O>
+nnoremap ]j <C-I>
+
+" Change list
+nnoremap [c g;
+nnoremap ]c g,
+
+" Tabs
+noremap [y gT
+noremap ]y gt
+" }}}
 
 " Function Key Mappings ----------------------------------
 
@@ -267,16 +278,6 @@ let mapleader=","       " leader is comma
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
-
-"" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
 
 " Save or load session
 nnoremap <leader>s :mksession ~/.vim/sessions/
@@ -339,6 +340,9 @@ nmap <leader>n :call OpenInNano(expand('%:p'))<CR>
 
 " Use ctrl p to open buffer
 noremap <leader>b :CtrlPBuffer<CR>
+
+nnoremap <leader>f yiw:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
+vnoremap <leader>f y:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 
 "------------------------------------------------------------
 " }}}
