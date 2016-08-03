@@ -17,6 +17,8 @@ fi
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias treefake="find ./ -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias watch_treefake="while sleep 1; do clear; treefake; done"
 
 if [ -f ~/workspace/project_notebook/.aliases ]; then
     source ~/workspace/project_notebook/.aliases

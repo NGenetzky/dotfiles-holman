@@ -36,3 +36,5 @@ alias gla='git log --graph --oneline --date-order --decorate=short --all'
 alias gld='git log --graph --oneline --date-order --decorate=short'
 alias glad='git log --graph --oneline --date-order --decorate=short --all'
 alias glaf='git log --graph --oneline --decorate=short --all --first-parent'
+
+alias watch_glog="while sleep 1; clear; do glog -n10; done"
