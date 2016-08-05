@@ -208,20 +208,9 @@ vnoremap crc :s/_\([a-z]\)/\u\1/g<CR>gUl
 " Change selected text from NameLikeThis to name_like_this.
 vnoremap crs :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
 
-" highlight last inserted text
-nnoremap gV `[v`]
-
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
-
-"" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
-nnoremap gh <C-W>h
-nnoremap gj <C-W>j
-nnoremap gk <C-W>k
-nnoremap gl <C-W>l
-
-noremap <leader>x :bn<CR>
 
 "" Tab nav
 noremap <leader>q gT
@@ -249,13 +238,34 @@ nnoremap [j <C-O>
 nnoremap ]j <C-I>
 
 " Change list
-nnoremap [c g;
-nnoremap ]c g,
+" [c]c ia already used for vimdiff
+nnoremap [x g;
+nnoremap ]x g,
 
 " Tabs
 noremap [y gT
 noremap ]y gt
 " }}}
+
+" G Mappings
+
+" highlight last inserted text
+nnoremap gV `[v`]
+" nnoremap gp `[v`]
+
+"" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
+nnoremap gh <C-W>h
+nnoremap gj <C-W>j
+nnoremap gk <C-W>k
+nnoremap gl <C-W>l
+
+" Execute in various environments
+" In shell
+vnoremap ge y:read !<C-R>"<CR>
+" In python
+vnoremap gp y:read !python -c '<C-R>"'<CR>
+" In vimscript
+vnoremap gv y:@"<CR>
 
 " Function Key Mappings ----------------------------------
 
@@ -341,8 +351,11 @@ nmap <leader>n :call OpenInNano(expand('%:p'))<CR>
 " Use ctrl p to open buffer
 noremap <leader>b :CtrlPBuffer<CR>
 
+" Find string of text in all files under current directory.
+" <CR> left off so statement can be modified.
 nnoremap <leader>f yiw:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 vnoremap <leader>f y:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
+
 
 "------------------------------------------------------------
 " }}}
