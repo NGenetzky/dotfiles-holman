@@ -152,6 +152,7 @@ nmap <leader>8 80A <Esc>d80|
 " Saves all files that have been modified and runs make. \| is required to use
 " the bar/pipe inside the mapping.
 map <leader>m :update \| make <CR>
+" au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
 
 vmap <leader>c :!column -t<CR>
 

@@ -56,6 +56,9 @@ set cryptmethod=blowfish
 
 set previewheight=20
 
+set exrc
+set secure
+
 " }}}
 " Plugin settings --------------------------------------------------------- {{{1
 
@@ -64,6 +67,7 @@ source ~/.dotfiles/vim/setup_fugitive.vim
 source ~/.dotfiles/vim/setup_syntastic.vim
 source ~/.dotfiles/vim/setup_project.vim
 source ~/.dotfiles/vim/setup_gdb_from_vim.vim
+source ~/.dotfiles/vim/setup_ultisnips.vim
 " source ~/.dotfiles/vim/setup_vundle.vim
 " source ~/.dotfiles/vim/setup_lightline.vim
 " source ~/.dotfiles/vim/setup_c.vim
@@ -81,7 +85,7 @@ set ignorecase
 " except when using capital letters
 set smartcase
 
-" Highlight searches (use <C-L> to temporarily turn off highlighting; see the
+" Highlight searches (use <C-L> to temporarily clear highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
 
@@ -103,7 +107,7 @@ set expandtab
 " }}}
 " Font and Schemes -------------------------------------------------------- {{{
 
-" Color schemes (uncomment one of the rows below)
+" Color schemes (uncomment one of the schemes below)
 colorscheme desert
 " colorscheme badwolf
 " colorscheme xoria256
@@ -207,8 +211,6 @@ endfunction
 " }}}
 
 " Projects ------------------------------------------------------------{{{1
-set exrc
-set secure
 " augroup ProjectSetup
 " au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/libraries/librrdb/* set tw=90
 " au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91

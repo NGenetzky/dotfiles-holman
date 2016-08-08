@@ -43,8 +43,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 
 " Snippet Engine (requires python)
-" Bundle 'SirVer/ultisnips'
-
+Bundle 'SirVer/ultisnips'
 " Snippet repo.
 " Bundle 'honza/vim-snippets'
 
