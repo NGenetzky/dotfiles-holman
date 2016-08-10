@@ -16,7 +16,7 @@ alias gca='git commit -a'
 alias gamend='git commit --amend'
 
 alias gac='git add -A && git commit -m'
-alias gpp ='git pull --prune'
+alias gpp='git pull --prune'
 alias gp='git push origin HEAD'
 alias gcb='git copy-branch-name'
 alias gd='git diff'
