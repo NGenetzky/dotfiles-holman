@@ -25,7 +25,6 @@ set noautoindent
 " continues on the next line
 set wrap
 " Turn off spell checking.
-" TODO: Maybe turn it on for Markdown files?
 set nospell
 
 " Mouse is only available in normal and visual mode.
@@ -58,6 +57,11 @@ set previewheight=20
 
 set exrc
 set secure
+
+" This conditional would cause the system clipboard to be used by default.
+if has('unnamedplus')
+  set clipboard=unnamed,unnamedplus
+endif
 
 " }}}
 " Plugin settings --------------------------------------------------------- {{{1

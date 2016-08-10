@@ -104,6 +104,9 @@ Bundle 'kshenoy/vim-signature'
 " Univeral Text Linking - Execute URLs, footnotes, open emails, organize ideas
 Bundle 'vim-scripts/utl.vim'
 
+" Unload, delete or wipe a buffer without closing the window or split.
+Plugin 'qpkorr/vim-bufkill'
+
 " SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically

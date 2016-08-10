@@ -33,10 +33,6 @@ noremap <C-t>h gT
 noremap <C-t>l gt
 
 "" Copy/Paste/Cut
-" This conditional would cause the system clipboard to be used by default.
-" if has('unnamedplus')
-"   set clipboard=unnamed,unnamedplus
-" endif
 noremap YY "+y
 noremap PP "+gP
 noremap XX "+x
@@ -64,6 +60,7 @@ noremap ]y gt
 nnoremap gV `[v`]
 " nnoremap gp `[v`]
 
+" TODO: Replace gj and gk with other mapping
 "" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
 nnoremap gh <C-W>h
 nnoremap gj <C-W>j
