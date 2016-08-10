@@ -1,6 +1,6 @@
 [core]
 	safecrlf = false
-	autocrlf = false
+	autocrlf = input
 	editor = vim
 	pager = less -FXRS -x4
 [gc]
