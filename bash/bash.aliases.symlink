@@ -1,25 +1,84 @@
+
+#============================================================
+#
+#  ALIASES AND FUNCTIONS
+#
+#  Arguably, some functions defined here are quite big.
+#  If you want to make this file smaller, these functions can
+#+ be converted into scripts and removed from here.
+#
+# src: http://tldp.org/LDP/abs/html/sample-bashrc.html
+#============================================================
+
+#-------------------
+# Personnal Aliases
+#-------------------
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+# -> Prevents accidentally clobbering files.
+alias mkdir='mkdir -p'
+
+alias h='history'
+alias j='jobs -l'
+alias which='type -a'
+alias ..='cd ..'
+
+# Pretty-print of some PATH variables:
+alias path='echo -e ${PATH//:/\\n}'
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+
+alias du='du -kh'    # Makes a more readable output.
+alias df='df -kTh'
+
 alias reload!='. ~/.bashrc'
 alias cls='clear' # Good 'ol Clear Screen command
 
+#-------------------------------------------------------------
+# The 'ls' family (this assumes you use a recent GNU ls).
+#-------------------------------------------------------------
+# Add colors for filetype and  human-readable sizes by default on 'ls':
+alias ls='ls -h --color'
+alias lx='ls -lXB'         #  Sort by extension.
+alias lk='ls -lSr'         #  Sort by size, biggest last.
+alias lt='ls -ltr'         #  Sort by date, most recent last.
+alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
+alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
+
+# The ubiquitous 'll': directories first, with alphanumeric sorting:
+alias l='ls -CF'
+alias ll="ls -lv --group-directories-first"
+alias lm='ll |more'        #  Pipe through 'more'
+alias lr='ll -R'           #  Recursive ls.
+alias la='ll -A'           #  Show hidden files.
+
+# Check tree is installed first.
+# alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    # alias ls='ls --color=auto' # already listed above
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+#-------------------
+# Custom Aliases
+#-------------------
+
+# Particle development
+# Enable only on c9 workspace
+alias po="~/po-util.sh"
+alias p="particle"
+
+# Custom aliases
 alias treefake="find ./ -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias watch_treefake="while sleep 1; do clear; treefake; done"
 
-if [ -f ~/workspace/project_notebook/.aliases ]; then
-    source ~/workspace/project_notebook/.aliases
-fi
+

@@ -8,9 +8,9 @@ export PROJECTS=~/workspace
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
-if [[ -a ~/.localrc ]]
+if [[ -a ~/.bashrc.local ]]
 then
-  source ~/.localrc
+  source ~/.bashrc.local
 fi
 
 # Color Editor
@@ -18,11 +18,13 @@ export TERM=xterm-256color
 set editing-mode vi
 
 ## Aliases
-source ~/.bash.aliases
 source $DOTFILES/git/aliases
 source $DOTFILES/system/aliases
 if [ -f ~/.bash.aliases ]; then
     . ~/.bash.aliases
+fi
+if [ -f ~/workspace/project_notebook/.aliases ]; then
+    source ~/workspace/project_notebook/.aliases
 fi
 
 ## Prompt
@@ -38,61 +40,31 @@ source $DOTFILES/system/path
 ## Source other files
 source tmuxp.bash
 source $DOTFILES/bash/git_alias_completion.bash
-source $DOTFILES/bash/oldbashrc.bash
 
-#============================================================
-#
-#  ALIASES AND FUNCTIONS
-#
-#  Arguably, some functions defined here are quite big.
-#  If you want to make this file smaller, these functions can
-#+ be converted into scripts and removed from here.
-#
-# src: http://tldp.org/LDP/abs/html/sample-bashrc.html
-#============================================================
+###
+# history
+###
 
-#-------------------
-# Personnal Aliases
-#-------------------
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-# -> Prevents accidentally clobbering files.
-alias mkdir='mkdir -p'
-
-alias h='history'
-alias j='jobs -l'
-alias which='type -a'
-alias ..='cd ..'
-
-# Pretty-print of some PATH variables:
-alias path='echo -e ${PATH//:/\\n}'
-alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 
-alias du='du -kh'    # Makes a more readable output.
-alias df='df -kTh'
+###
+# shopt commands
+###
 
-#-------------------------------------------------------------
-# The 'ls' family (this assumes you use a recent GNU ls).
-#-------------------------------------------------------------
-# Add colors for filetype and  human-readable sizes by default on 'ls':
-alias ls='ls -h --color'
-alias lx='ls -lXB'         #  Sort by extension.
-alias lk='ls -lSr'         #  Sort by size, biggest last.
-alias lt='ls -ltr'         #  Sort by date, most recent last.
-alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
-alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
-
-# The ubiquitous 'll': directories first, with alphanumeric sorting:
-alias ll="ls -lv --group-directories-first"
-alias lm='ll |more'        #  Pipe through 'more'
-alias lr='ll -R'           #  Recursive ls.
-alias la='ll -A'           #  Show hidden files.
-alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
-
-# Particle development
-# Enable only on c9 workspace
-alias po="~/po-util.sh"
-alias p="particle"
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
