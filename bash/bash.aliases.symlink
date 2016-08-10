@@ -23,7 +23,6 @@ alias mkdir='mkdir -p'
 alias h='history'
 alias j='jobs -l'
 alias which='type -a'
-alias ..='cd ..'
 
 # Pretty-print of some PATH variables:
 alias path='echo -e ${PATH//:/\\n}'
@@ -34,6 +33,18 @@ alias df='df -kTh'
 
 alias reload!='. ~/.bashrc'
 alias cls='clear' # Good 'ol Clear Screen command
+
+#-------------------------------------------------------------
+# The 'cd' helpers - a quick way to get out of current directory ##
+#-------------------------------------------------------------
+alias ..='cd ..'
+alias .2='cd ../../'
+alias ...='cd ../../'
+alias .3='cd ../../../'
+alias ....='cd ../../../'
+alias .4='cd ../../../../'
+alias .....='cd ../../../../'
+alias .5='cd ../../../../..'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
