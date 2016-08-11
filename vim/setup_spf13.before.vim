@@ -37,6 +37,7 @@
     " vim files directory
     "   let g:spf13_consolidated_directory = <full path to desired directory>
     "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
+    let g:spf13_consolidated_directory = $HOME . '/.vim/'
 
     " This makes the completion popup strictly passive.
     " Keypresses acts normally. <ESC> takes you of insert mode, words don't

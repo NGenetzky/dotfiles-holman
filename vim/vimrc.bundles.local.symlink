@@ -107,6 +107,8 @@ Bundle 'vim-scripts/utl.vim'
 " Unload, delete or wipe a buffer without closing the window or split.
 Plugin 'qpkorr/vim-bufkill'
 
+Plugin 'Konfekt/FastFold'
+
 " SPF13 Overrides ---------------------------------------------------------- {{{
 
 " interpret a file by function and cache file automatically
@@ -226,7 +228,7 @@ UnBundle 'reedes/vim-wordy'
 " Ultimate auto-completion system for Vim
 " UnBundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplcache'
-" Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neocomplete'
 
 
 " neo-snippet plugin contains neocomplcache snippets source
