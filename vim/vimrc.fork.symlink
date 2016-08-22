@@ -27,7 +27,8 @@ set wrap
 " Turn off spell checking.
 set nospell
 
-" Mouse is only available in normal and visual mode.
+" Mouse is only available in normal and visual mode. I do not want it on for
+" insert mode because I use that to insert text into the terminal sometimes.
 set mouse=nv
 set mousehide
 
@@ -72,6 +73,7 @@ source ~/.dotfiles/vim/setup_syntastic.vim
 source ~/.dotfiles/vim/setup_project.vim
 source ~/.dotfiles/vim/setup_gdb_from_vim.vim
 source ~/.dotfiles/vim/setup_ultisnips.vim
+source ~/.dotfiles/vim/setup_nerdtree.vim
 " source ~/.dotfiles/vim/setup_vundle.vim
 " source ~/.dotfiles/vim/setup_lightline.vim
 " source ~/.dotfiles/vim/setup_c.vim
@@ -247,3 +249,7 @@ endfunction
 
 
 " }}}
+"
+
+" Events
+source ~/.dotfiles/vim/events.vim
