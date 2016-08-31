@@ -47,6 +47,9 @@ set backspace=indent,eol,start
 set ruler
 
 " Turn auto-wrapping off.
+" If you want to keep your existing 'textwidth' settings for most lines in
+" your file, but not have Vim automatically reformat when typing on existing
+" lines, you can do this with:
 set formatoptions-=t
 
 " Shows syntax highlighting
@@ -208,6 +211,10 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 " au BufRead */Desktop/*/*  set tw=31
 "}}}
 " Mappings ------------------------------------------------------------{{{1
+
+" I do not want j and k mapped to gj and gk like they are in spf13.
+nunmap j
+nunmap k
 
 source ~/.dotfiles/vim/mappings.vim
 
