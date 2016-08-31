@@ -146,13 +146,16 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 set listchars=tab:».,trail:·,nbsp:.
 " }}}
-" Undo and Backups -------------------------------------------------------- {{{
+" Undos, Swaps and Backups ------------------------------------------------- {{{
+
 set undofile   " Maintain undo history between sessions
 set undodir=~/.vim/tmp/undo//
+
+set backup
 set backupdir=~/.vim/tmp/backup//
+
 " Directory used for swap files
 set directory=~/.vim/tmp/swap//
-set backup
 
 
 " }}}
@@ -213,8 +216,8 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 
 " I do not want j and k mapped to gj and gk like they are in spf13.
 try
-    nunmap j
-    nunmap k
+    unmap j
+    unmap k
 catch /^Vim\%((\a\+)\)\=:E31/	" catch E31: No such mapping
 
 endtry

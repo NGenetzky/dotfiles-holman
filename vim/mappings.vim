@@ -58,14 +58,21 @@ noremap ]y gt
 
 " highlight last inserted text
 nnoremap gV `[v`]
-" nnoremap gp `[v`]
+nnoremap gp `[v`]
 
 " TODO: Replace gj and gk with other mapping
 "" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
-nnoremap gh <C-W>h
-nnoremap gj <C-W>j
-nnoremap gk <C-W>k
-nnoremap gl <C-W>l
+
+" Undo SPF13 Mappings that moves to window and minimized old window.
+unmap <C-j>
+unmap <C-k>
+" Maximize current split.
+nnoremap <C-_> <C-W>_
+" Use my own Navigation mappings moving around splits.
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
 
 " Execute in various environments
 " In shell
