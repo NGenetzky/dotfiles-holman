@@ -1,7 +1,18 @@
 
 " Use spf13 bundles config if available {
 if filereadable(expand("~/.vimrc.bundles.spf13"))
-    source ~/.vimrc.bundles.spf13
+    " Full list of bundles
+    " let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming',
+    "             \ 'php', 'ruby', 'python', 'go', 'twig', 'javascript',
+    "             \ 'haskell', 'html', 'misc', 'scala', 'snipmate',
+    "             \ 'youcompleteme', 'neocomplete']
+
+    " My more limited list
+    let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming',
+        \   'python', 'misc', 'snipmate', 'youcompleteme', 'neocomplete']
+
+    " This file will source *.local and *.fork files.
+    sourc ~/.vimrc.bundles.spf13
 else
 
     " Setup Bundle Support {
@@ -23,9 +34,6 @@ else
     com! -nargs=+         UnBundle
     \ call UnBundle(<args>)
     " }
-
-
-
 
     "call vundle#begin()
     " alternatively, pass a path where Vundle should install plugins
