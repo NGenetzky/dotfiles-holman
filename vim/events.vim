@@ -4,13 +4,15 @@ function! OnReadStdin()
 endfunction
 
 function! OnStartup()
-    if 0 == argc()
-    end
+    " if 0 == argc()
+    " end
     if !exists("s:std_in") && 0 == argc()
-        NERDTree
-    end
-    if exists("s:std_in")
-    end
+        if !has("gui_running")
+            NERDTree
+        endif
+    endif
+    " if exists("s:std_in")
+    " endif
 endfunction
 
 
