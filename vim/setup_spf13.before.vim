@@ -35,6 +35,9 @@
     " let g:airline_powerline_fonts = 1
 
     " vim files directory
+    " To specify a different directory in which to place the vimbackup,
+    " vimviews, vimundo, and vimswap files/directories, add the following to
+    " your .vimrc.before.local file:
     "   let g:spf13_consolidated_directory = <full path to desired directory>
     "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
     let g:spf13_consolidated_directory = $HOME . '/.vim/'
@@ -73,6 +76,12 @@
     " turn on the "fix arrow keys" toggle 
     "let g:spf13_screen_mapping = 1
 
+    " End/Start of line motion keys act relative to row/wrap width in the
+    " presence of `:set wrap`, and relative to line for `:set nowrap`.
+    " Default vim behaviour is to act relative to text line in both cases
+    " If you prefer the default behaviour, add the following to your
+    " .vimrc.before.local file:
+    "   let g:spf13_no_wrapRelMotion = 1
     " disable wrap relative motion for start/end line motions
     let g:spf13_no_wrapRelMotion = 1
 
