@@ -154,11 +154,10 @@ set listchars=tab:».,trail:·,nbsp:.
 set undofile   " Maintain undo history between sessions
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
+" Directory used for swap files
 set directory=~/.vim/tmp/swap//
 set backup
 
-" Directory used for swap files
-set dir=/var/tmp
 
 " }}}
 " Highlighting ------------------------------------------------------------- {{{

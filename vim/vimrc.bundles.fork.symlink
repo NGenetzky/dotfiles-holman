@@ -39,11 +39,14 @@ Bundle 'tpope/vim-speeddating'
 
 " Automated tag generation and syntax highlighting in Vim
 " vim-misc is required for vim-easytags
+" TODO: Disable Bundle when Exuberant Ctags is not installed.
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 
 " Snippet Engine (requires python)
+" TODO: Disable Bundle when Python version of vim is not installed.
 Bundle 'SirVer/ultisnips'
+
 " Snippet repo.
 " Bundle 'honza/vim-snippets'
 
