@@ -134,11 +134,7 @@ colorscheme desert
 " colorscheme darkburn
  " colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
 
-set guifont=Monospace\ Bold\ 10
-"set guifont=Courier\ 10\ Pitch\ Bold\ 7
-"set guifont=Bitstream\ Vera\ Sans\ Mono\ Bold\ 7
 set background=dark
-set guioptions=aegimrLt
 
 " }}}
 " List -------------------------------------------------------------------- {{{
