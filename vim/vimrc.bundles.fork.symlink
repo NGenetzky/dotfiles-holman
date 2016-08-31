@@ -1,6 +1,6 @@
 " Bundle 'tpope/vim-surround'
 " Bundle 'tpope/vim-repeat'
-" Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 " Bundle 'tpope/vim-obsession'
 " Bundle 'tpope/vim-sensible'
@@ -14,12 +14,16 @@ Bundle 'tpope/vim-speeddating'
 
 " C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
 " Bundle 'vim-scripts/c.vim'
+
 " Zoom in/out of windows. Full screen a pane / revert to pane view.
 " Bundle 'vim-scripts/ZoomWin'
 
 " Shows directory structure in pane.
 " Bundle 'scrooloose/nerdtree'
-" Bundle 'scrooloose/syntastic'
+
+" Syntastic is a syntax checking plugin for Vim that runs files through
+" external syntax checkers and displays any resulting errors to the user.
+Bundle 'scrooloose/syntastic'
 
 " Bundle 'christoomey/vim-tmux-navigator'
 
