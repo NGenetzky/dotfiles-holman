@@ -38,7 +38,7 @@ source $DOTFILES/system/env
 source $DOTFILES/system/path
 
 ## Source other files
-source tmuxp.bash
+#source tmuxp.bash
 source $DOTFILES/bash/git_alias_completion.bash
 
 ###
