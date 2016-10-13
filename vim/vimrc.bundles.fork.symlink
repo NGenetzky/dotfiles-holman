@@ -37,11 +37,14 @@ Bundle 'tpope/vim-speeddating'
 " Shows the current tag structure in a pane.
 " Bundle 'majutsushi/tagbar'
 
-" Automated tag generation and syntax highlighting in Vim
-" vim-misc is required for vim-easytags
-" TODO: Disable Bundle when Exuberant Ctags is not installed.
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-easytags'
+" Disable Bundle when Exuberant Ctags is not installed.
+if executable("ctags")
+    " vim-misc is required for vim-easytags
+    Bundle 'xolox/vim-misc'
+    " Automated tag generation and syntax highlighting in Vim
+    Bundle 'xolox/vim-easytags'
+endif
+
 
 " Snippet Engine (requires python)
 " TODO: Disable Bundle when Python version of vim is not installed.

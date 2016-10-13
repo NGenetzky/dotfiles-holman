@@ -64,8 +64,8 @@ nnoremap gp `[v`]
 "" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
 
 " Undo SPF13 Mappings that moves to window and minimized old window.
-unmap <C-j>
-unmap <C-k>
+silent! unmap <C-j>
+silent! unmap <C-k>
 " Maximize current split.
 nnoremap <C-_> <C-W>_
 " Use my own Navigation mappings moving around splits.
