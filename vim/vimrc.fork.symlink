@@ -259,3 +259,5 @@ endfunction
 
 " Events
 source ~/.dotfiles/vim/events.vim
+
+" vim:ft=vim

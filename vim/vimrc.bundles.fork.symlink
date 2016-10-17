@@ -1,8 +1,6 @@
-" Bundle 'tpope/vim-surround'
-" Bundle 'tpope/vim-repeat'
-" Bundle 'tpope/vim-obsession'
+Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-unimpaired'
-" Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-sensible'
 
 "" speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
 Bundle 'tpope/vim-speeddating'
@@ -13,17 +11,14 @@ Bundle 'tpope/vim-speeddating'
 " Bundle 'vim-scripts/Conque-GDB'
 
 " C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
-" Bundle 'vim-scripts/c.vim'
+Bundle 'vim-scripts/c.vim'
 
 " Zoom in/out of windows. Full screen a pane / revert to pane view.
 " Bundle 'vim-scripts/ZoomWin'
 
-" Shows directory structure in pane.
-" Bundle 'scrooloose/nerdtree'
-
-" Bundle 'christoomey/vim-tmux-navigator'
-
-" Bundle 'ctrlpvim/ctrlp.vim'
+if executable("tmux")
+    Bundle 'christoomey/vim-tmux-navigator'
+endif
 
 " Bundle 'tomtom/tcomment_vim'
 
@@ -35,7 +30,7 @@ Bundle 'tpope/vim-speeddating'
 " " Bundle 'itchyny/lightline.vim'
 
 " Shows the current tag structure in a pane.
-" Bundle 'majutsushi/tagbar'
+Bundle 'majutsushi/tagbar'
 
 " Disable Bundle when Exuberant Ctags is not installed.
 if executable("ctags")
@@ -46,12 +41,16 @@ if executable("ctags")
 endif
 
 
-" Snippet Engine (requires python)
-" TODO: Disable Bundle when Python version of vim is not installed.
-Bundle 'SirVer/ultisnips'
-
-" Snippet repo.
-" Bundle 'honza/vim-snippets'
+" Snippet Engine (UltiSnips requires python but is better)
+if executable("python")
+    " Supports all snippets in this repo(https://github.com/honza/vim-snippets).
+    Bundle 'SirVer/ultisnips'
+else
+    " neo-snippet plugin contains neocomplcache snippets source
+    Bundle 'Shougo/neosnippet'
+    " The standard snippets repository for neosnippet
+    Bundle 'Shougo/neosnippet-snippets'
+endif
 
 " Completion Engine
 " Bundle 'Valloric/YouCompleteMe'
@@ -63,27 +62,9 @@ Bundle 'sjl/gundo.vim'
 Bundle 'vimplugin/project.vim'
 
 " The fancy start screen for Vim.
-" " Bundle 'mhinz/vim-startify'
+" Bundle 'mhinz/vim-startify'
 
-" vim-bookmarks {
-" " Bundle 'MattesGroeger/vim-bookmarks'
-let g:bookmark_no_default_key_mappings = 1
-nmap <Leader><Leader> <Plug>BookmarkToggle
-nmap <Leader>i <Plug>BookmarkAnnotate
-nmap <Leader>a <Plug>BookmarkShowAll
-nmap <Leader>j <Plug>BookmarkNext
-nmap <Leader>k <Plug>BookmarkPrev
-nmap <Leader>c <Plug>BookmarkClear
-nmap <Leader>x <Plug>BookmarkClearAll
-nmap <Leader>kk <Plug>BookmarkMoveUp
-nmap <Leader>jj <Plug>BookmarkMoveDown
-
-" highlight BookmarkSign ctermbg=whatever ctermfg=whatever
-" highlight BookmarkAnnotationSign ctermbg=whatever ctermfg=whatever
-" highlight BookmarkLine ctermbg=whatever ctermfg=whatever
-" highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
-
-"}
+Bundle 'MattesGroeger/vim-bookmarks'
 
 " space.vim - Smart Space key for Vim
 Bundle 'spiiph/vim-space'
@@ -129,32 +110,35 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/utl.vim'
 
 " Unload, delete or wipe a buffer without closing the window or split.
-Plugin 'qpkorr/vim-bufkill'
+Bundle 'qpkorr/vim-bufkill'
 
-Plugin 'Konfekt/FastFold'
+Bundle 'Konfekt/FastFold'
+
+"" Syntax Bundles
+Bundle 'sheerun/vim-polyglot'
+Bundle 'vim-scripts/crontab.vim'
 
 "" A plugin to debug program with gdb by using vim
-" Bundle 'skibyte/gdb-from-vim'
-"" Disabled because:
-"" Error detected while processing /home/dakeng/.vim/bundle/gdb-from-vim/plugin/gdbfromvim.vim:
-"" line   82:
-"" E174: Command already exists: add ! to replace it
-"" line   83:
-"" E174: Command already exists: add ! to replace it
-
-if filereadable(expand("~/.vimrc.bundles.spf13"))
-
-else
-    " a Git wrapper so awesome, it should be illegal
-    Bundle 'tpope/vim-fugitive'
-
-    " Syntastic is a syntax checking plugin for Vim that runs files through
-    " external syntax checkers and displays any resulting errors to the user.
-    Bundle 'scrooloose/syntastic'
-endif
+" Disables because it requires skibyte/gdblib
+"Bundle 'skibyte/gdb-from-vim'
 
 if filereadable(expand("~/.vimrc.bundles.spf13"))
 " SPF13 Overrides ---------------------------------------------------------- {
+
+    " github.com/garbas/vim-snipmate:
+        " VimL, snipmate-snippets, engine sometimes behaves strange. Supports snippets/*
+    UnBundle 'garbas/vim-snipmate'
+
+    " github.com/Shougo/neosnippet:
+        " VimL, supports snippets/* with some configuration.
+    " neo-snippet plugin contains neocomplcache snippets source
+    UnBundle 'Shougo/neosnippet'
+    " The standard snippets repository for neosnippet
+    UnBundle 'Shougo/neosnippet-snippets'
+
+    " vim-snipmate default snippets
+    "UnBundle 'honza/vim-snippets'
+
 
     " interpret a file by function and cache file automatically
     "UnBundle 'MarcWeber/vim-addon-mw-utils'
@@ -179,9 +163,6 @@ if filereadable(expand("~/.vimrc.bundles.spf13"))
 
     " Inserts matching bracket, paren, brace or quote http://www.vim.org/scripts/script.php?script_id=1849
     UnBundle 'spf13/vim-autoclose'
-
-    " Fuzzy file, buffer, mru, tag, etc finder
-    "UnBundle 'kien/ctrlp.vim'
 
     " Navigate and jump to function defs http://www.vim.org/scripts/script.php?script_id=4592
     "UnBundle 'tacahiroy/ctrlp-funky'
@@ -275,18 +256,6 @@ if filereadable(expand("~/.vimrc.bundles.spf13"))
     Bundle 'Shougo/neocomplcache'
     Bundle 'Shougo/neocomplete'
 
-
-    " neo-snippet plugin contains neocomplcache snippets source
-    UnBundle 'Shougo/neosnippet'
-    " Bundle 'Shougo/neosnippet'
-
-    " The standard snippets repository for neosnippet
-    UnBundle 'Shougo/neosnippet-snippets'
-    " Bundle 'Shougo/neosnippet-snippets'
-
-    " vim-snipmate default snippets
-    "UnBundle 'honza/vim-snippets'
-
     " PHP Integration environment for Vim
     "UnBundle 'spf13/PIV'
 
@@ -358,6 +327,26 @@ if filereadable(expand("~/.vimrc.bundles.spf13"))
 
     " Vim files for editing Salt files
     UnBundle 'saltstack/salt-vim'
+
+else
+    " a Git wrapper so awesome, it should be illegal
+    Bundle 'tpope/vim-fugitive'
+
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-repeat'
+
+    " Syntastic is a syntax checking plugin for Vim that runs files through
+    " external syntax checkers and displays any resulting errors to the user.
+    Bundle 'scrooloose/syntastic'
+    " Shows directory structure in pane.
+    Bundle 'scrooloose/nerdtree'
+
+    " Snippet repo.
+    Bundle 'honza/vim-snippets'
+
+    " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.
+    Bundle 'ctrlpvim/ctrlp.vim'
+
 endif
 
 " Plugin Settings ---------------------------------------------------------- {
@@ -899,12 +888,19 @@ if &runtimepath =~ 'ultisnips'
     let g:UltiSnipsUsePythonVersion = 2
 
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<c-b>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-c>"
+    let g:UltiSnipsExpandTrigger="<c-J>"
+    let g:UltiSnipsListSnippets="<c-b>"
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
+
+    let g:UltiSnipsSnippetsDir="~/.vim/snippets"
+    if !isdirectory(expand(g:UltiSnipsSnippetsDir))
+        call mkdir(expand(g:UltiSnipsSnippetsDir), "p")
+    endif
+    let g:UltiSnipsSnippetDirectories=["UltiSnips", "code_snippets"]
 endif
 
 if &runtimepath =~ 'unite.vim'
@@ -942,4 +938,139 @@ if &runtimepath =~ 'YouCompleteMe'
     let g:ycm_confirm_extra_conf=0
 endif
 
+if &runtimepath =~ 'bookmarks'
+    let g:bookmark_no_default_key_mappings = 1
+    nmap <Leader><Leader> <Plug>BookmarkToggle
+    nmap <Leader>i <Plug>BookmarkAnnotate
+    nmap <Leader>a <Plug>BookmarkShowAll
+    nmap <Leader>j <Plug>BookmarkNext
+    nmap <Leader>k <Plug>BookmarkPrev
+    nmap <Leader>c <Plug>BookmarkClear
+    nmap <Leader>x <Plug>BookmarkClearAll
+    nmap <Leader>kk <Plug>BookmarkMoveUp
+    nmap <Leader>jj <Plug>BookmarkMoveDown
+
+    " highlight BookmarkSign ctermbg=whatever ctermfg=whatever
+    " highlight BookmarkAnnotationSign ctermbg=whatever ctermfg=whatever
+    " highlight BookmarkLine ctermbg=whatever ctermfg=whatever
+    " highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
+endif
+
+if &runtimepath =~ 'neocomplcache'
+    "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+    " Disable AutoComplPop.
+    let g:acp_enableAtStartup = 0
+    " Use neocomplcache.
+    let g:neocomplcache_enable_at_startup = 1
+    " Use smartcase.
+    let g:neocomplcache_enable_smart_case = 1
+    " Set minimum syntax keyword length.
+    let g:neocomplcache_min_syntax_length = 3
+    let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+    " Enable heavy features.
+    " Use camel case completion.
+    "let g:neocomplcache_enable_camel_case_completion = 1
+    " Use underbar completion.
+    "let g:neocomplcache_enable_underbar_completion = 1
+
+    " Define dictionary.
+    let g:neocomplcache_dictionary_filetype_lists = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+    " Define keyword.
+    if !exists('g:neocomplcache_keyword_patterns')
+        let g:neocomplcache_keyword_patterns = {}
+    endif
+    let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+    " Plugin key-mappings.
+    inoremap <expr><C-g>     neocomplcache#undo_completion()
+    inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+    " Recommended key-mappings.
+    " <CR>: close popup and save indent.
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function()
+      return neocomplcache#smart_close_popup() . "\<CR>"
+      " For no inserting <CR> key.
+      "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+    endfunction
+    " <TAB>: completion.
+    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    " <C-h>, <BS>: close popup and delete backword char.
+    inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+    inoremap <expr><C-y>  neocomplcache#close_popup()
+    inoremap <expr><C-e>  neocomplcache#cancel_popup()
+    " Close popup by <Space>.
+    "inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+
+    " For cursor moving in insert mode(Not recommended)
+    "inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+    "inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+    "inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+    "inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+    " Or set this.
+    "let g:neocomplcache_enable_cursor_hold_i = 1
+    " Or set this.
+    "let g:neocomplcache_enable_insert_char_pre = 1
+
+    " AutoComplPop like behavior.
+    "let g:neocomplcache_enable_auto_select = 1
+
+    " Shell like behavior(not recommended).
+    "set completeopt+=longest
+    "let g:neocomplcache_enable_auto_select = 1
+    "let g:neocomplcache_disable_auto_complete = 1
+    "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+    " Enable heavy omni completion.
+    if !exists('g:neocomplcache_force_omni_patterns')
+      let g:neocomplcache_force_omni_patterns = {}
+    endif
+    let g:neocomplcache_force_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+    let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+    let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+    " For perlomni.vim setting.
+    " https://github.com/c9s/perlomni.vim
+    let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+endif
+
+if &runtimepath =~ 'neosnippet.vim'
+    " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+    " SuperTab like snippets behavior.
+    "imap <expr><TAB>
+    " \ pumvisible() ? "\<C-n>" :
+    " \ neosnippet#expandable_or_jumpable() ?
+    " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+    " For conceal markers.
+    if has('conceal')
+      set conceallevel=2 concealcursor=niv
+    endif
+
+    " Enable snipMate compatibility feature.
+    let g:neosnippet#enable_snipmate_compatibility = 1
+
+    " Tell Neosnippet about the other snippets
+    let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+endif
 " Plugin Settings ---------------------------------------------------------- }
