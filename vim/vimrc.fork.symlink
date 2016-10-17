@@ -149,19 +149,19 @@ set listchars=tab:».,trail:·,nbsp:.
 " Undos, Swaps and Backups ------------------------------------------------- {{{
 
 set undofile   " Maintain undo history between sessions
-set undodir=~/.vim/tmp/undo//
+set undodir=~/.vim/vimundo//
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
 set backup
-set backupdir=~/.vim/tmp/backup//
+set backupdir=~/.vim/vimbackup//
 if !isdirectory(&backupdir)
     call mkdir(&backupdir, "p")
 endif
 
 " Directory used for swap files
-set directory=~/.vim/tmp/swap//
+set directory=~/.vim/vimswap//
 if !isdirectory(&directory)
     call mkdir(&directory, "p")
 endif
@@ -230,7 +230,6 @@ try
 catch /^Vim\%((\a\+)\)\=:E31/	" catch E31: No such mapping
 
 endtry
-
 
 
 source ~/.dotfiles/vim/mappings.vim
