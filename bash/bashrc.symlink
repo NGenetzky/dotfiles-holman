@@ -4,12 +4,12 @@ export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/workspace
+export WORKSPACE=~/workspace
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
-if [[ -a ~/.bashrc.local ]]
-then
+if [[ -f ~/.bashrc.local ]]; then
   source ~/.bashrc.local
 fi
 
@@ -17,20 +17,28 @@ fi
 export TERM=xterm-256color
 set editing-mode vi
 
-## Aliases
-source $DOTFILES/git/aliases
-source $DOTFILES/system/aliases
-if [ -f ~/.bash.aliases ]; then
-    . ~/.bash.aliases
+
+#############
+## Aliases ##
+#############
+
+### git
+if [ -f $DOTFILES/git/aliases ]; then
+    source $DOTFILES/git/aliases
 fi
-if [ -f ~/workspace/project_notebook/.aliases ]; then
-    source ~/workspace/project_notebook/.aliases
+### system
+if [ -f $DOTFILES/system/aliases ]; then
+    source $DOTFILES/system/aliases
+fi
+### bash
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
 fi
 
 ## Prompt
 # Prompt is stored in a separate symlinked file.
 if [ -f ~/.bash.prompt ]; then
-    . ~/.bash.prompt
+    source ~/.bash.prompt
 fi
 
 ## System
@@ -40,9 +48,10 @@ source $DOTFILES/system/path
 ## Source other files
 source $DOTFILES/bash/git_alias_completion.bash
 
-###
-# history
-###
+
+#############
+## history ##
+#############
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -53,17 +62,17 @@ HISTSIZE=1000
 HISTFILESIZE=2000
 
 
-###
-# shopt commands
-###
+####################
+## shopt commands ##
+####################
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
   elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+    source /etc/bash_completion
   fi
 fi
