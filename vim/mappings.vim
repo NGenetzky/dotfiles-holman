@@ -172,4 +172,7 @@ noremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>f yiw:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 vnoremap <leader>f y:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" http://stackoverflow.com/a/7078429
+cmap w!! w !sudo tee > /dev/null %
 
