@@ -1,14 +1,9 @@
+#!/usr/bin/env bash
 
-# Install spf13
-#~/.dotfiles/install/spf13-vim
+source $DOTFILES/install/spf13-vim-partial
 
-
-mkdir ~/.vim
-mkdir ~/.vim/tmp
-mkdir ~/.vim/tmp/backup/
-mkdir ~/.vim/tmp/swap/
-mkdir ~/.vim/tmp/undo/
-
-mkdir ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+mkdir -p ~/.vim/bundle
+if [ ! -d ~/.vim/bundle/vundle ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+fi
 vim +PluginInstall +qall
