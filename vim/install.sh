@@ -1,6 +1,9 @@
 
-mkdir ~/.vim
+# Install spf13
+#~/.dotfiles/install/spf13-vim
 
+
+mkdir ~/.vim
 mkdir ~/.vim/tmp
 mkdir ~/.vim/tmp/backup/
 mkdir ~/.vim/tmp/swap/
