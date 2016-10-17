@@ -97,6 +97,10 @@ Bundle 'spiiph/vim-space'
 
 " The unite or unite.vim plug-in can search and display information from
 " arbitrary sources like files, buffers, recently used files or registers.
+Bundle 'Shougo/neoyank.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/neomru.vim'
+Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/unite.vim'
 
 " Tabmerge : Merge a tab's windows with the current tab 
@@ -678,9 +682,7 @@ if &runtimepath =~ 'lightline'
     let g:vimshell_force_overwrite_statusline = 0
 endif
 
-if &runtimepath =~ 'nerdtree'
-    "" scrooloose/nerdtree
-
+if &runtimepath =~ 'nerdtree'                              " scrooloose/nerdtree
     " The script provides the following options that can customise the behaviour the
     " NERD tree. These options should be set in your vimrc.
 
@@ -908,15 +910,20 @@ endif
 if &runtimepath =~ 'unite.vim'
     let g:unite_source_history_yank_enable = 1
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    nnoremap <leader>T :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
-    nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
-    nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
 
-    "nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
-        "Disabled because it returns error:
-        "[unite.vim] Invalid source name "outline" is detected.
-        "[unite.vim] unite.vim: Invalid source
-    "nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+    if &runtimepath =~ 'vimproc.vim'
+        nnoremap <leader>T :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+    endif
+    nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+    if &runtimepath =~ 'neomru.vim'
+        nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+    endif
+    if &runtimepath =~ 'unite-outline.vim'
+        nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+    endif
+    if &runtimepath =~ 'neoyank.vim'
+        nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+    endif
     nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
 
     " Custom mappings for the unite buffer
