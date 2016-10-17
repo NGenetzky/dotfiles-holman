@@ -1,0 +1,8 @@
+# Install spf13
+cd $DOTFILES
+git submodule update --init --recursive
+
+#~/.dotfiles/install/spf13-vim
+ln -sf $DOTFILES/spf13-vim/.vimrc ~/.vimrc.spf13
+ln -sf $DOTFILES/spf13-vim/.vimrc.bundles ~/.vimrc.bundles.spf13
+ln -sf $DOTFILES/spf13-vim/.vimrc.before ~/.vimrc.before.spf13
