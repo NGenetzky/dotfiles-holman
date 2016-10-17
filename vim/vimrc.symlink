@@ -2,6 +2,7 @@
 " Use spf13 config if available {
 if filereadable(expand("~/.vimrc.spf13"))
     source ~/.vimrc.spf13
+
 else
     " Use before config if available {
     if filereadable(expand("~/.vimrc.before"))
@@ -25,5 +26,14 @@ else
         source ~/.vimrc.local
     endif
     " }
+
+    " Use local gvimrc if available and gui is running {
+        if has('gui_running')
+            if filereadable(expand("~/.gvimrc.local"))
+                source ~/.gvimrc.local
+            endif
+        endif
+    " }
+
 endif
 
