@@ -65,8 +65,25 @@ Bundle 'vimplugin/project.vim'
 " The fancy start screen for Vim.
 " " Bundle 'mhinz/vim-startify'
 
-" Bookmarks
+" vim-bookmarks {
 " " Bundle 'MattesGroeger/vim-bookmarks'
+let g:bookmark_no_default_key_mappings = 1
+nmap <Leader><Leader> <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>a <Plug>BookmarkShowAll
+nmap <Leader>j <Plug>BookmarkNext
+nmap <Leader>k <Plug>BookmarkPrev
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+nmap <Leader>kk <Plug>BookmarkMoveUp
+nmap <Leader>jj <Plug>BookmarkMoveDown
+
+" highlight BookmarkSign ctermbg=whatever ctermfg=whatever
+" highlight BookmarkAnnotationSign ctermbg=whatever ctermfg=whatever
+" highlight BookmarkLine ctermbg=whatever ctermfg=whatever
+" highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
+
+"}
 
 " space.vim - Smart Space key for Vim
 Bundle 'spiiph/vim-space'
@@ -124,6 +141,7 @@ Plugin 'Konfekt/FastFold'
 if filereadable(expand("~/.vimrc.bundles.spf13"))
 
 else
+    " a Git wrapper so awesome, it should be illegal
     Bundle 'tpope/vim-fugitive'
 
     " Syntastic is a syntax checking plugin for Vim that runs files through
@@ -336,5 +354,585 @@ if filereadable(expand("~/.vimrc.bundles.spf13"))
 
     " Vim files for editing Salt files
     UnBundle 'saltstack/salt-vim'
-
 endif
+
+" Plugin Settings ---------------------------------------------------------- {
+
+if &runtimepath =~ 'vim-bookmarks'
+    let g:bookmark_no_default_key_mappings = 1
+    nmap <Leader><Leader> <Plug>BookmarkToggle
+    nmap <Leader>i <Plug>BookmarkAnnotate
+    nmap <Leader>a <Plug>BookmarkShowAll
+    nmap <Leader>j <Plug>BookmarkNext
+    nmap <Leader>k <Plug>BookmarkPrev
+    nmap <Leader>c <Plug>BookmarkClear
+    nmap <Leader>x <Plug>BookmarkClearAll
+    nmap <Leader>kk <Plug>BookmarkMoveUp
+    nmap <Leader>jj <Plug>BookmarkMoveDown
+
+
+    " highlight BookmarkSign ctermbg=whatever ctermfg=whatever
+    " highlight BookmarkAnnotationSign ctermbg=whatever ctermfg=whatever
+    " highlight BookmarkLine ctermbg=whatever ctermfg=whatever
+    " highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
+endif
+
+if &runtimepath =~ 'vim-airline'
+    let g:airline_theme = 'solarized'
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '?'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '?'
+    " TODO: fix E121: Undefined variable: g:airline_symbols
+    " let g:airline_symbols.linenr = '?'
+    " let g:airline_symbols.linenr = '?'
+    " let g:airline_symbols.linenr = '¶'
+    " let g:airline_symbols.branch = '?'
+    " let g:airline_symbols.paste = ' ρ'
+    " let g:airline_symbols.paste = 'Þ'
+    " let g:airline_symbols.paste = '?'
+    " let g:airline_symbols.whitespace = ' Ξ '
+endif
+
+if &runtimepath =~ 'clang-format'
+    " http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html
+    let g:clang_format#command = 'clang-format-3.5'
+
+    let g:clang_format#style_options = {
+        \ "BasedOnStyle" :                                    "Google",
+        \ "Language" :                                        "Cpp",
+        \ "AccessModifierOffset" :                            "-1",
+        \ "ConstructorInitializerIndentWidth" :               "4",
+        \ "AlignEscapedNewlinesLeft" :                        "true",
+        \ "AlignTrailingComments" :                           "true",
+        \ "AllowAllParametersOfDeclarationOnNextLine" :       "true",
+        \ "AllowShortBlocksOnASingleLine" :                   "false",
+        \ "AllowShortIfStatementsOnASingleLine" :             "true",
+        \ "AllowShortLoopsOnASingleLine" :                    "true",
+        \ "AllowShortFunctionsOnASingleLine" :                "All",
+        \ "AlwaysBreakTemplateDeclarations" :                 "true",
+        \ "AlwaysBreakBeforeMultilineStrings" :               "true",
+        \ "BreakBeforeBinaryOperators" :                      "false",
+        \ "BreakBeforeTernaryOperators" :                     "true",
+        \ "BinPackParameters" :                               "true",
+        \ "ColumnLimit" :                                     "80",
+        \ "ConstructorInitializerAllOnOneLineOrOnePerLine" :  "true",
+        \ "DerivePointerAlignment" :                          "true",
+        \ "ExperimentalAutoDetectBinPacking" :                "false",
+        \ "IndentCaseLabels" :                                "true",
+        \ "IndentWrappedFunctionNames" :                      "false",
+        \ "IndentFunctionDeclarationAfterType" :              "false",
+        \ "MaxEmptyLinesToKeep" :                             "1",
+        \ "KeepEmptyLinesAtTheStartOfBlocks" :                "false",
+        \ "NamespaceIndentation" :                            "None",
+        \ "ObjCSpaceAfterProperty" :                          "false",
+        \ "ObjCSpaceBeforeProtocolList" :                     "false",
+        \ "PenaltyBreakBeforeFirstCallParameter" :            "1",
+        \ "PenaltyBreakComment" :                             "300",
+        \ "PenaltyBreakString" :                              "1000",
+        \ "PenaltyBreakFirstLessLess" :                       "120",
+        \ "PenaltyExcessCharacter" :                          "1000000",
+        \ "PointerAlignment" :                                "Left",
+        \ "SpacesBeforeTrailingComments" :                    "2",
+        \ "Cpp11BracedListStyle" :                            "true",
+        \ "Standard" :                                        "Auto",
+        \ "IndentWidth" :                                     "2",
+        \ "UseTab" :                                          "Never",
+        \ "BreakBeforeBraces" :                               "Attach",
+        \ "SpacesInAngles" :                                  "false",
+        \ "SpaceInEmptyParentheses" :                         "false",
+        \ "SpacesInCStyleCastParentheses" :                   "false",
+        \ "SpacesInContainerLiterals" :                       "true",
+        \ "SpaceBeforeAssignmentOperators" :                  "true",
+        \ "ContinuationIndentWidth" :                         "4",
+        \ "CommentPragmas" :                                  "'^ IWYU pragma:'",
+        \ "ForEachMacros" :                                   "[ foreach, Q_FOREACH, BOOST_FOREACH ]",
+        \ "SpaceBeforeParens" :                               "ControlStatements",
+        \ "DisableFormat" :                                   "false",
+        \ "TabWidth" :                                        "4",
+        \ "SpacesInParentheses" :                             "true",
+        \ }
+
+    let g:clang_format#style_options = {
+        \  "BasedOnStyle"                             :  "Google",
+        \  "AllowShortIfStatementsOnASingleLine"      :  "true",
+        \  "AlwaysBreakTemplateDeclarations"          :  "true",
+        \  "Standard"                                 :  "C++11",
+        \  "SpacesInParentheses"                      :  "true",
+        \  "BreakConstructorInitializersBeforeComma"  :  "true",
+        \  "BreakBeforeBraces"                        :  "Stroustrup",
+        \  "PenaltyReturnTypeOnItsOwnLine"            :  "0",
+        \ }
+
+    " Desired future style options (not available in Clang 3.5)
+    " \  "ReturnTypeBreakingStyle" : "RTBS_AllDefinitions",
+    " \  "BreakConstructorInitializersBeforeComma"  :  "true",
+
+    " map to <Leader>cf in C++ code
+    autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+    autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+    " if you install vim-operator-user
+    autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+    " Toggle auto formatting:
+    nmap <Leader>C :ClangFormatAutoToggle<CR>
+endif
+
+if &runtimepath =~ 'ctrlp'
+    " Ignore some folders and files for CtrlP indexing
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
+      \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.o|\.so'
+      \ }
+endif
+
+if &runtimepath =~ 'c'
+    " See https://github.com/vim-scripts/c.vim/blob/master/doc/csupport.txt
+    " let g:C_MapLeader = '\'
+    let g:C_GlobalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
+    let g:C_GlobalTemplateFile   = expand('~/.dotfiles/vim/c-support/templates/Templates')
+    let g:C_LocalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
+    let g:C_LocalTemplateFile   = expand('~/.dotfiles/vim/c-support/templates/Templates')
+    let g:C_CodeSnippets        = expand('~/.dotfiles/vim/c-support/codesnippets')
+    let g:C_FormatDate          = '%D'
+    let g:C_FormatTime          = '%H:%M'
+    let g:C_FormatYear          = 'year %Y'
+    " Disable <c-j>. Context:
+    " if !exists("g:C_Ctrl_j") || ( exists("g:C_Ctrl_j") && g:C_Ctrl_j != 'off' )
+    let g:C_Ctrl_j='off'
+endif
+
+if &runtimepath =~ 'vim-fugitive'
+    noremap <Leader>ga :Gwrite<CR>
+    noremap <Leader>gc :Gcommit<CR>
+    noremap <Leader>gsh :Gpush<CR>
+    noremap <Leader>gll :Gpull<CR>
+    noremap <Leader>gs :call GstatusToggle()<CR>
+    noremap <Leader>gb :Gblame<CR>
+    noremap <Leader>gd :Gvdiff<CR>
+    noremap <Leader>gr :Gremove<CR>
+    function! GstatusToggle()
+        if buflisted(bufname('.git/index'))
+            bd .git/index
+        else
+            Gstatus
+        endif
+    endfunction
+endif
+
+if &runtimepath =~ 'gdb-from-vim'
+    " nnoremap <F4> :GdbFromVimRun <CR>
+    " nnoremap <F5> :GdbFromVimStep <CR>
+    " nnoremap <F6> :GdbFromVimNext <CR>
+    " nnoremap <leader>b :GdbFromVimAddBreakpoint <CR>
+    " nnoremap <F8> :GdbFromFromDeleteBreakpoint <CR>
+    " nnoremap <F9> :GdbFromVimClear <CR>
+endif
+
+if &runtimepath =~ 'GoldenView'
+    let g:goldenview__enable_default_mapping = 0
+    " 1. split to tiled windows
+    nmap <silent> <C-L>  <Plug>GoldenViewSplit
+    " 2. quickly switch current window with the main pane
+    " and toggle back
+    nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+    nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+    " 3. jump to next and previous window
+    " nmap <silent> <C-N>  <Plug>GoldenViewNext
+    " nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+endif
+
+if &runtimepath =~ 'lightline'
+    set laststatus=2
+
+    if !has('gui_running')
+      set t_Co=256
+    endif
+
+    let g:lightline = {
+          \ 'colorscheme': 'wombat',
+          \ 'active': {
+          \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+          \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+          \ },
+          \ 'component_function': {
+          \   'fugitive': 'LightLineFugitive',
+          \   'filename': 'LightLineFilename',
+          \   'fileformat': 'LightLineFileformat',
+          \   'filetype': 'LightLineFiletype',
+          \   'fileencoding': 'LightLineFileencoding',
+          \   'mode': 'LightLineMode',
+          \   'ctrlpmark': 'CtrlPMark',
+          \ },
+          \ 'component_expand': {
+          \   'syntastic': 'SyntasticStatuslineFlag',
+          \ },
+          \ 'component_type': {
+          \   'syntastic': 'error',
+          \ },
+          \ 'subseparator': { 'left': '|', 'right': '|' }
+          \ }
+
+    function! LightLineModified()
+      return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    endfunction
+
+    function! LightLineReadonly()
+      return &ft !~? 'help' && &readonly ? 'RO' : ''
+    endfunction
+
+    function! LightLineFilename()
+      let fname = expand('%:t')
+      return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
+            \ fname == '__Tagbar__' ? g:lightline.fname :
+            \ fname =~ '__Gundo\|NERD_tree' ? '' :
+            \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+            \ &ft == 'unite' ? unite#get_status_string() :
+            \ &ft == 'vimshell' ? vimshell#get_status_string() :
+            \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+            \ ('' != fname ? fname : '[No Name]') .
+            \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+    endfunction
+
+    function! LightLineFugitive()
+      try
+        if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+          let mark = ''  " edit here for cool mark
+          let branch = fugitive#head()
+          return branch !=# '' ? mark.branch : ''
+        endif
+      catch
+      endtry
+      return ''
+    endfunction
+
+    function! LightLineFileformat()
+      return winwidth(0) > 70 ? &fileformat : ''
+    endfunction
+
+    function! LightLineFiletype()
+      return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+    endfunction
+
+    function! LightLineFileencoding()
+      return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+    endfunction
+
+    function! LightLineMode()
+      let fname = expand('%:t')
+      return fname == '__Tagbar__' ? 'Tagbar' :
+            \ fname == 'ControlP' ? 'CtrlP' :
+            \ fname == '__Gundo__' ? 'Gundo' :
+            \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+            \ fname =~ 'NERD_tree' ? 'NERDTree' :
+            \ &ft == 'unite' ? 'Unite' :
+            \ &ft == 'vimfiler' ? 'VimFiler' :
+            \ &ft == 'vimshell' ? 'VimShell' :
+            \ winwidth(0) > 60 ? lightline#mode() : ''
+    endfunction
+
+    function! CtrlPMark()
+      if expand('%:t') =~ 'ControlP' && has_key(g:lightline, 'ctrlp_item')
+        call lightline#link('iR'[g:lightline.ctrlp_regex])
+        return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+              \ , g:lightline.ctrlp_next], 0)
+      else
+        return ''
+      endif
+    endfunction
+
+    let g:ctrlp_status_func = {
+      \ 'main': 'CtrlPStatusFunc_1',
+      \ 'prog': 'CtrlPStatusFunc_2',
+      \ }
+
+    function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+      let g:lightline.ctrlp_regex = a:regex
+      let g:lightline.ctrlp_prev = a:prev
+      let g:lightline.ctrlp_item = a:item
+      let g:lightline.ctrlp_next = a:next
+      return lightline#statusline(0)
+    endfunction
+
+    function! CtrlPStatusFunc_2(str)
+      return lightline#statusline(0)
+    endfunction
+
+    let g:tagbar_status_func = 'TagbarStatusFunc'
+
+    function! TagbarStatusFunc(current, sort, fname, ...) abort
+        let g:lightline.fname = a:fname
+      return lightline#statusline(0)
+    endfunction
+
+    augroup AutoSyntastic
+      autocmd!
+      autocmd BufWritePost *.c,*.cpp call s:syntastic()
+    augroup END
+    function! s:syntastic()
+      SyntasticCheck
+      call lightline#update()
+    endfunction
+
+    let g:unite_force_overwrite_statusline = 0
+    let g:vimfiler_force_overwrite_statusline = 0
+    let g:vimshell_force_overwrite_statusline = 0
+endif
+
+if &runtimepath =~ 'nerdtree'
+    "" scrooloose/nerdtree
+
+    " The script provides the following options that can customise the behaviour the
+    " NERD tree. These options should be set in your vimrc.
+
+    " |'loaded_nerd_tree'|            Turns off the script.
+
+    " |'NERDTreeAutoCenter'|          Controls whether the NERD tree window centers
+    "                                 when the cursor moves within a specified
+    "                                 distance to the top/bottom of the window.
+
+    " |'NERDTreeAutoCenterThreshold'| Controls the sensitivity of autocentering.
+
+    " |'NERDTreeCaseSensitiveSort'|   Tells the NERD tree whether to be case
+    "                                 sensitive or not when sorting nodes.
+
+    " |'NERDTreeSortHiddenFirst'|     Tells the NERD tree whether to take the dot
+    "                                 at the beginning of the hidden file names
+    "                                 into account when sorting nodes.
+
+    " |'NERDTreeChDirMode'|           Tells the NERD tree if/when it should change
+    "                                 vim's current working directory.
+
+    " |'NERDTreeHighlightCursorline'| Tell the NERD tree whether to highlight the
+    "                                 current cursor line.
+
+    " |'NERDTreeHijackNetrw'|         Tell the NERD tree whether to replace the netrw
+    "                                 autocommands for exploring local directories.
+
+    " |'NERDTreeIgnore'|              Tells the NERD tree which files to ignore.
+
+    " |'NERDTreeRespectWildIgnore'|   Tells the NERD tree to respect |'wildignore'|.
+
+    " |'NERDTreeBookmarksFile'|       Where the bookmarks are stored.
+
+    " |'NERDTreeBookmarksSort'|       Whether the bookmarks list is sorted on
+    "                                 display.
+
+    " |'NERDTreeMouseMode'|           Tells the NERD tree how to handle mouse
+    "                                 clicks.
+
+    " |'NERDTreeQuitOnOpen'|          Closes the tree window after opening a file.
+
+    " |'NERDTreeShowBookmarks'|       Tells the NERD tree whether to display the
+    "                                 bookmarks table on startup.
+
+    " |'NERDTreeShowFiles'|           Tells the NERD tree whether to display files
+    "                                 in the tree on startup.
+
+    " |'NERDTreeShowHidden'|          Tells the NERD tree whether to display hidden
+    "                                 files on startup.
+
+    " |'NERDTreeShowLineNumbers'|     Tells the NERD tree whether to display line
+    "                                 numbers in the tree window.
+
+    " |'NERDTreeSortOrder'|           Tell the NERD tree how to sort the nodes in
+    "                                 the tree.
+
+    " |'NERDTreeStatusline'|          Set a statusline for NERD tree windows.
+
+    " |'NERDTreeWinPos'|              Tells the script where to put the NERD tree
+    "                                 window.
+
+    " |'NERDTreeWinSize'|             Sets the window size when the NERD tree is
+    "                                 opened.
+
+    " |'NERDTreeMinimalUI'|           Disables display of the 'Bookmarks' label and 
+    "                                 'Press ? for help' text.
+
+    " |'NERDTreeCascadeOpenSingleChildDir'|
+    "                                 Cascade open while selected directory has only
+    "                                 one child that also is a directory.
+
+    " |'NERDTreeAutoDeleteBuffer'|    Tells the NERD tree to automatically remove 
+    "                                 a buffer when a file is being deleted or renamed
+    "                                 via a context menu command.
+
+    " |'NERDTreeCreatePrefix'|        Specify a prefix to be used when creating the
+    "                                 NERDTree window.
+
+    "" jistr/vim-nerdtree-tabs
+
+    " g:nerdtree_tabs_open_on_gui_startup (default: 1)
+    " Open NERDTree on gvim/macvim startup
+    let g:nerdtree_tabs_open_on_gui_startup = 0
+
+    " g:nerdtree_tabs_open_on_console_startup (default: 0)
+    " Open NERDTree on console vim startup
+    let g:nerdtree_tabs_open_on_console_startup = 0
+
+    " g:nerdtree_tabs_no_startup_for_diff (default: 1)
+    " Do not open NERDTree if vim starts in diff mode
+
+    " g:nerdtree_tabs_smart_startup_focus (default: 1)
+    " On startup, focus NERDTree if opening a directory, focus file if opening a file. (When set to 2, always focus file window after startup).
+
+    " g:nerdtree_tabs_open_on_new_tab (default: 1)
+    " Open NERDTree on new tab creation (if NERDTree was globally opened by :NERDTreeTabsToggle)
+    let g:nerdtree_tabs_open_on_new_tab = 0
+
+    " g:nerdtree_tabs_meaningful_tab_names (default: 1)
+    " Unfocus NERDTree when leaving a tab for descriptive tab names
+
+    " g:nerdtree_tabs_autoclose (default: 1)
+    " Close current tab if there is only one window in it and it's NERDTree
+
+    " g:nerdtree_tabs_synchronize_view (default: 1)
+    " Synchronize view of all NERDTree windows (scroll and cursor position)
+
+    " g:nerdtree_tabs_synchronize_focus (default: 1)
+    " Synchronize focus when switching windows (focus NERDTree after tab switch if and only if it was focused before tab switch)
+
+    " g:nerdtree_tabs_focus_on_files (default: 0)
+    " When switching into a tab, make sure that focus is on the file window, not in the NERDTree window. (Note that this can get annoying if you use NERDTree's feature "open in new tab silently", as you will lose focus on the NERDTree.)
+
+    " g:nerdtree_tabs_startup_cd (default: 1)
+    " When given a directory name as a command line parameter when launching Vim, :cd into it.
+
+    " g:nerdtree_tabs_autofind (default: 0)
+    " Automatically find and select currently opened file in NERDTree.
+endif
+
+if &runtimepath =~ 'project.vim'
+    " let g:proj_flags='gs'
+
+    " " Project: Run on file
+    " " %f is replaced with the full path and filename
+    " " %F is replaced with the full path and filename with spaces
+    " " quoted
+    " " %n is replaced with the filename alone
+    " " %N is replaced with the filename alone with spaces quoted
+    " " %h is replaced with the home directory
+    " " %H is replaced with the home directory with spaces quoted
+    " " %r is replaced with the directory relative to the CD path
+    " " %R is replaced with the directory relative to the CD path with spaces quoted
+    " " %d is replaced with the CD directory.
+    " " %D is replaced with the CD directory.with spaces quoted
+    " " %% is replaced with a single % that is not used in expansion.
+endif
+
+if &runtimepath =~ 'vim-space'
+    " Set this variable to disable space.vim
+    "
+    "   let g:space_loaded = 1
+
+    " Set this variable to disable select mode mappings
+    "
+    "   let g:space_disable_select_mode = 1
+
+    " These variables disables the usage of <Space> for groups of different
+    " movement commands
+    "
+    " Disable <Space> for character movements, e.g. fFtT;,
+    "   let g:space_no_character_movements = 1
+    "
+    " Disable <Space> for searches, e.g. /?#*nN
+    "   let g:space_no_search = 1
+    "
+    " Disable <Space> for jump commands, e.g. Ctrl-O, Ctrl-I, g, and g;
+    "   let g:space_no_jump = 1
+    "
+    " Disable <Space> for diff commands, e.g. [c and ]c
+    "   let g:space_no_diff = 1
+    "
+    " Disable <Space> for brace movement commands, e.g. [(, ]), [{ and ]}
+    "   let g:space_no_brace = 1
+    "
+    " Disable <Space> for method movement commands, e.g. [m, ]m, [M and ]M
+    "   let g:space_no_method = 1
+    "
+    " Disable <Space> for section movement commands, e.g. [[, ]], [] and ][
+    "   let g:space_no_section = 1
+    "
+    " Disable <Space> for fold movement commands, e.g. [z, ]z, zj and zk
+    "   let g:space_no_folds = 1
+    "
+    " Disable <Space> for tag movement commands, e.g. Ctrl-], :tag, etc.
+    "   let g:space_no_tags = 1
+    "
+    " Disable <Space> for quickfix and location list commands, e.g. :cc, :ll, etc.
+    "   let g:space_no_quickfix = 1
+    "
+    " Disable <Space> for undolist movements, e.g. g- and g+
+    "   let g:space_no_undolist = 1
+endif
+
+if &runtimepath =~ 'syntastic'
+    " Example checking plugin for syntastic.vim
+    " http://stackoverflow.com/a/22827392
+
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+
+    let g:syntastic_error_symbol = 'X'
+    let g:syntastic_warning_symbol = '!'
+
+    let g:syntastic_mode_map = { 'mode': 'passive' }
+
+    " Python
+    let g:syntastic_python_checkers = ['pep8', 'python', 'pylint']
+
+    " Cpp
+    "let g:syntastic_cpp_compiler = 'clang++'
+    "let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+    let g:syntastic_cpp_compiler = "g++"
+    let g:syntastic_cpp_compiler_options = "-std=c++11 -stdlib=libc++ -Wall -Wextra -Wpedantic"
+endif
+
+if &runtimepath =~ 'ultisnips'
+    let g:UltiSnipsUsePythonVersion = 2
+
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-c>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+endif
+
+if &runtimepath =~ 'unite.vim'
+    let g:unite_source_history_yank_enable = 1
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    nnoremap <leader>T :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+    nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files   -start-insert file<cr>
+    nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+
+    "nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+        "Disabled because it returns error:
+        "[unite.vim] Invalid source name "outline" is detected.
+        "[unite.vim] unite.vim: Invalid source
+    "nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+    nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
+
+    " Custom mappings for the unite buffer
+    autocmd FileType unite call s:unite_settings()
+    function! s:unite_settings()
+      " Play nice with supertab
+      let b:SuperTabDisabled=1
+      " Enable navigation with control-j and control-k in insert mode
+      imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+      imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+    endfunction
+endif
+
+if &runtimepath =~ 'YouCompleteMe'
+    let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
+    let g:ycm_confirm_extra_conf=0
+endif
+
+" Plugin Settings ---------------------------------------------------------- }

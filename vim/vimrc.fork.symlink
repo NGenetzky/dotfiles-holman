@@ -73,24 +73,7 @@ if has('unnamedplus')
 endif
 
 " }}}
-" Plugin settings --------------------------------------------------------- {{{1
 
-source ~/.dotfiles/vim/setup_clang_format.vim
-source ~/.dotfiles/vim/setup_fugitive.vim
-source ~/.dotfiles/vim/setup_syntastic.vim
-source ~/.dotfiles/vim/setup_project.vim
-source ~/.dotfiles/vim/setup_gdb_from_vim.vim
-source ~/.dotfiles/vim/setup_ultisnips.vim
-source ~/.dotfiles/vim/setup_nerdtree.vim
-" source ~/.dotfiles/vim/setup_lightline.vim
-" source ~/.dotfiles/vim/setup_c.vim
-" source ~/.dotfiles/vim/setup_ycm.vim
-" source ~/.dotfiles/vim/setup_golden_view.vim
-" source ~/.dotfiles/vim/setup_unite.vim
-" call SetupUnite()
-" source ~/.dotfiles/vim/setup_ctrl_p.vim
-
-" }}}
 " Searching -------------------------------------------------- {{{
 
 " Use case insensitive search,
