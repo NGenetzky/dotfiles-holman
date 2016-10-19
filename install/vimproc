@@ -1,0 +1,3 @@
+apt install build-essential
+cd ~/.vim/bundle/vimproc.vim/
+make
