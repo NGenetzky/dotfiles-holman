@@ -348,6 +348,9 @@ else
     " Shows the current tag structure in a pane.
     Bundle 'majutsushi/tagbar'
 
+    " True Sublime Text style multiple selections for Vim
+    Bundle 'terryma/vim-multiple-cursors'
+
 endif
 
 " Plugin Settings ---------------------------------------------------------- {
@@ -1074,4 +1077,12 @@ if &runtimepath =~ 'neosnippet.vim'
     " Tell Neosnippet about the other snippets
     let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 endif
+
+if &runtimepath =~ 'terryma/vim-multiple-cursors'
+
+endif
+
 " Plugin Settings ---------------------------------------------------------- }
+
+
+
