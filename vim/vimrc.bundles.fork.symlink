@@ -496,6 +496,8 @@ if &runtimepath =~ 'c'
     " Disable <c-j>. Context:
     " if !exists("g:C_Ctrl_j") || ( exists("g:C_Ctrl_j") && g:C_Ctrl_j != 'off' )
     let g:C_Ctrl_j='off'
+    " : insert file prolog in a new file ('yes', 'no')
+    let g:C_InsertFileHeader ='no'
 endif
 
 if &runtimepath =~ 'vim-fugitive'
