@@ -1084,6 +1084,109 @@ if &runtimepath =~ 'terryma/vim-multiple-cursors'
 
 endif
 
+if &runtimepath =~ 'c.vim'
+    " Several global variables are checked by the script to customize it:
+
+    "  ----------------------------------------------------------------------------
+    "  GLOBAL VARIABLE           DEFAULT VALUE                    TAG (see below)
+    "  ----------------------------------------------------------------------------
+    "  g:C_CExtension             'c'
+    "  g:C_CFlags                 '-Wall -g -O0 -c'
+    "  g:C_CodeCheckExeName       'check'
+    "  g:C_CodeCheckOptions       '-K13'
+    "  g:C_CodeSnippets           plugin_dir.'/c-support/codesnippets/'
+    "  g:C_Ctrl_j                 'on'
+    "  g:C_CustomTemplateFile     $HOME.'/.vim/templates/c.templates'
+    "  g:C_Debugger               'gdb'
+    "  g:C_Dictionary_File        ''
+    "  g:C_GlobalTemplateFile     plugin_dir.'c-support/templates/Templates'
+    "  g:C_GuiSnippetBrowser      'gui'
+    "  g:C_InsertFileHeader       'yes'
+    "  g:C_LFlags                 '-Wall -g -O0'
+    "  g:C_Libs                   '-lm'
+    "  g:C_LineEndCommColDefault  49
+    "  g:C_LoadMenus              'yes'
+    "  g:C_CreateMenusDelayed     'no'
+    "  g:C_LocalTemplateFile      $HOME.'/.vim/c-support/templates/Templates'
+    "  g:C_MapLeader              '\'
+    "  g:C_MenuHeader             'yes'
+    "  g:C_NonCComment            '#'
+    "  g:C_OutputGvim             'vim'
+    "  g:C_Printheader            "%<%f%h%m%<  %=%{strftime('%x %X')}     Page %N"
+    "  g:C_RootMenu               '&C\/C\+\+.'
+    "  g:C_SourceCodeExtensions   'c cc cp cxx cpp CPP c++ C i ii'
+    "  g:C_TypeOfH                'cpp'
+    "  g:C_VimCompilerName        gcc
+    "  g:Xterm_Executable         'xterm'
+    "  g:Xterm_Options            '-fa courier -fs 12 -geometry 80x24'
+
+    "  Linux/UNIX:
+    "   g:C_CCompiler             'gcc'
+    "   g:C_CplusCompiler         'g++'
+    "   g:C_ExeExtension          ''
+    "   g:C_Man                   'man'
+    "   g:C_ObjExtension          '.o'
+    "  Windows:
+    "   g:C_CCompiler             'gcc.exe'
+    "   g:C_CplusCompiler         'g++.exe'
+    "   g:C_ExeExtension          '.exe'
+    "   g:C_Man                   'man.exe'
+    "   g:C_ObjExtension          '.obj'
+
+    " The variable plugin_dir will automatically be set to one of the following values:
+    "   $HOME.'/.vim/'        for Linux/Unix
+    "   $VIM.'/vimfiles/'     for Windows
+
+
+    "  ----------------------------------------------------------------------------
+    "  GLOBAL VARIABLE           SHORT EXPLANATION
+    "  ----------------------------------------------------------------------------
+    "  g:C_CCompiler             : The name of the C compiler.
+    "  g:C_CExtension            : Extension of C files. Everything else is C++.
+    "  g:C_CFlags                : Compiler flags used for a compilation.
+    "  g:C_CodeCheckExeName      : The name of the CodeCheck (TM) executable (the
+    "                              default is 'check')
+    "  g:C_CodeCheckOptions      : Default options for CodeCheck (TM) (see
+    "                              |csupport-run-codecheck|).
+    "  g:C_CodeSnippets          : The name of the code snippet directory (see
+    "                              |csupport-snippets|).
+    "  g:C_CplusCompiler         : The name of the C++ compiler.
+    "  g:C_Ctrl_j                : hotkey Ctrl-j 'on'/'off' (see |csupport-Ctrl-j|)
+    "  g:C_CustomTemplateFile    : sets the custom template file (see|csupport-templates|)
+    "  g:C_Debugger              : the default debugging: 'gdb', 'kdbg', or 'ddd'
+    "  g:C_Dictionary_File       : The name(s) of the dictionary file(s) used for
+    "                              word completion (see also |csupport-dictionary|)
+    "  g:C_ExeExtension          : C/C+ file extension for executables (leading
+    "                              point required if not empty)
+    "  g:C_GlobalTemplateFile    : sets the global template file (see |csupport-templates|)
+    "  g:C_GuiSnippetBrowser     : code snippet browser: 'gui', 'commandline'
+    "  g:C_InsertFileHeader      : insert file prolog in a new file ('yes', 'no')
+    "  g:C_LFlags                : Compiler flags used for linkage.
+    "  g:C_Libs                  : Libraries to link with.
+    "  g:C_LineEndCommColDefault : Default starting column for end-of-line comments.
+    "  g:C_LoadMenus             : Load menus and mappings ("yes", "no") at startup.
+    "  g:C_CreateMenusDelayed    : Load menus only with filetypes 'c' or 'cpp'
+    "  g:C_LocalTemplateFile     : sets the local template file (see |csupport-templates|)
+    "  g:C_Man                   : The name of the man utility.
+    "  g:C_MapLeader             : the map leader for hotkeys (see ||csupport-usage-vim|)
+    "  g:C_MenuHeader            : Switch the submenu header on/off.
+    "  g:C_NonCComment           : comment leader string for a non-C comment
+    "  g:C_ObjExtension          : C/C+ file extension for objects (leading point
+    "                              required if not empty)
+    "  g:C_OutputGvim            : when program is running output goes to the vim command
+    "                              line ("vim"), to a buffer ("buffer") or to an xterm ("xterm").
+    "  g:C_Printheader           : hardcopy: definition of the page header
+    "  g:C_RootMenu              : The name of the root menu entry of this plugin
+    "                              (see |csupport-custom-root|).
+    "  g:C_SourceCodeExtensions  : filename extensions for C/C++ implementation files
+    "  g:C_TypeOfH               : filetype of header files with extension 'h' (c,cpp)
+    "  g:C_VimCompilerName       : the compiler name used by :compiler
+    "  g:Xterm_Executable        : the xterm executable
+    "  g:Xterm_Options           : the xterm options
+    "  g:C_XtermDefaults         : the xterm options
+    "                              (included for backwards compatibility)
+endif
+
 " Plugin Settings ---------------------------------------------------------- }
 
 
