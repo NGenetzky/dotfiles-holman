@@ -1,2 +1,6 @@
 export PATH="./bin:/usr/local/bin:/usr/local/sbin:$ZSH/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+# Daktronics
+export LD_LIBRARY_PATH=/home/dak/workspace/Kadoka/Kadoka/UserApplications/libraries/libs/
+export PATH=$PATH:/home/dak/workspace/Kadoka/Kadoka/UserApplications/kptool/Build/
