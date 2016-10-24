@@ -1,1 +1,2 @@
+apt install tmux
 pip install tmuxp
