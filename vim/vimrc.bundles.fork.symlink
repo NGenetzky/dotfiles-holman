@@ -118,7 +118,11 @@ Bundle 'amal-khailtash/vim-do-syntax'
 
 "" A plugin to debug program with gdb by using vim
 " Disables because it requires skibyte/gdblib
+"Bundle 'skibyte/gdblib'
 "Bundle 'skibyte/gdb-from-vim'
+
+" gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
+" Bundle 'gregsexton/gitv'
 
 if filereadable(expand("~/.vimrc.bundles.spf13"))
 " SPF13 Overrides ---------------------------------------------------------- {
