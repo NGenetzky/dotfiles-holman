@@ -24,7 +24,8 @@ scriptencoding utf-8
 " General {
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
-set nocompatible " Get rid of Vi compatibility mode.
+" set nocompatible " Get rid of Vi compatibility mode.
+if &compatible | set nocompatible | endif " Avoid side effects if `nocp` already set
 
 syntax enable " enable syntax highlighting (previously syntax on).
 " } General
@@ -132,22 +133,24 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 set listchars=tab:».,trail:·,nbsp:.
 " }}}
-" Undos, Swaps and Backups ------------------------------------------------- {{{
+" Vim temp files: Undos, Swaps, Info and Backups -------------------------- {{{
+
+set viminfo+=n~/.vim/viminfo
 
 set undofile   " Maintain undo history between sessions
-set undodir=~/.vim/vimundo//
+set undodir=~/.vim/vimundo/
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
 set backup
-set backupdir=~/.vim/vimbackup//
+set backupdir=~/.vim/vimbackup/
 if !isdirectory(&backupdir)
     call mkdir(&backupdir, "p")
 endif
 
 " Directory used for swap files
-set directory=~/.vim/vimswap//
+set directory=~/.vim/vimswap/
 if !isdirectory(&directory)
     call mkdir(&directory, "p")
 endif
