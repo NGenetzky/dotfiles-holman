@@ -1,0 +1,30 @@
+session_name: tmuxp
+windows:
+- window_name: shell
+  layout: main-vertical
+  shell_command_before:
+    - cd ~/
+  panes:
+    - shell_command:
+        - cd /var/log
+        - ls -al | grep \.log
+    - echo hello
+    - echo hello
+- window_name: code
+  layout: main-vertical
+  shell_command_before:
+    - cd ~/workspace/
+- window_name: git
+  layout: main-vertical
+  shell_command_before:
+    - cd ~/
+  panes:
+    - shell_command:
+        - cd /var/log
+        - ls -al | grep \.log
+    - echo hello
+    - echo hello
+- window_name: dotfiles
+  shell_command_before:
+    - cd ~/.dotfiles
+  layout: main-vertical
