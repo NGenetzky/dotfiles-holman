@@ -38,6 +38,13 @@ function! OpenInNano(filename)
   VimuxZoomRunner
 endfunction
 
+function! InstallSPF13()
+    !curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+endfunction
+function! InstallVundle()
+    !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
+endfunction
+
 function! OutputSplitWindow(...)
   " this function output the result of the Ex command into a split scratch buffer
   let cmd = join(a:000, ' ')

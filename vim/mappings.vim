@@ -4,6 +4,14 @@
 " use ; as :. By default it repeats last f/F/t/T movement.
 " nnoremap ; :
 
+" I do not want j and k mapped to gj and gk like they are in spf13.
+try
+    unmap j
+    unmap k
+catch /^Vim\%((\a\+)\)\=:E31/	" catch E31: No such mapping
+
+endtry
+
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy
 " which is the default
 map Y y$
@@ -11,6 +19,8 @@ map Y y$
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
+
+"" Mappings that add features:
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search

@@ -210,29 +210,6 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 
 " au BufRead */Desktop/*/*  set tw=31
 "}}}
-" Mappings ------------------------------------------------------------{{{1
-
-" I do not want j and k mapped to gj and gk like they are in spf13.
-try
-    unmap j
-    unmap k
-catch /^Vim\%((\a\+)\)\=:E31/	" catch E31: No such mapping
-
-endtry
-
-
-source ~/.dotfiles/vim/mappings.vim
-
-"------------------------------------------------------------
-" }}}
-" Functions ------------------------------------------------------------{{{1
-source ~/.dotfiles/vim/functions.vim
-function! InstallSPF13()
-    !curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
-endfunction
-function! InstallVundle()
-    !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
-endfunction
 " }}}
 
 " Projects ------------------------------------------------------------{{{1
@@ -259,9 +236,13 @@ endfunction
 "     endif
 " endfunction
 
-
 " }}}
 "
+
+source ~/.dotfiles/vim/mappings.vim
+
+" Functions
+source ~/.dotfiles/vim/functions.vim
 
 " Events
 source ~/.dotfiles/vim/events.vim
