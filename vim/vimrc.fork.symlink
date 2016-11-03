@@ -266,4 +266,7 @@ endfunction
 " Events
 source ~/.dotfiles/vim/events.vim
 
+" Plugin Settings
+source ~/.dotfiles/vim/plugin_settings.vim
+
 " vim:ft=vim
