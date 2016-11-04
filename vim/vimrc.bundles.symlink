@@ -14,7 +14,6 @@ if filereadable(expand("~/.vimrc.bundles.spf13"))
     " This file will source the vimrc.bundle.fork and vimrc.bundle.local files.
     sourc ~/.vimrc.bundles.spf13
 
-
 else
     " 1. Vundle boilerplate
     " 2. Source the vimrc.bundle.fork and vimrc.bundle.local files.

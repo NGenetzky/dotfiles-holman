@@ -1,5 +1,9 @@
-" Nathan Genetzky
-" ngenetzky@usgs.gov | nathan@genetzky.us
+" Nathan Genetzky's vimrc {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
+" Name: Nathan Genetzky
+" WorkEmail: nathan.genetzky@Daktronics.com
+" PersonalEmail: nathan@genetzky.us
+" }
 " References:
 " registers:http://stackoverflow.com/a/3997110
 " vimgrep+regex+magic:http://vi.stackexchange.com/a/2279
@@ -10,6 +14,7 @@
 " http://chibicode.com/vimrc/
 " https://github.com/skwp/dotfiles
 " https://github.com/joedicastro/dotfiles/tree/master/vim
+
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -106,34 +111,17 @@ set path+=**
 
 " }}}
 
-" Font and Schemes -------------------------------------------------------- {{{
-" Color schemes (uncomment one of the schemes below)
-colorscheme desert
-" colorscheme badwolf
-" colorscheme xoria256
-" colorscheme jellybeans
-" colorscheme solarized
-" colorscheme base16-atelierdune
-" colorscheme bubblegum
-" colorscheme base16-tomorrow
-" colorscheme base16-greenscreen
-" colorscheme base16-eighties
-" colorscheme darkburn
- " colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
-
-set background=dark
-" }}}
-
-" List -------------------------------------------------------------------- {{{
+" List {
+set list
 " Replace bad characters with unicode so they are seen easily
 " src: Damian Conway, More Instanly Better Vim  Sep 10 2013 on Youtube
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " src: https://github.com/lukemetz/vim/blob/8466bdde18b0e33a000324fc22bb9092798dbe45/gvimrc
 " set listchars=trail:·,precedes:«,extends:»,tab:»
-set list
 set listchars=tab:».,trail:·,nbsp:.
-" }}}
-" Vim temp files: Undos, Swaps, Info and Backups -------------------------- {{{
+" }
+
+" Vim temp files: {
 
 set viminfo+=n~/.vim/viminfo
 
@@ -144,6 +132,7 @@ if !isdirectory(&undodir)
 endif
 
 set backup
+set writebackup
 set backupdir=~/.vim/vimbackup/
 if !isdirectory(&backupdir)
     call mkdir(&backupdir, "p")
@@ -154,63 +143,27 @@ set directory=~/.vim/vimswap/
 if !isdirectory(&directory)
     call mkdir(&directory, "p")
 endif
+" }
 
+" Filetype specific {
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" }}}
-" Highlighting ------------------------------------------------------------- {{{
-
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
-" "highlight ColorColumn ctermbg=235 guibg=#2c2d27
-
-if exists('+colorcolumn')
-    " All columns past 80.
-    let &colorcolumn=join(range(81,999),",")
-    " Just column 80
-    " set colorcolumn=80
-else
-" Color column - Highlight any text longer than 80 char.
-    au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
-endif
-
-" highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
-highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
-augroup colorcolumn
-    autocmd!
-    " autocmd ColorScheme solarized highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
-    autocmd ColorScheme * highlight ColorColumn term=reverse ctermbg=235 guibg=LightGrey
-augroup end
-
-" Overloading the default color scheme.
-" highlight  Normal      term=none   cterm=none  ctermfg=darkgrey  ctermbg=Black
-" highlight  DiffAdd     cterm=none  ctermfg=fg  ctermbg=Blue   gui=none       guifg=fg  guibg=Blue
-" highlight  DiffDelete  cterm=none  ctermfg=fg  ctermbg=Blue   gui=none       guifg=fg  guibg=Blue
-" highlight  DiffChange  cterm=none  ctermfg=fg  ctermbg=Blue   gui=none       guifg=fg  guibg=Blue
-" highlight  DiffText    cterm=none  ctermfg=bg  ctermbg=White  gui=none       guifg=bg  guibg=White
-
-" }}}
-" Filetype specific ----{{{1
-" Markdown ------------------------------------------------------------{{{2
 au! BufRead,BufNewFile *.markdown set filetype=mkd
 au! BufRead,BufNewFile *.md       set filetype=mkd
 au! BufRead,BufNewFile *.md       set spell
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
-" }}}
-
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 au BufNewFile,BufRead  *.bash_*  set filetype=sh
+
 " autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType cpp,c,h setlocal foldmethod=syntax
 " Note, perl automatically sets foldmethod in the syntax file
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
-
-" au BufRead */Desktop/*/*  set tw=31
-"}}}
-" }}}
+" }
 
 " Projects ------------------------------------------------------------{{{1
 " augroup ProjectSetup
@@ -218,6 +171,7 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 " au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
 " augroup END
 
+" au BufRead */Desktop/*/*  set tw=31
 function! Project_librrdb()
     set makeprg=make
     nooremap <buffer> <localleader>t :make test
@@ -239,15 +193,10 @@ endfunction
 " }}}
 "
 
+source ~/.dotfiles/vim/ui.vim
 source ~/.dotfiles/vim/mappings.vim
-
-" Functions
 source ~/.dotfiles/vim/functions.vim
-
-" Events
 source ~/.dotfiles/vim/events.vim
-
-" Plugin Settings
 source ~/.dotfiles/vim/plugin_settings.vim
 
 " vim:ft=vim
