@@ -4,6 +4,14 @@
 " use ; as :. By default it repeats last f/F/t/T movement.
 " nnoremap ; :
 
+" I do not want j and k mapped to gj and gk like they are in spf13.
+try
+    unmap j
+    unmap k
+catch /^Vim\%((\a\+)\)\=:E31/	" catch E31: No such mapping
+
+endtry
+
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy
 " which is the default
 map Y y$
@@ -11,6 +19,8 @@ map Y y$
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
+
+"" Mappings that add features:
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -176,3 +186,19 @@ vnoremap <leader>f y:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 " http://stackoverflow.com/a/7078429
 cmap w!! w !sudo tee > /dev/null %
 
+"I skimmed through :help index and made a list of some of the unused nmap keys:
+
+" Q (switch to "Ex" mode)
+" Z except ZZ, ZQ
+" \
+" gb, gc, gl, gx, gy, gz
+" zp, zq, zu, zy
+" cd, cm, co, cp, cq, cr, cs, cu, cx, cy
+" dc, dm, do, dp, dq, dr, ds, du, dx, dy
+" gA, gB, gC, gG, gK, gL, gM, gO, gS, gX, gY, gZ
+" zB, zI, zJ, zK, zP, zQ, zP, zS, zT, zU, zV, zY, zZ
+" ]a, ]b, ]e, ]g, ]h, ]j, ]k, ]l, ]n, ]o, ]q, ]r, ]t, ]u, ]v, ]w, ]x, ]y
+" [a, [b, [e, [g, [h, [j, [k, [l, [n, [o, [q, [r, [t, [u, [v, [w, [x, [y
+" CTRL-G, CTRL-K
+" CTRL-\ a - z (reserved for extensions)
+" CTRL-\ A - Z (not used)

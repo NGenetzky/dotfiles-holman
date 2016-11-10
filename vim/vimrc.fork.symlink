@@ -1,5 +1,9 @@
-" Nathan Genetzky
-" ngenetzky@usgs.gov | nathan@genetzky.us
+" Nathan Genetzky's vimrc {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
+" Name: Nathan Genetzky
+" WorkEmail: nathan.genetzky@Daktronics.com
+" PersonalEmail: nathan@genetzky.us
+" }
 " References:
 " registers:http://stackoverflow.com/a/3997110
 " vimgrep+regex+magic:http://vi.stackexchange.com/a/2279
@@ -11,6 +15,7 @@
 " https://github.com/skwp/dotfiles
 " https://github.com/joedicastro/dotfiles/tree/master/vim
 
+
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -21,14 +26,46 @@ scriptencoding utf-8
 " else:
 " set textwidth=78
 
+" General {
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
-set nocompatible
+" set nocompatible " Get rid of Vi compatibility mode.
+if &compatible | set nocompatible | endif " Avoid side effects if `nocp` already set
 
+syntax enable " enable syntax highlighting (previously syntax on).
+" } General
+
+" Searching {
+set ignorecase " Use case insensitive search,
+set smartcase " except when using capital letters
+set hlsearch " Highlight searches
+"set incsearch " Highlight as you type your search.
+" } Searching
+
+" Indentation {
+set shiftround            " always indent/outdent to the nearest tabstop
 set noautoindent
+set expandtab             " use spaces instead of tabs
+set smarttab              " use tabs at the start of a line, spaces elsewhere
+
+" Indentation settings for using 4 spaces instead of tabs.
+" Do not change 'tabstop' from its default value of 8 with this setup.
+"set tabstop=8
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" Indentation settings for using hard tabs for indent. Display tabs as
+" four characters wide.
+"set shiftwidth=4
+"set tabstop=4
+
+" } Indentation
+
 " wrap: lines longer than the width of the window will wrap and displaying
 " continues on the next line
 set wrap
+
 " Turn off spell checking.
 set nospell
 
@@ -41,8 +78,7 @@ set mousehide
 " set wildmenu            " visual autocomplete for command menu
 set wildmode=longest:full,list:full
 
-" Show partial commands in the last line of the screen
-set showcmd
+set showcmd " Show partial commands in the last line of the screen
 
 " Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
@@ -57,9 +93,6 @@ set ruler
 " lines, you can do this with:
 set formatoptions-=t
 
-" Shows syntax highlighting
-syntax on
-
 set cryptmethod=blowfish
 
 set previewheight=20
@@ -72,162 +105,65 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
-" }}}
-
-" Searching -------------------------------------------------- {{{
-
-" Use case insensitive search,
-set ignorecase
-" except when using capital letters
-set smartcase
-
-" Highlight searches (use <C-L> to temporarily clear highlighting; see the
-" mapping of <C-L> below)
-set hlsearch
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks.
+set path+=**
 
 " }}}
-" Indentation options ----------------------------------------------------- {{{
 
-" Indentation settings for using 4 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" four characters wide.
-"set shiftwidth=4
-"set tabstop=4
-
-"------------------------------------------------------------
-" }}}
-" Font and Schemes -------------------------------------------------------- {{{
-
-" Color schemes (uncomment one of the schemes below)
-colorscheme desert
-" colorscheme badwolf
-" colorscheme xoria256
-" colorscheme jellybeans
-" colorscheme solarized
-" colorscheme base16-atelierdune
-" colorscheme bubblegum
-" colorscheme base16-tomorrow
-" colorscheme base16-greenscreen
-" colorscheme base16-eighties
-" colorscheme darkburn
- " colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
-
-set background=dark
-
-" }}}
-" List -------------------------------------------------------------------- {{{
+" List {
+set list
 " Replace bad characters with unicode so they are seen easily
 " src: Damian Conway, More Instanly Better Vim  Sep 10 2013 on Youtube
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " src: https://github.com/lukemetz/vim/blob/8466bdde18b0e33a000324fc22bb9092798dbe45/gvimrc
 " set listchars=trail:·,precedes:«,extends:»,tab:»
-set list
 set listchars=tab:».,trail:·,nbsp:.
-" }}}
-" Undos, Swaps and Backups ------------------------------------------------- {{{
+" }
+
+" Vim temp files: {
+
+set viminfo+=n~/.vim/viminfo
 
 set undofile   " Maintain undo history between sessions
-set undodir=~/.vim/vimundo//
+set undodir=~/.vim/vimundo/
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
 set backup
-set backupdir=~/.vim/vimbackup//
+set writebackup
+set backupdir=~/.vim/vimbackup/
 if !isdirectory(&backupdir)
     call mkdir(&backupdir, "p")
 endif
 
 " Directory used for swap files
-set directory=~/.vim/vimswap//
+set directory=~/.vim/vimswap/
 if !isdirectory(&directory)
     call mkdir(&directory, "p")
 endif
+" }
 
+" Filetype specific {
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" }}}
-" Highlighting ------------------------------------------------------------- {{{
-
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
-" "highlight ColorColumn ctermbg=235 guibg=#2c2d27
-
-if exists('+colorcolumn')
-    " All columns past 80.
-    let &colorcolumn=join(range(81,999),",")
-    " Just column 80
-    " set colorcolumn=80
-else
-" Color column - Highlight any text longer than 80 char.
-    au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
-endif
-
-" highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
-highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
-augroup colorcolumn
-    autocmd!
-    " autocmd ColorScheme solarized highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
-    autocmd ColorScheme * highlight ColorColumn term=reverse ctermbg=235 guibg=LightGrey
-augroup end
-
-" Overloading the default color scheme.
-" highlight  Normal      term=none   cterm=none  ctermfg=darkgrey  ctermbg=Black
-" highlight  DiffAdd     cterm=none  ctermfg=fg  ctermbg=Blue   gui=none       guifg=fg  guibg=Blue
-" highlight  DiffDelete  cterm=none  ctermfg=fg  ctermbg=Blue   gui=none       guifg=fg  guibg=Blue
-" highlight  DiffChange  cterm=none  ctermfg=fg  ctermbg=Blue   gui=none       guifg=fg  guibg=Blue
-" highlight  DiffText    cterm=none  ctermfg=bg  ctermbg=White  gui=none       guifg=bg  guibg=White
-
-" }}}
-" Filetype specific ----{{{1
-" Markdown ------------------------------------------------------------{{{2
 au! BufRead,BufNewFile *.markdown set filetype=mkd
 au! BufRead,BufNewFile *.md       set filetype=mkd
 au! BufRead,BufNewFile *.md       set spell
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
-" }}}
-
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 au BufNewFile,BufRead  *.bash_*  set filetype=sh
+
 " autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType cpp,c,h setlocal foldmethod=syntax
 " Note, perl automatically sets foldmethod in the syntax file
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
-
-" au BufRead */Desktop/*/*  set tw=31
-"}}}
-" Mappings ------------------------------------------------------------{{{1
-
-" I do not want j and k mapped to gj and gk like they are in spf13.
-try
-    unmap j
-    unmap k
-catch /^Vim\%((\a\+)\)\=:E31/	" catch E31: No such mapping
-
-endtry
-
-
-source ~/.dotfiles/vim/mappings.vim
-
-"------------------------------------------------------------
-" }}}
-" Functions ------------------------------------------------------------{{{1
-source ~/.dotfiles/vim/functions.vim
-function! InstallSPF13()
-    !curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
-endfunction
-function! InstallVundle()
-    !git clone https://github.com/gmarik/vundle.git ~/.dotfiles/vim/bundle/Vundle.vim
-endfunction
-" }}}
+" }
 
 " Projects ------------------------------------------------------------{{{1
 " augroup ProjectSetup
@@ -235,6 +171,7 @@ endfunction
 " au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
 " augroup END
 
+" au BufRead */Desktop/*/*  set tw=31
 function! Project_librrdb()
     set makeprg=make
     nooremap <buffer> <localleader>t :make test
@@ -253,11 +190,13 @@ endfunction
 "     endif
 " endfunction
 
-
 " }}}
 "
 
-" Events
+source ~/.dotfiles/vim/ui.vim
+source ~/.dotfiles/vim/mappings.vim
+source ~/.dotfiles/vim/functions.vim
 source ~/.dotfiles/vim/events.vim
+source ~/.dotfiles/vim/plugin_settings.vim
 
 " vim:ft=vim

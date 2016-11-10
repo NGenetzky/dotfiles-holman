@@ -1,0 +1,31 @@
+session_name: '0'
+windows:
+- layout: b2dd,85x52,0,0,0
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  start_directory: /home/dakeng
+  window_name: shell
+- focus: 'true'
+  layout: b5be,177x51,0,0,1
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  start_directory: /home/dakeng/workspace/Kadoka/librrdb_and_sysmon/UserApplications/sysmon
+  window_name: code
+- layout: b5c0,177x51,0,0,3
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  start_directory: /home/dakeng
+  window_name: git
+- layout: b2df,85x52,0,0,2
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: bash
+  start_directory: /home/dakeng
+  window_name: dotfiles

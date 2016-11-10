@@ -13,7 +13,12 @@ pathrm() {
     PATH="$(echo $PATH | sed -e "s;\(^\|:\)${1%/}\(:\|\$\);\1\2;g" -e 's;^:\|:$;;g' -e 's;::;:;g')"
 }
 
+################################################################################
+
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export LD_LIBRARY_PATH=/home/dak/workspace/Kadoka/Kadoka/UserApplications/libraries/libs/
+
+################################################################################
 
 pathadd "$DOTFILES/bin"
 pathadd "/usr/local/sbin"
@@ -30,4 +35,7 @@ pathadd "~/altera/12.1/modelsim_ase/linuxaloem" after
 
 # Quartus
 pathadd "~/altera_lite/16.0/quartus/bin" after
+
+# Daktronics
+pathadd "/home/dak/workspace/Kadoka/Kadoka/UserApplications/kptool/Build/"
 
