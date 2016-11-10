@@ -1,2 +1,33 @@
-export PATH="./bin:/usr/local/bin:/usr/local/sbin:$ZSH/bin:$PATH"
+pathadd() {
+    pathrm "$1"
+    if [ -d "$1" ] && ! echo $PATH | grep -E -q "(^|:)$1($|:)" ; then
+        if [ "$2" = "after" ] ; then
+            PATH="$PATH:${1%/}"
+        else
+            PATH="${1%/}:$PATH"
+        fi
+    fi
+}
+
+pathrm() {
+    PATH="$(echo $PATH | sed -e "s;\(^\|:\)${1%/}\(:\|\$\);\1\2;g" -e 's;^:\|:$;;g' -e 's;::;:;g')"
+}
+
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+pathadd "$DOTFILES/bin"
+pathadd "/usr/local/sbin"
+pathadd "/usr/local/bin"
+pathadd "./bin"
+
+# set PATH so it includes user's private bin directories
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+pathadd "~/bin"
+pathadd "~/.local/bin"
+
+# Modelsim
+pathadd "~/altera/12.1/modelsim_ase/linuxaloem" after
+
+# Quartus
+pathadd "~/altera_lite/16.0/quartus/bin" after
+

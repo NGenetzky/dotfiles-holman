@@ -2,3 +2,5 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 export RRD_DIR=/var/log/rrd
+
+export QSYS_ROOTDIR="~/altera_lite/16.0/quartus/sopc_builder/bin"
