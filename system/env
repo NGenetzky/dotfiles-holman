@@ -4,3 +4,7 @@ export EDITOR="$VISUAL"
 export RRD_DIR=/var/log/rrd
 
 export QSYS_ROOTDIR="~/altera_lite/16.0/quartus/sopc_builder/bin"
+
+export HIPE_VIRTUALBOX_IP="192.168.56.1"
+export HIPE_PLEX_IP="192.168.0.200"
+export HIPE_ULTRA_IP="192.168.0.202"
