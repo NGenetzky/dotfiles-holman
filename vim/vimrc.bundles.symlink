@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 " 1. Vundle boilerplate
 " 2. Source the vimrc.bundle.fork and vimrc.bundle.local files.
 " }
@@ -24,15 +24,18 @@ com! -nargs=+         UnBundle
 \ call UnBundle(<args>)
 " }
 
-"call vundle#begin()
+" Vundle begin {
+" call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 call vundle#begin('~/.vim/bundle') 
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" }
 " Keep Plugin commands between vundle#begin/end.
-" --- Plugins ---
+
+"{ --- Plugins ---
 
 " Use SPF13 Bundles {
 " Full list of bundles
@@ -58,13 +61,17 @@ source ~/.vimrc.bundles.spf13
     endif
 " }
 
+" }
+
 " All of your Plugins must be added before the following line
+" Vundle end {
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
+"}
+
+" { Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
