@@ -35,7 +35,7 @@
     "   let g:spf13_no_easyWindows = 1
 
     " Disable wrap relative motion for start/end line motions
-    "   let g:spf13_no_wrapRelMotion = 1
+    let g:spf13_no_wrapRelMotion = 1
 
     " Disable fast tab navigation
     "   let g:spf13_no_fastTabs = 1
@@ -46,10 +46,10 @@
     " Disable neosnippet expansion
     " This maps over <C-k> and does some Supertab
     " emulation with snippets
-    "   let g:spf13_no_neosnippet_expand = 1
+    let g:spf13_no_neosnippet_expand = 1
 
     " Disable whitespace stripping
-    "   let g:spf13_keep_trailing_whitespace = 1
+    let g:spf13_keep_trailing_whitespace = 1
 
     " Enable powerline symbols
     "   let g:airline_powerline_fonts = 1
@@ -64,7 +64,7 @@
     " automatically complete, pressing <CR> inserts a newline, etc. Iff the
     " menu is open, tab will cycle through it. If a snippet is selected, <C-k>
     " expands it and jumps between fields.
-      let g:spf13_noninvasive_completion = 1
+    let g:spf13_noninvasive_completion = 1
 
     " Don't turn conceallevel or concealcursor
     "   let g:spf13_no_conceal = 1
@@ -96,5 +96,4 @@
     " Mappings for editing/applying spf13 config
     "   let g:spf13_edit_config_mapping='<leader>ev'
     "   let g:spf13_apply_config_mapping='<leader>sv'
-    
 " }
