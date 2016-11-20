@@ -1,0 +1,8 @@
+
+mkdir -p site
+inputs=$(ls *.md)
+
+for i in $inputs; do
+    in=${i%.md}
+    pandoc -s $in.md -o site/$in.html --toc --toc-depth=3
+done

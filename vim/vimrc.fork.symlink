@@ -1,5 +1,5 @@
 " Nathan Genetzky's vimrc {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker :
+" vim: set sw=4 ts=4 sts=4 et tw=78 ft=vim foldmarker={,} foldlevel=0 foldmethod=marker :
 " Name: Nathan Genetzky
 " WorkEmail: nathan.genetzky@Daktronics.com
 " PersonalEmail: nathan@genetzky.us
@@ -96,6 +96,12 @@ set formatoptions-=t
 set cryptmethod=blowfish
 
 set previewheight=20
+
+" Allows modeline to specify file specifc settings.
+" See: http://vim.wikia.com/wiki/Modeline_magic
+" Will look at the first $modelines and last $modelines in each file.
+set modeline
+set modelines=5
 
 set exrc
 set secure
@@ -199,4 +205,3 @@ source ~/.dotfiles/vim/functions.vim
 source ~/.dotfiles/vim/events.vim
 source ~/.dotfiles/vim/plugin_settings.vim
 
-" vim:ft=vim
