@@ -31,10 +31,10 @@ pathadd "~/bin"
 pathadd "~/.local/bin"
 
 # Modelsim
-pathadd "~/altera/12.1/modelsim_ase/linuxaloem" after
+pathadd ~/altera/12.1/modelsim_ase/linuxaloem after
 
 # Quartus
-pathadd "~/altera_lite/16.0/quartus/bin" after
+pathadd ~/altera_lite/16.0/quartus/bin after
 
 # Daktronics
 pathadd "/home/dak/workspace/Kadoka/Kadoka/UserApplications/kptool/Build/"
