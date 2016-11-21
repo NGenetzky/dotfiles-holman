@@ -2,19 +2,25 @@
 set background=dark
 
 " ColorSchemes {
-" Color schemes (uncomment one of the schemes below)
-colorscheme desert
+
+" Favorites:
+" colorscheme desert
+colorscheme jellybeans
+
+" Others:
+"Color schemes (uncomment one of the schemes below)
 " colorscheme badwolf
 " colorscheme xoria256
-" colorscheme jellybeans
 " colorscheme solarized
 " colorscheme base16-atelierdune
 " colorscheme bubblegum
 " colorscheme base16-tomorrow
-" colorscheme base16-greenscreen
 " colorscheme base16-eighties
 " colorscheme darkburn
- " colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
+
+" Missing:
+" colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
+" colorscheme base16-greenscreen 
 " }
 
 " ColorColumn {
