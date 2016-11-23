@@ -124,7 +124,7 @@ Bundle 'amal-khailtash/vim-do-syntax'
 " gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
 " Bundle 'gregsexton/gitv'
 
-if filereadable(expand("~/.vimrc.bundles.spf13"))
+if filereadable(expand("~/.vim/vimrc.bundles.spf13"))
 " SPF13 Overrides ---------------------------------------------------------- {
 
     " github.com/garbas/vim-snipmate:

@@ -1,0 +1,19 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+
+" Customize settings for spf13 {
+    if filereadable(expand("~/.vim/vimrc.before.spf13"))
+        source ~/.vim/vimrc.before.spf13
+    endif
+" }
+
+" Use fork before if available {
+    if filereadable(expand("~/.vim/vimrc.before.fork"))
+        source ~/.vim/vimrc.before.fork
+    endif
+" }
+
+" Use local before if available {
+    if filereadable(expand("~/.vim/vimrc.before.local"))
+        source ~/.vim/vimrc.before.local
+    endif
+" }

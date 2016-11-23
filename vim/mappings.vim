@@ -135,7 +135,7 @@ noremap <leader>d :put =strftime('%Y-%m-%d')<C-M>
 noremap <leader>t :put =strftime('%H:%M')<C-M>
 
 " Refresh my source file
-noremap <leader>r :so ~/.vimrc<CR>
+noremap <leader>sv :so ~/.vimrc<CR>
 
 " Surround word with quote
 " Imported from:
