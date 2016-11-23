@@ -137,9 +137,9 @@ install_dotfiles () {
   done
 
   # ~/.vim dotfiles
+  link_file $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
+  link_file $DOTFILES_ROOT/vim/gvimrc $HOME/.gvimrc
   vim_dotfiles=( \
-      vimrc \
-      gvimrc \
       {events,functions,mappings,plugin_settings,ui}.vim \
       vimrc{.fork,.spf13,.before,.bundles}{,.fork,.spf13} \
       ycm_extra_conf.py
