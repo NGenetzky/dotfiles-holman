@@ -1,5 +1,6 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 
-"" Override original mappings
+" Override original mappings {
 
 " use ; as :. By default it repeats last f/F/t/T movement.
 " nnoremap ; :
@@ -20,7 +21,9 @@ map Y y$
 vmap < <gv
 vmap > >gv
 
-"" Mappings that add features:
+" }
+
+" Mappings that add features: {
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
@@ -47,8 +50,9 @@ noremap YY "+y
 noremap PP "+gP
 noremap XX "+x
 
+" }
 
-" Unimparied like mappings {{{
+" Unimparied like mappings {
 
 " Jump list
 nnoremap [j <C-O>
@@ -62,14 +66,25 @@ nnoremap ]x g,
 " Tabs
 noremap [y gT
 noremap ]y gt
-" }}}
+" }
 
-" G Mappings
+" G Mappings {
 
 " highlight last inserted text
 nnoremap gV `[v`]
 nnoremap gp `[v`]
 
+
+" Execute in various environments
+" In shell
+vnoremap ge y:read !<C-R>"<CR>
+" In python
+vnoremap gp y:read !python -c '<C-R>"'<CR>
+" In vimscript
+vnoremap gv y:@"<CR>
+" }
+
+" Window Control Mappings {
 " TODO: Replace gj and gk with other mapping
 "" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
 
@@ -84,15 +99,9 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
-" Execute in various environments
-" In shell
-vnoremap ge y:read !<C-R>"<CR>
-" In python
-vnoremap gp y:read !python -c '<C-R>"'<CR>
-" In vimscript
-vnoremap gv y:@"<CR>
+" }
 
-" Function Key Mappings ----------------------------------
+" Function Key Mappings {
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> <Plug>ToggleProject
@@ -106,8 +115,9 @@ nmap <F12> :SyntasticReset<CR>
 
 " Force the width to be 80 char wide
 nmap <F8> :vertical resize 80<CR>
+" }
 
-" Leader mappings   ---------------------------------------
+" Leader mappings {
 let mapleader=","       " leader is comma
 
 "" Split
@@ -182,9 +192,17 @@ noremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>f yiw:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 vnoremap <leader>f y:grep -F '<C-R>"' ./ -r --include "*.cpp" --include "*.h"
 
+" }
+
+" Command Mode Mappings {
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 " http://stackoverflow.com/a/7078429
 cmap w!! w !sudo tee > /dev/null %
+
+" }
+
+" Future Mappings {
 
 "I skimmed through :help index and made a list of some of the unused nmap keys:
 
@@ -202,3 +220,5 @@ cmap w!! w !sudo tee > /dev/null %
 " CTRL-G, CTRL-K
 " CTRL-\ a - z (reserved for extensions)
 " CTRL-\ A - Z (not used)
+
+" }

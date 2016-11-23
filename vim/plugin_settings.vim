@@ -1,4 +1,7 @@
-if &runtimepath =~ 'vim-bookmarks'
+
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+
+if &runtimepath =~ 'vim-bookmarks' " {
     let g:bookmark_no_default_key_mappings = 1
     nmap <Leader><Leader> <Plug>BookmarkToggle
     nmap <Leader>i <Plug>BookmarkAnnotate
@@ -16,8 +19,9 @@ if &runtimepath =~ 'vim-bookmarks'
     " highlight BookmarkLine ctermbg=whatever ctermfg=whatever
     " highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
 endif
+" }
 
-if &runtimepath =~ 'vim-airline'
+if &runtimepath =~ 'vim-airline' "{
     let g:airline_theme = 'solarized'
     let g:airline_left_sep = '»'
     let g:airline_left_sep = '?'
@@ -33,8 +37,9 @@ if &runtimepath =~ 'vim-airline'
     " let g:airline_symbols.paste = '?'
     " let g:airline_symbols.whitespace = ' Ξ '
 endif
+" }
 
-if &runtimepath =~ 'clang-format'
+if &runtimepath =~ 'clang-format' "{
     " http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html
     let g:clang_format#command = 'clang-format-3.5'
 
@@ -116,16 +121,18 @@ if &runtimepath =~ 'clang-format'
     " Toggle auto formatting:
     nmap <Leader>C :ClangFormatAutoToggle<CR>
 endif
+" }
 
-if &runtimepath =~ 'ctrlp'
+if &runtimepath =~ 'ctrlp' "{
     " Ignore some folders and files for CtrlP indexing
     let g:ctrlp_custom_ignore = {
       \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
       \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.o|\.so'
       \ }
 endif
+" }
 
-if &runtimepath =~ 'c'
+if &runtimepath =~ 'c' "{
     " See https://github.com/vim-scripts/c.vim/blob/master/doc/csupport.txt
     let g:C_MapLeader = '\'
     let g:C_GlobalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
@@ -142,8 +149,9 @@ if &runtimepath =~ 'c'
     " : insert file prolog in a new file ('yes', 'no')
     let g:C_InsertFileHeader ='no'
 endif
+" }
 
-if &runtimepath =~ 'vim-fugitive'
+if &runtimepath =~ 'vim-fugitive' "{
     noremap <Leader>ga :Gwrite<CR>
     noremap <Leader>gc :Gcommit<CR>
     noremap <Leader>gsh :Gpush<CR>
@@ -160,8 +168,9 @@ if &runtimepath =~ 'vim-fugitive'
         endif
     endfunction
 endif
+" }
 
-if &runtimepath =~ 'gdb-from-vim'
+if &runtimepath =~ 'gdb-from-vim' "{
     " nnoremap <F4> :GdbFromVimRun <CR>
     " nnoremap <F5> :GdbFromVimStep <CR>
     " nnoremap <F6> :GdbFromVimNext <CR>
@@ -169,8 +178,9 @@ if &runtimepath =~ 'gdb-from-vim'
     " nnoremap <F8> :GdbFromFromDeleteBreakpoint <CR>
     " nnoremap <F9> :GdbFromVimClear <CR>
 endif
+" }
 
-if &runtimepath =~ 'GoldenView'
+if &runtimepath =~ 'GoldenView' "{
     let g:goldenview__enable_default_mapping = 0
     " 1. split to tiled windows
     nmap <silent> <C-L>  <Plug>GoldenViewSplit
@@ -182,8 +192,9 @@ if &runtimepath =~ 'GoldenView'
     " nmap <silent> <C-N>  <Plug>GoldenViewNext
     " nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 endif
+" }
 
-if &runtimepath =~ 'lightline'
+if &runtimepath =~ 'lightline' "{
     set laststatus=2
 
     if !has('gui_running')
@@ -319,9 +330,10 @@ if &runtimepath =~ 'lightline'
     let g:vimfiler_force_overwrite_statusline = 0
     let g:vimshell_force_overwrite_statusline = 0
 endif
+" }
 
-if &runtimepath =~ 'nerdtree'                              " scrooloose/nerdtree
-    " The script provides the following options that can customise the behaviour the
+if &runtimepath =~ 'nerdtree' "{
+    " scrooloose/nerdtree     " The script provides the following options that can customise the behaviour the
     " NERD tree. These options should be set in your vimrc.
 
     " |'loaded_nerd_tree'|            Turns off the script.
@@ -440,8 +452,9 @@ if &runtimepath =~ 'nerdtree'                              " scrooloose/nerdtree
     " g:nerdtree_tabs_autofind (default: 0)
     " Automatically find and select currently opened file in NERDTree.
 endif
+" }
 
-if &runtimepath =~ 'project.vim'
+if &runtimepath =~ 'project.vim' "{
     " let g:proj_flags='gs'
 
     " " Project: Run on file
@@ -458,8 +471,9 @@ if &runtimepath =~ 'project.vim'
     " " %D is replaced with the CD directory.with spaces quoted
     " " %% is replaced with a single % that is not used in expansion.
 endif
+" }
 
-if &runtimepath =~ 'vim-space'
+if &runtimepath =~ 'vim-space' "{
     " Set this variable to disable space.vim
     "
     "   let g:space_loaded = 1
@@ -504,8 +518,9 @@ if &runtimepath =~ 'vim-space'
     " Disable <Space> for undolist movements, e.g. g- and g+
     "   let g:space_no_undolist = 1
 endif
+" }
 
-if &runtimepath =~ 'syntastic'
+if &runtimepath =~ 'syntastic' "{
     " Example checking plugin for syntastic.vim
     " http://stackoverflow.com/a/22827392
 
@@ -532,8 +547,9 @@ if &runtimepath =~ 'syntastic'
     let g:syntastic_cpp_compiler = "g++"
     let g:syntastic_cpp_compiler_options = "-std=c++11 -stdlib=libc++ -Wall -Wextra -Wpedantic"
 endif
+" }
 
-if &runtimepath =~ 'ultisnips'
+if &runtimepath =~ 'ultisnips' "{
     let g:UltiSnipsUsePythonVersion = 2
 
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -551,8 +567,9 @@ if &runtimepath =~ 'ultisnips'
     endif
     let g:UltiSnipsSnippetDirectories=["UltiSnips", "code_snippets"]
 endif
+" }
 
-if &runtimepath =~ 'unite.vim'
+if &runtimepath =~ 'unite.vim' "{
     let g:unite_source_history_yank_enable = 1
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
@@ -581,13 +598,15 @@ if &runtimepath =~ 'unite.vim'
       imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
     endfunction
 endif
+" }
 
-if &runtimepath =~ 'YouCompleteMe'
+if &runtimepath =~ 'YouCompleteMe' "{
     let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
     let g:ycm_confirm_extra_conf=0
 endif
+" }
 
-if &runtimepath =~ 'bookmarks'
+if &runtimepath =~ 'bookmarks' "{
     let g:bookmark_no_default_key_mappings = 1
     nmap <Leader><Leader> <Plug>BookmarkToggle
     nmap <Leader>i <Plug>BookmarkAnnotate
@@ -604,8 +623,9 @@ if &runtimepath =~ 'bookmarks'
     " highlight BookmarkLine ctermbg=whatever ctermfg=whatever
     " highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
 endif
+" }
 
-if &runtimepath =~ 'neocomplcache'
+if &runtimepath =~ 'neocomplcache' "{
     "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
@@ -696,8 +716,9 @@ if &runtimepath =~ 'neocomplcache'
     " https://github.com/c9s/perlomni.vim
     let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 endif
+" }
 
-if &runtimepath =~ 'neosnippet.vim'
+if &runtimepath =~ 'neosnippet.vim' "{
     " Plugin key-mappings.
     imap <C-k>     <Plug>(neosnippet_expand_or_jump)
     smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -722,12 +743,14 @@ if &runtimepath =~ 'neosnippet.vim'
     " Tell Neosnippet about the other snippets
     let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 endif
+" }
 
-if &runtimepath =~ 'terryma/vim-multiple-cursors'
+if &runtimepath =~ 'terryma/vim-multiple-cursors' "{
 
 endif
+" }
 
-if &runtimepath =~ 'c.vim'
+if &runtimepath =~ 'c.vim' "{
     " Several global variables are checked by the script to customize it:
 
     "  ----------------------------------------------------------------------------
@@ -829,4 +852,5 @@ if &runtimepath =~ 'c.vim'
     "  g:C_XtermDefaults         : the xterm options
     "                              (included for backwards compatibility)
 endif
+" }
 
