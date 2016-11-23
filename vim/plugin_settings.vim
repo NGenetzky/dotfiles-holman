@@ -885,3 +885,8 @@ if &runtimepath =~ 'auto-pairs' "{
     let g:AutoPairs = {}
 endif
 "}
+
+if &runtimepath =~ 'vim-easytags' "{
+    let g:easytags_file = $HOME . '/.vim/tags'
+endif
+"}

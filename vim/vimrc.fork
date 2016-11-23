@@ -132,20 +132,20 @@ set listchars=tab:».,trail:·,nbsp:.
 set viminfo+=n~/.vim/viminfo
 
 set undofile   " Maintain undo history between sessions
-set undodir=~/.vim/vimundo/
+set undodir=~/.vim/undo/
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
 set backup
 set writebackup
-set backupdir=~/.vim/vimbackup/
+set backupdir=~/.vim/backup/
 if !isdirectory(&backupdir)
     call mkdir(&backupdir, "p")
 endif
 
 " Directory used for swap files
-set directory=~/.vim/vimswap/
+set directory=~/.vim/swap/
 if !isdirectory(&directory)
     call mkdir(&directory, "p")
 endif

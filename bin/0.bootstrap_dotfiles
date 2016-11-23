@@ -137,6 +137,7 @@ install_dotfiles () {
   done
 
   # ~/.vim dotfiles
+  mkdir ~/.vim -p
   link_file $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
   link_file $DOTFILES_ROOT/vim/gvimrc $HOME/.gvimrc
   vim_dotfiles=( \
