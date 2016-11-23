@@ -4,23 +4,26 @@ set background=dark
 " ColorSchemes {
 
 " Favorites:
-" colorscheme desert
-colorscheme jellybeans
+colorscheme desert
+" colorscheme jellybeans
 
 " Others:
 "Color schemes (uncomment one of the schemes below)
 " colorscheme badwolf
 " colorscheme xoria256
 " colorscheme solarized
+" base16-atelierdune is very neon green.
 " colorscheme base16-atelierdune
+" bubblegum has way to much grey.
 " colorscheme bubblegum
-" colorscheme base16-tomorrow
-" colorscheme base16-eighties
+" darkburn isn't bad but a little dull
 " colorscheme darkburn
 
 " Missing:
 " colorscheme tomorrow " TODO: install https://github.com/chriskempson/vim-tomorrow-theme
+" colorscheme base16-tomorrow
 " colorscheme base16-greenscreen 
+" colorscheme base16-eighties
 " }
 
 " ColorColumn {
