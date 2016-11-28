@@ -1,4 +1,6 @@
 
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+
 set background=dark
 
 " ColorSchemes {
@@ -11,7 +13,11 @@ colorscheme desert
 "Color schemes (uncomment one of the schemes below)
 " colorscheme badwolf
 " colorscheme xoria256
+if &runtimepath =~ 'vim-colors-solarized' " {
 " colorscheme solarized
+endif " 'vim-colors-solarized'
+" }
+
 " base16-atelierdune is very neon green.
 " colorscheme base16-atelierdune
 " bubblegum has way to much grey.

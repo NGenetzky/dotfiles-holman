@@ -16,6 +16,12 @@ endif
 " Use spf13 config if available {
 if filereadable(expand("~/.vim/vimrc.spf13"))
     source ~/.vim/vimrc.spf13
+    " try
+    " catch /^Vim\%((\a\+)\)\=:E185/	" catch E185: Cannot find color scheme 'solarized'
+    "     " Error detected while processing /home/dakeng/.vim/vimrc.spf13:
+    "     " line  185:
+    "     " E185: Cannot find color scheme 'solarized'
+    " endtry
 endif
 " }
 

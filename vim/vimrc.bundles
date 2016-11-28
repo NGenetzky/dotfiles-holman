@@ -1,3 +1,4 @@
+
 " Modeline and Notes {
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 " 1. Vundle boilerplate
@@ -39,15 +40,16 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Use SPF13 Bundles {
 if filereadable(expand("~/.vim/vimrc.bundles.spf13"))
-" Full list of bundles
-" let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming',
-"             \ 'php', 'ruby', 'python', 'go', 'twig', 'javascript',
-"             \ 'haskell', 'html', 'misc', 'scala', 'snipmate',
-"             \ 'youcompleteme', 'neocomplete']
-" My more limited list
-let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming',
-    \   'python', 'misc', 'snipmate', 'youcompleteme', 'neocomplete']
-    source ~/.vim/vimrc.bundles.spf13
+    " Full list of bundles
+    " let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming',
+    "             \ 'php', 'ruby', 'python', 'go', 'twig', 'javascript',
+    "             \ 'haskell', 'html', 'misc', 'scala', 'snipmate',
+    "             \ 'youcompleteme', 'neocomplete']
+    " My more limited list
+    let g:spf13_bundle_groups=['general', 'neocomplcache', 'programming',
+        \   'python', 'misc', 'snipmate', 'youcompleteme', 'neocomplete']
+   let g:override_spf13_bundles = 1
+   source ~/.vim/vimrc.bundles.spf13
 endif
 " }
 

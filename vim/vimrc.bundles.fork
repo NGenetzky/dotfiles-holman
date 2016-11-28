@@ -1,3 +1,6 @@
+
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+
 Bundle 'tpope/vim-obsession'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-sensible'
@@ -124,8 +127,8 @@ Bundle 'amal-khailtash/vim-do-syntax'
 " gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
 " Bundle 'gregsexton/gitv'
 
-if filereadable(expand("~/.vim/vimrc.bundles.spf13"))
-" SPF13 Overrides ---------------------------------------------------------- {
+if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf13_bundles")
+" SPF13 Overrides {
 
     " github.com/garbas/vim-snipmate:
         " VimL, snipmate-snippets, engine sometimes behaves strange. Supports snippets/*
@@ -329,10 +332,14 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13"))
 
     " Vim files for editing Salt files
     UnBundle 'saltstack/salt-vim'
-
+" }
 else
+" SPF13 Duplicates {
     " a Git wrapper so awesome, it should be illegal
     Bundle 'tpope/vim-fugitive'
+
+    " comment stuff out
+    Bundle 'tpope/vim-commentary'
 
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-repeat'
@@ -354,6 +361,6 @@ else
 
     " True Sublime Text style multiple selections for Vim
     Bundle 'terryma/vim-multiple-cursors'
-
+" }
 endif
 
