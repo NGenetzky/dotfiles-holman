@@ -831,28 +831,31 @@
                 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
                 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-                " Courtesy of Matteo Cavalleri
 
-                function! CleverTab()
-                    if pumvisible()
-                        return "\<C-n>"
-                    endif
-                    let substr = strpart(getline('.'), 0, col('.') - 1)
-                    let substr = matchstr(substr, '[^ \t]*$')
-                    if strlen(substr) == 0
-                        " nothing to match on empty string
-                        return "\<Tab>"
-                    else
-                        " existing text matching
-                        if neosnippet#expandable_or_jumpable()
-                            return "\<Plug>(neosnippet_expand_or_jump)"
-                        else
-                            return neocomplete#start_manual_complete()
+                if !exists('g:spf13_disable_clevertab')
+                    " Courtesy of Matteo Cavalleri
+
+                    function! CleverTab()
+                        if pumvisible()
+                            return "\<C-n>"
                         endif
-                    endif
-                endfunction
+                        let substr = strpart(getline('.'), 0, col('.') - 1)
+                        let substr = matchstr(substr, '[^ \t]*$')
+                        if strlen(substr) == 0
+                            " nothing to match on empty string
+                            return "\<Tab>"
+                        else
+                            " existing text matching
+                            if neosnippet#expandable_or_jumpable()
+                                return "\<Plug>(neosnippet_expand_or_jump)"
+                            else
+                                return neocomplete#start_manual_complete()
+                            endif
+                        endif
+                    endfunction
 
                 imap <expr> <Tab> CleverTab()
+                endif " exist(g:spf13_disable_clevertab)
             " }
 
             " Enable heavy omni completion.
