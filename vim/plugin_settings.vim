@@ -550,6 +550,7 @@ endif
 " }
 
 if &runtimepath =~ 'ultisnips' "{
+    " UltiSnips: the Python version from g:UltiSnipsUsePythonVersion (2) is not available.
     let g:UltiSnipsUsePythonVersion = 2
 
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.

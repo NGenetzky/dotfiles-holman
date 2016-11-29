@@ -45,7 +45,8 @@ Bundle 'Valloric/YouCompleteMe'
 
 " Snippet Engine {
 " UltiSnips requires python but is better
-if executable("python")
+" if executable("python")
+if has('python')
     " Supports all snippets in this repo(https://github.com/honza/vim-snippets).
     Bundle 'SirVer/ultisnips'
 else
