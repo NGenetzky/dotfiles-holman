@@ -105,4 +105,7 @@
     " Causes error if neosnippet plugin is not installed.
     let g:spf13_disable_clevertab=1
 
+    let g:spf13_no_directory_prefix=1
+
 " }
+
