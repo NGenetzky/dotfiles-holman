@@ -19,12 +19,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 
-" Basic options ----------------------------------------------------------- {{{
-
-" If at Daktronics
-" set textwidth=160
-" else:
-" set textwidth=78
+" Basic options {
 
 " General {
 " Set 'nocompatible' to ward off unexpected things that your distro might
@@ -33,7 +28,9 @@ scriptencoding utf-8
 if &compatible | set nocompatible | endif " Avoid side effects if `nocp` already set
 
 syntax enable " enable syntax highlighting (previously syntax on).
-" } General
+
+set textwidth=78
+" }
 
 " Searching {
 set ignorecase " Use case insensitive search,
@@ -115,7 +112,6 @@ endif
 " Provides tab-completion for all file-related tasks.
 set path+=**
 
-" }}}
 
 " List {
 set list
@@ -125,6 +121,8 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " src: https://github.com/lukemetz/vim/blob/8466bdde18b0e33a000324fc22bb9092798dbe45/gvimrc
 " set listchars=trail:·,precedes:«,extends:»,tab:»
 set listchars=tab:».,trail:·,nbsp:.
+" }
+
 " }
 
 " Vim temp files: {
@@ -173,37 +171,14 @@ autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
 " }
 
-" Projects ------------------------------------------------------------{{{1
-" augroup ProjectSetup
-" au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/libraries/librrdb/* set tw=90
-" au BufRead,BufEnter ~/workspace/Kadoka/Kadoka/UserApplications/sysmon/* set tw=91
-" augroup END
-
-" au BufRead */Desktop/*/*  set tw=31
-function! Project_librrdb()
-    set makeprg=make
-    nooremap <buffer> <localleader>t :make test
-    nooremap <buffer> <localleader>l :make test RrdtoolTestSuite
-endfunction
-"     let l:path = expand('%:p')
-"     if l:path == expand('~/workspace/Kadoka/Kadoka/UserApplications/libraries/librrdb/')
-"         let @m='iworks'
-"         if &filetype == 'yaml'
-"             let @n='iworks'
-"         else
-"             let @n='iworks'
-"         endif
-"     elseif l:path == expand('~/workspace/Kadoka/Kadoka/UserApplications/k')
-"         let @m='iworks for both'
-"     endif
-" endfunction
-
-" }}}
-"
+if $TMUX == ''
+    " TMUX is not running
+endif
 
 source ~/.dotfiles/vim/ui.vim
 source ~/.dotfiles/vim/mappings.vim
 source ~/.dotfiles/vim/functions.vim
+source ~/.dotfiles/vim/projects.vim
 source ~/.dotfiles/vim/events.vim
 source ~/.dotfiles/vim/plugin_settings.vim
 
