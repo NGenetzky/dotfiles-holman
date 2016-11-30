@@ -8,6 +8,7 @@ function! OnStartup()
     " end
     if !exists("s:std_in") && 0 == argc()
         if !has("gui_running")
+            " TODO: Detect if NERDtree is installed.
             NERDTree
         endif
     endif

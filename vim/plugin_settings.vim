@@ -572,6 +572,7 @@ endif
 
 if &runtimepath =~ 'unite.vim' "{
     let g:unite_source_history_yank_enable = 1
+    " TODO: Causes error on fresh install: Unknown function.
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
     if &runtimepath =~ 'vimproc.vim'
