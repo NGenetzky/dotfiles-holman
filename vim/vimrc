@@ -31,6 +31,12 @@ if filereadable(expand("~/.vim/vimrc.fork"))
 endif
 " }
 
+" Use user vimrc if available {
+if filereadable(expand("~/.vim/vimrc.user"))
+    source ~/.vim/vimrc.user
+endif
+" }
+
 " Use local vimrc if available {
 if filereadable(expand("~/.vim/vimrc.local"))
     source ~/.vim/vimrc.local

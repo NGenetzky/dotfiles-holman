@@ -155,6 +155,8 @@ install_dotfiles () {
     in_home="$HOME/.$f"
     [ -f $in_home ] && unlink $in_home
   done
+
+    from="$DOTFILES/vim/vimrc.user/$USER.vim" && [ -f $from ] && link_file $from "$HOME/.vim/vimrc.user"
 }
 
 setup_gitconfig
