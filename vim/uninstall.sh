@@ -11,7 +11,7 @@ for f in ${vim_dotfiles[@]}; do
     in_home="$HOME/.$f"
     [ -L $in_home ] && unlink $in_home
     in_vim="$HOME/.vim/$f"
-    [ -L $in_vim ] && unlink $in_vim
+    [ -L "$in_vim" ] && unlink "$in_vim"
 done
 
 # Old:

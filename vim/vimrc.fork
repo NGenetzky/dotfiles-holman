@@ -129,7 +129,9 @@ set listchars=tab:».,trail:·,nbsp:.
 
 " Vim temp files: {
 
-set viminfo+=n~/.vim/viminfo
+set viminfo+=n~/.vim/info
+
+set viewdir=~.vim/views//
 
 set undofile   " Maintain undo history between sessions
 set undodir=~/.vim/undo/
