@@ -1,13 +1,57 @@
 
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
 
-" TPOPE makes the best plugins {
-Bundle 'tpope/vim-obsession'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-sensible'
+" general {
+" }
+" writing {
+" }
+" neocomplete {
+" }
+" programming {
+" }
+" php {
+" }
+" ruby {
+" }
+" python {
+" }
+" javascript {
+" }
+" html {
+" }
+" misc {
+" }
 
-"" speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
-Bundle 'tpope/vim-speeddating'
+" TPOPE makes the best plugins {
+    " a Git wrapper so awesome, it should be illegal
+    Bundle 'tpope/vim-fugitive'
+    " comment stuff out
+    Bundle 'tpope/vim-commentary'
+
+    "" speeddating.vim: use CTRL-A/CTRL-X to increment dates, times, and more
+    Bundle 'tpope/vim-speeddating'
+
+    " quoting/parenthesizing made simple
+    Bundle 'tpope/vim-surround'
+
+    " enable repeating supported plugin maps with "."
+    Bundle 'tpope/vim-repeat'
+    " easily search for, substitute, and abbreviate multiple variants of a word
+    Bundle 'tpope/vim-abolish.git'
+
+    " Vim Markdown runtime files
+    Bundle 'tpope/vim-markdown'
+
+    Bundle 'tpope/vim-obsession'
+    Bundle 'tpope/vim-unimpaired'
+    Bundle 'tpope/vim-sensible'
+
+    " Vim runtime files for Haml, Sass, and SCSS
+    UnBundle 'tpope/vim-haml'
+    " Ruby on Rails power tools
+    UnBundle 'tpope/vim-rails'
+    " Vim Cucumber runtime files Ruby acceptance testing framework Cucumber
+    UnBundle 'tpope/vim-cucumber'
 " }
 
 " Language==C++ {
@@ -21,26 +65,42 @@ if executable("ctags")
     " Automated tag generation and syntax highlighting in Vim
     Bundle 'xolox/vim-easytags'
 endif
+
+" Shows the current tag structure in a pane.
+Bundle 'majutsushi/tagbar'
 " }
 
 " Work with External Programs {
+
+if executable("tmux") " {
+    Bundle 'christoomey/vim-tmux-navigator'
+
+    " Vimux effortless vim and tmux interaction
+    Bundle 'benmills/vimux'
+endif
+" }
+
+" Clang format integration
+Bundle 'rhysd/vim-clang-format'
+
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer.
 " Bundle 'vim-scripts/Conque-Shell'
 " Bundle 'vim-scripts/Conque-GDB'
-
-if executable("tmux")
-    Bundle 'christoomey/vim-tmux-navigator'
-endif
+"" A plugin to debug program with gdb by using vim
+" Disables because it requires skibyte/gdblib
+"Bundle 'skibyte/gdblib'
+"Bundle 'skibyte/gdb-from-vim'
 " }
 
-" Completion {
-" Completion Engine
-Bundle 'Valloric/YouCompleteMe'
-
+" Completion Engine {
 " Ultimate auto-completion system for Vim
-" Bundle 'Shougo/neocomplcache'
-" Bundle 'Shougo/neocomplete'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete'
+
+" if has('python')
+"     Bundle 'Valloric/YouCompleteMe'
+" endif
 " }
 
 " Snippet Engine {
@@ -60,41 +120,23 @@ else
 endif
 " }
 
+" Window Management {
 " Zoom in/out of windows. Full screen a pane / revert to pane view.
 " Bundle 'vim-scripts/ZoomWin'
-
-
-" Bundle 'tomtom/tcomment_vim'
-
-" The Most Recently Used (MRU) plugin provides an easy access to a list of
-" recently opened/edited files in Vim.
-" " Bundle 'yegappan/mru'
-
-" A light and configurable statusline/tabline for Vim.
-" " Bundle 'itchyny/lightline.vim'
-
-
-" Gundo.vim is Vim plugin to visualize your Vim undo tree.
-Bundle 'sjl/gundo.vim'
-
-" Organize/Navigate projects of files (like IDE/buffer explorer)
-Bundle 'vimplugin/project.vim'
-
-" The fancy start screen for Vim.
-" Bundle 'mhinz/vim-startify'
-
-Bundle 'MattesGroeger/vim-bookmarks'
-
-" space.vim - Smart Space key for Vim
-Bundle 'spiiph/vim-space'
-
-" vimscript for creating gists
-" Bundle 'mattn/webapi-vim'
-" Bundle 'mattn/gist-vim'
-
 " Always have a nice view for vim split windows!
 " Bundle 'zhaocai/GoldenView.Vim'
+" }
 
+" Status Line{
+" A light and configurable statusline/tabline for Vim.
+Bundle 'itchyny/lightline.vim'
+
+" lean & mean status/tabline for vim that's light as air
+"UnBundle 'bling/vim-airline'
+
+" }
+
+" unite - Lists of things { 
 " The unite or unite.vim plug-in can search and display information from
 " arbitrary sources like files, buffers, recently used files or registers.
 Bundle 'Shougo/neoyank.vim'
@@ -103,6 +145,53 @@ Bundle 'Shougo/neomru.vim'
 Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/unite.vim'
 
+" The Most Recently Used (MRU) plugin provides an easy access to a list of
+" recently opened/edited files in Vim.
+" " Bundle 'yegappan/mru'
+" }
+
+" File Navigation {
+" Shows directory structure in pane.
+Bundle 'scrooloose/nerdtree'
+
+" Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.
+Bundle 'ctrlpvim/ctrlp.vim'
+
+" Organize/Navigate projects of files (like IDE/buffer explorer)
+Bundle 'vimplugin/project.vim'
+
+Bundle 'MattesGroeger/vim-bookmarks'
+
+" }
+"" Syntax Bundles {
+Bundle 'sheerun/vim-polyglot'
+Bundle 'vim-scripts/crontab.vim'
+Bundle 'amal-khailtash/vim-do-syntax'
+" }
+
+" Others {
+" Syntastic is a syntax checking plugin for Vim that runs files through
+" external syntax checkers and displays any resulting errors to the user.
+Bundle 'scrooloose/syntastic'
+
+" Snippet repo.
+Bundle 'honza/vim-snippets'
+
+" True Sublime Text style multiple selections for Vim
+Bundle 'terryma/vim-multiple-cursors'
+
+" Gundo.vim is Vim plugin to visualize your Vim undo tree.
+Bundle 'sjl/gundo.vim'
+" The fancy start screen for Vim.
+" Bundle 'mhinz/vim-startify'
+
+" space.vim - Smart Space key for Vim
+Bundle 'spiiph/vim-space'
+
+" vimscript for creating gists
+" Bundle 'mattn/webapi-vim'
+" Bundle 'mattn/gist-vim'
+
 " Tabmerge : Merge a tab's windows with the current tab 
 Bundle 'Tabmerge'
 
@@ -110,17 +199,11 @@ Bundle 'Tabmerge'
 " single-line code http://www.vim.org/scripts/script.php?script_id=3613
 Bundle 'AndrewRadev/splitjoin.vim'
 
-"" Vimux effortless vim and tmux interaction
-Bundle 'benmills/vimux'
-
 ""A simple, vimscript only, command runner for sending commands from vim to tmux.
 " Bundle 'christoomey/vim-tmux-runner'
 
-" Macro Persistent Storage and Shareable Repository for VIM
-"Bundle 'vim-scripts/marvim'
-
-" Clang format integration
-Bundle 'rhysd/vim-clang-format'
+"" Macro Persistent Storage and Shareable Repository for VIM
+Bundle 'vim-scripts/marvim'
 
 " Plugin to toggle, display and navigate marks
 Bundle 'kshenoy/vim-signature'
@@ -131,20 +214,14 @@ Bundle 'vim-scripts/utl.vim'
 " Unload, delete or wipe a buffer without closing the window or split.
 Bundle 'qpkorr/vim-bufkill'
 
-Bundle 'Konfekt/FastFold'
-
-"" Syntax Bundles
-Bundle 'sheerun/vim-polyglot'
-Bundle 'vim-scripts/crontab.vim'
-Bundle 'amal-khailtash/vim-do-syntax'
-
-"" A plugin to debug program with gdb by using vim
-" Disables because it requires skibyte/gdblib
-"Bundle 'skibyte/gdblib'
-"Bundle 'skibyte/gdb-from-vim'
-
 " gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
 " Bundle 'gregsexton/gitv'
+
+
+" Bundle 'tomtom/tcomment_vim'
+
+Bundle 'Konfekt/FastFold'
+" }
 
 if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf13_bundles")
 " SPF13 Overrides {
@@ -163,7 +240,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
     " vim-snipmate default snippets
     "UnBundle 'honza/vim-snippets'
 
-
     " interpret a file by function and cache file automatically
     "UnBundle 'MarcWeber/vim-addon-mw-utils'
 
@@ -179,12 +255,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
     " Collection of color schemes for VIM
     " UnBundle 'spf13/vim-colors'
 
-    " quoting/parenthesizing made simple
-    "UnBundle 'tpope/vim-surround'
-
-    " enable repeating supported plugin maps with "."
-    "UnBundle 'tpope/vim-repeat'
-
     " Inserts matching bracket, paren, brace or quote http://www.vim.org/scripts/script.php?script_id=1849
     UnBundle 'spf13/vim-autoclose'
 
@@ -199,9 +269,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
 
     " extended % matching for HTML, LaTeX, and many other languages http://www.vim.org/scripts/script.php?script_id=39
     UnBundle 'matchit.zip'
-
-    " lean & mean status/tabline for vim that's light as air
-    "UnBundle 'bling/vim-airline'
 
     " super simple vim plugin to show the list of buffers in the command bar
     UnBundle 'bling/vim-bufferline'
@@ -226,9 +293,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
 
     " Show a VCS diff using Vim's sign column
     "UnBundle 'mhinz/vim-signify'
-
-    " easily search for, substitute, and abbreviate multiple variants of a word
-    UnBundle 'tpope/vim-abolish.git'
 
     " :substitute preview
     "UnBundle 'osyo-manga/vim-over'
@@ -257,9 +321,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
     " Syntax checking hacks for vim
     "UnBundle 'scrooloose/syntastic'
 
-    " a Git wrapper so awesome, it should be illegal http://www.vim.org/scripts/script.php?script_id=2975
-    "UnBundle 'tpope/vim-fugitive'
-
     " An Interface to WEB APIs
     "UnBundle 'mattn/webapi-vim'
 
@@ -268,9 +329,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
 
     " Vim plugin for intensely orgasmic commenting
     "UnBundle 'scrooloose/nerdcommenter'
-
-    " comment stuff out
-    "UnBundle 'tpope/vim-commentary'
 
     " Vim script for text filtering and alignment
     "UnBundle 'godlygeek/tabular'
@@ -325,23 +383,11 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
     " css/less/sass/html color preview for vim
     "UnBundle 'gorodinskiy/vim-coloresque'
 
-    " Vim runtime files for Haml, Sass, and SCSS
-    UnBundle 'tpope/vim-haml'
-
-    " Ruby on Rails power tools
-    UnBundle 'tpope/vim-rails'
-
     " Vim support for Rust file detection and syntax highlighting
     UnBundle 'wting/rust.vim'
 
-    " Vim Markdown runtime files
-    "UnBundle 'tpope/vim-markdown'
-
     " Vim plugin for previewing markup files
     "UnBundle 'spf13/vim-preview'
-
-    " Vim Cucumber runtime files Ruby acceptance testing framework Cucumber
-    UnBundle 'tpope/vim-cucumber'
 
     " Vim syntax for TOML
     UnBundle 'cespare/vim-toml'
@@ -351,35 +397,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
 
     " Vim files for editing Salt files
     UnBundle 'saltstack/salt-vim'
-" }
-else
-" SPF13 Duplicates {
-    " a Git wrapper so awesome, it should be illegal
-    Bundle 'tpope/vim-fugitive'
-
-    " comment stuff out
-    Bundle 'tpope/vim-commentary'
-
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-repeat'
-
-    " Syntastic is a syntax checking plugin for Vim that runs files through
-    " external syntax checkers and displays any resulting errors to the user.
-    Bundle 'scrooloose/syntastic'
-    " Shows directory structure in pane.
-    Bundle 'scrooloose/nerdtree'
-
-    " Snippet repo.
-    Bundle 'honza/vim-snippets'
-
-    " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder.
-    Bundle 'ctrlpvim/ctrlp.vim'
-
-    " Shows the current tag structure in a pane.
-    Bundle 'majutsushi/tagbar'
-
-    " True Sublime Text style multiple selections for Vim
-    Bundle 'terryma/vim-multiple-cursors'
 " }
 endif
 
