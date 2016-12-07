@@ -774,8 +774,113 @@ if &runtimepath =~ 'neosnippet.vim' "{
 endif
 " }
 
-if &runtimepath =~ 'terryma/vim-multiple-cursors' "{
+if &runtimepath =~ 'vim-multiple-cursors' "{
 
+    let g:multi_cursor_use_default_mapping=0
+    " Default mapping
+    let g:multi_cursor_next_key='<C-m>'
+    let g:multi_cursor_prev_key='<C-n>'
+    let g:multi_cursor_skip_key='<C-x>'
+    let g:multi_cursor_quit_key='<Esc>'
+
+    " let g:multi_cursor_quit_key='<Esc>'
+    " nnoremap <Esc> :call multiple_cursors#quit()<CR>
+
+    " Map start key separately from next key
+    " let g:multi_cursor_start_key='<F6>'
+
+    " Currently there are four additional global settings one can tweak:
+
+    " g:multi_cursor_exit_from_visual_mode (Default: 1)
+    let g:multi_cursor_exit_from_visual_mode=0
+    let g:multi_cursor_exit_from_insert_mode=0
+
+    " If set to 0, then pressing g:multi_cursor_quit_key in Visual mode will not
+    " quit and delete all existing cursors. This is useful if you want to press
+    " Escape and go back to Normal mode, and still be able to operate on all the
+    " cursors.
+
+    " map dictionaries {
+    " g:multi_cursor_insert_maps (Default: {})
+
+    " Any key in this map (values are ignored) will cause multi-cursor Insert mode
+    " to pause for timeoutlen waiting for map completion just like normal vim.
+    " Otherwise keys mapped in insert mode are ignored when multiple cursors are
+    " active. For example, setting it to {'\':1} will make insert-mode mappings
+    " beginning with the default leader key work in multi-cursor mode. You have to
+    " manually set this because vim doesn't provide a way to see which keys start
+    " mappings.
+
+    " g:multi_cursor_normal_maps (Default: see below)
+
+    " Default value: {'!':1, '@':1, '=':1, 'q':1, 'r':1, 't':1, 'T':1, 'y':1,
+    " '[':1, ']':1, '\':1, 'd':1, 'f':1, 'F':1, 'g':1, '"':1, 'z':1, 'c':1, 'm':1,
+    " '<':1, '>':1}
+
+    " Any key in this map (values are ignored) will cause multi-cursor Normal mode
+    " to pause for map completion just like normal vim. Otherwise keys mapped in
+    " normal mode will "fail to replay" when multiple cursors are active. For
+    " example, changing it from {} to {'d':1} makes normal-mode mappings beginning
+    " with d (such as dw to delete a word) work in multi-cursor mode.
+
+    " g:multi_cursor_visual_maps (Default: see below)
+
+    " Default value: {'i':1, 'a':1, 'f':1, 'F':1, 't':1, 'T':1}
+
+    " Any key in this map (values are ignored) will cause multi-cursor Visual mode
+    " to pause for map completion just like normal vim. Otherwise keys mapped in
+    " visual mode will "fail to replay" when multiple cursors are active. For
+    " example, changing it from {} to {'i':1} makes visual-mode mappings beginning
+    " with i (such as it to select an "inner tag block") work in multi-cursor
+    " mode.
+
+    " The default list contents should work for anybody, unless they have remapped
+    " a key from an operator-pending command to a non-operator-pending command or
+    " vice versa.
+
+    " These keys must be manually listed because vim doesn't provide a way to
+    " automatically see which keys start mappings, and trying to run motion
+    " commands such as j as if they were operator-pending commands can break
+    " things.
+    " }
+
+    " Interactions with other plugins {
+
+    " Multiple_cursors_before/Multiple_cursors_after (Default: nothing)
+
+    " Other plugins may trigger on keypresses when in insert mode. These plugins
+    " generally provide a means to toggle their active state. These hooks allow
+    " the user to provide functions in their .vimrc to do this when
+    " multiple-cursor-mode is entered.
+
+    " For example, if you are using Neocomplete, add this to your vimrc to prevent
+    " conflict:
+    " Called once right before you start selecting multiple cursors
+    function! Multiple_cursors_before()
+        if exists(':NeoCompleteLock')==2
+            exe 'NeoCompleteLock'
+        endif
+    endfunction
+
+    " Called once only when the multiple selection is canceled (default <Esc>)
+    function! Multiple_cursors_after()
+        if exists(':NeoCompleteUnlock')==2
+            exe 'NeoCompleteUnlock'
+        endif
+    endfunction
+    " }
+
+    " Highlight {
+
+    " The plugin uses the highlight group multiple_cursors_cursor and
+    " multiple_cursors_visual to highlight the virtual cursors and their
+    " visual selections respectively. You can customize them by putting
+    " something similar like the following in your vimrc:
+
+    " " Default highlighting (see help :highlight and help :highlight-link)
+    " highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+    " highlight link multiple_cursors_visual Visual
+    " }
 endif
 " }
 
