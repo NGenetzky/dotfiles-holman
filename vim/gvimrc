@@ -4,3 +4,5 @@ set guifont=Monospace\ Bold\ 12
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ Bold\ 7
 set guioptions=aegimrLt
 set mousehide
+
+set selection=inclusive
