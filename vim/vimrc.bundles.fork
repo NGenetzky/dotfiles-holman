@@ -35,12 +35,14 @@ endif
 " }
 
 " Completion {
-" Completion Engine
-Bundle 'Valloric/YouCompleteMe'
-
-" Ultimate auto-completion system for Vim
-" Bundle 'Shougo/neocomplcache'
-" Bundle 'Shougo/neocomplete'
+if has('python')
+    Bundle 'Valloric/YouCompleteMe'
+else
+    UnBundle 'Valloric/YouCompleteMe'
+    " Ultimate auto-completion system for Vim
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/neocomplete'
+endif
 " }
 
 " Snippet Engine {
