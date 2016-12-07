@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+#-------------------
+# Custom Aliases
+#-------------------
+
+# Particle development
+# Enable only on c9 workspace
+alias po="~/po-util.sh"
+alias p="particle"
+
+# Custom aliases
+alias treefake="find ./ -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias watch_treefake="while sleep 1; do clear; treefake; done"
+
+if [ -f /c/MinGW/bin/mingw32-make.exe ]; then
+    # If "make" is not defined as command then use this make exe.
+    command -v make >/dev/null 2>&1 || alias make=/c/MinGW/bin/mingw32-make.exe
+fi

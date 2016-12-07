@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 pathadd() {
     pathrm "$1"
     if [ -d "$1" ] && ! echo $PATH | grep -E -q "(^|:)$1($|:)" ; then
@@ -6,6 +7,8 @@ pathadd() {
         else
             PATH="${1%/}:$PATH"
         fi
+    # else
+        # echo "Excluding $1 from PATH"
     fi
 }
 
@@ -26,7 +29,6 @@ pathadd "/usr/local/bin"
 pathadd "./bin"
 
 # set PATH so it includes user's private bin directories
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 pathadd "~/bin"
 pathadd "~/.local/bin"
 
@@ -38,4 +40,14 @@ pathadd ~/altera_lite/16.0/quartus/bin after
 
 # Daktronics
 pathadd "/home/dak/workspace/Kadoka/Kadoka/UserApplications/kptool/Build/"
+
+# GnuWin32
+pathrm "/GnuWin32/bin"
+
+# MinGW
+pathadd "/c/MinGW/bin/"
+
+# Matlab
+pathadd "c/Program Files/MATLAB/R2015a/runtime/win64"
+pathadd "c/Program Files/MATLAB/R2015a/bin"
 

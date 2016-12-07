@@ -78,17 +78,3 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-#-------------------
-# Custom Aliases
-#-------------------
-
-# Particle development
-# Enable only on c9 workspace
-alias po="~/po-util.sh"
-alias p="particle"
-
-# Custom aliases
-alias treefake="find ./ -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-alias watch_treefake="while sleep 1; do clear; treefake; done"
-
-
