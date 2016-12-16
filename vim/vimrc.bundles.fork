@@ -22,7 +22,7 @@
 " misc {
 " }
 
-" TPOPE makes the best plugins {
+" TPOPE. YAATPP = Yet Another Amazing Tim Pope Plugin {
     " a Git wrapper so awesome, it should be illegal
     Bundle 'tpope/vim-fugitive'
     " comment stuff out
@@ -233,6 +233,10 @@ Bundle 'qpkorr/vim-bufkill'
 " Bundle 'tomtom/tcomment_vim'
 
 Bundle 'Konfekt/FastFold'
+
+" Run shell commands asynchronously and show the output in Vim when they finish
+Bundle 'joonty/vim-do'
+
 " }
 
 if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf13_bundles")

@@ -1061,3 +1061,29 @@ if &runtimepath =~ 'marvim' "{
   " let marvim_prefix = 0           " disable default syntax based prefix 
 endif " }
 
+if &runtimepath =~ 'vim-markdown' "{
+    let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+    let g:markdown_syntax_conceal = 0
+endif " }
+
+if &runtimepath =~ 'vim-do' "{
+    " g:check_interval: vim-do checks running processes for output and exit
+    " codes, and this value sets how often it will allow these checks to be
+    " made, in milliseconds (default 1000). g:do_new_buffer_command_prefix: when
+    " a process starts, a new window will open with the default command :new.
+    " This prefix will be added before the new, so, for example, you can change
+    " it to a vertical split by setting this to "vertical".
+
+    " g:do_new_buffer_size: set the size of the process window, no default.
+
+    " g:do_refresh_key: this should be set to a key combination that you don't
+    " want to use, as it's used to trigger Vim's autocommands, but shouldn't
+    " actually do anything. By default it's set to <C-B> (Control-B), which may
+    " conflict with other plugins. If it does, change it to another key
+    " combination that you don't ever use. g:do_update_time: used to change
+    " vim's updatetime setting, which determines how quickly vim-do will check
+    " and update running processes after you stop typing any keys, in
+    " milliseconds (default 500).
+
+endif " }
+
