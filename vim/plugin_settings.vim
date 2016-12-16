@@ -18,8 +18,7 @@ if &runtimepath =~ 'vim-bookmarks' " {
     " highlight BookmarkAnnotationSign ctermbg=whatever ctermfg=whatever
     " highlight BookmarkLine ctermbg=whatever ctermfg=whatever
     " highlight BookmarkAnnotationLine ctermbg=whatever ctermfg=whatever
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'vim-airline' "{
     let g:airline_theme = 'solarized'
@@ -36,8 +35,7 @@ if &runtimepath =~ 'vim-airline' "{
     " let g:airline_symbols.paste = 'Þ'
     " let g:airline_symbols.paste = '?'
     " let g:airline_symbols.whitespace = ' Ξ '
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'clang-format' "{
     " http://llvm.org/releases/3.5.0/tools/clang/docs/ClangFormatStyleOptions.html
@@ -120,8 +118,7 @@ if &runtimepath =~ 'clang-format' "{
     autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
     " Toggle auto formatting:
     nmap <Leader>C :ClangFormatAutoToggle<CR>
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'ctrlp' "{
     " Ignore some folders and files for CtrlP indexing
@@ -129,8 +126,7 @@ if &runtimepath =~ 'ctrlp' "{
       \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
       \ 'file': '\.so$\|\.dat$|\.DS_Store$|\.o|\.so'
       \ }
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'vim-fugitive' "{
     noremap <Leader>ga :Gwrite<CR>
@@ -148,8 +144,7 @@ if &runtimepath =~ 'vim-fugitive' "{
             Gstatus
         endif
     endfunction
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'gdb-from-vim' "{
     " nnoremap <F4> :GdbFromVimRun <CR>
@@ -158,8 +153,7 @@ if &runtimepath =~ 'gdb-from-vim' "{
     " nnoremap <leader>b :GdbFromVimAddBreakpoint <CR>
     " nnoremap <F8> :GdbFromFromDeleteBreakpoint <CR>
     " nnoremap <F9> :GdbFromVimClear <CR>
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'GoldenView' "{
     let g:goldenview__enable_default_mapping = 0
@@ -172,8 +166,7 @@ if &runtimepath =~ 'GoldenView' "{
     " 3. jump to next and previous window
     " nmap <silent> <C-N>  <Plug>GoldenViewNext
     " nmap <silent> <C-P>  <Plug>GoldenViewPrevious
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'lightline' "{
     set laststatus=2
@@ -310,8 +303,7 @@ if &runtimepath =~ 'lightline' "{
     let g:unite_force_overwrite_statusline = 0
     let g:vimfiler_force_overwrite_statusline = 0
     let g:vimshell_force_overwrite_statusline = 0
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'nerdtree' "{
     " scrooloose/nerdtree     " The script provides the following options that can customise the behaviour the
@@ -432,8 +424,7 @@ if &runtimepath =~ 'nerdtree' "{
 
     " g:nerdtree_tabs_autofind (default: 0)
     " Automatically find and select currently opened file in NERDTree.
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'project.vim' "{
     " let g:proj_flags='gs'
@@ -451,8 +442,7 @@ if &runtimepath =~ 'project.vim' "{
     " " %d is replaced with the CD directory.
     " " %D is replaced with the CD directory.with spaces quoted
     " " %% is replaced with a single % that is not used in expansion.
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'vim-space' "{
     " Set this variable to disable space.vim
@@ -498,8 +488,7 @@ if &runtimepath =~ 'vim-space' "{
     "
     " Disable <Space> for undolist movements, e.g. g- and g+
     "   let g:space_no_undolist = 1
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'syntastic' "{
     " Example checking plugin for syntastic.vim
@@ -527,8 +516,7 @@ if &runtimepath =~ 'syntastic' "{
     "let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
     let g:syntastic_cpp_compiler = "g++"
     let g:syntastic_cpp_compiler_options = "-std=c++11 -stdlib=libc++ -Wall -Wextra -Wpedantic"
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'ultisnips' "{
     " UltiSnips: the Python version from g:UltiSnipsUsePythonVersion (2) is not available.
@@ -548,8 +536,7 @@ if &runtimepath =~ 'ultisnips' "{
         call mkdir(expand(g:UltiSnipsSnippetsDir), "p")
     endif
     let g:UltiSnipsSnippetDirectories=["UltiSnips", "code_snippets"]
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'unite.vim' "{
     let g:unite_source_history_yank_enable = 1
@@ -580,14 +567,12 @@ if &runtimepath =~ 'unite.vim' "{
       imap <buffer> <C-j>   <Plug>(unite_select_next_line)
       imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
     endfunction
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'YouCompleteMe' "{
     let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
     let g:ycm_confirm_extra_conf=0
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'bookmarks' "{
     let g:bookmark_no_default_key_mappings = 1
@@ -632,8 +617,7 @@ if &runtimepath =~ 'bookmarks' "{
     " let g:bookmark_no_default_key_mappings = 1
     " " 0    Use the location list to show all bookmarks
     " let g:bookmark_location_list = 1
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'neocomplcache' "{
     "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -725,8 +709,7 @@ if &runtimepath =~ 'neocomplcache' "{
     " For perlomni.vim setting.
     " https://github.com/c9s/perlomni.vim
     let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'neosnippet.vim' "{
     " Plugin key-mappings.
@@ -752,8 +735,7 @@ if &runtimepath =~ 'neosnippet.vim' "{
 
     " Tell Neosnippet about the other snippets
     let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'vim-multiple-cursors' "{
 
@@ -862,8 +844,7 @@ if &runtimepath =~ 'vim-multiple-cursors' "{
     " highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
     " highlight link multiple_cursors_visual Visual
     " }
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'c.vim' "{
     " Several global variables are checked by the script to customize it:
@@ -966,18 +947,15 @@ if &runtimepath =~ 'c.vim' "{
     "  g:Xterm_Options           : the xterm options
     "  g:C_XtermDefaults         : the xterm options
     "                              (included for backwards compatibility)
-endif
-" }
+endif " }
 
 if &runtimepath =~ 'auto-pairs' "{
     let g:AutoPairs = {}
-endif
-"}
+endif "}
 
 if &runtimepath =~ 'vim-easytags' "{
     let g:easytags_file = $HOME . '/.vim/tags'
-endif
-"}
+endif "}
 
 if &runtimepath =~ 'bash-support' "{
     " g:BASH_GlobalTemplateFile      root_dir.'bash-support/templates/Templates'
@@ -1007,8 +985,7 @@ if &runtimepath =~ 'bash-support' "{
     " g:BASH_MapLeader               '\'
     " g:BASH_Errorformat             '%f:\ line\ %l:\ %m'
     " g:BASH_AlsoBash                ''
-endif
-"}
+endif "}
 
 if &runtimepath =~ 'c-support' "{
     " See https://github.com/vim-scripts/c.vim/blob/master/doc/csupport.txt
@@ -1073,5 +1050,14 @@ if &runtimepath =~ 'c-support' "{
 
     " g:C_CodeCheckExeName       'check'
     " g:C_CodeCheckOptions       '-K13'
-endif
-" }
+endif " }
+
+
+if &runtimepath =~ 'marvim' "{
+  " let marvim_store = '/usr/local/share/projectX/marvim' 
+  " let marvim_find_key = '<Space>' " change find key from <F2> to 'space' 
+  " let marvim_store_key = 'ms'     " change store key from <F3> to 'ms' 
+  " let marvim_register = 'c'       " change used register from 'q' to 'c' 
+  " let marvim_prefix = 0           " disable default syntax based prefix 
+endif " }
+
