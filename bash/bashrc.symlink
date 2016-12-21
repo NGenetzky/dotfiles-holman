@@ -48,6 +48,9 @@ source $DOTFILES/system/path
 ## Source other files
 source $DOTFILES/bash/git_alias_completion.bash
 
+if [[ -f ~/.hipe/profile ]]; then
+  source ~/.hipe/profile
+fi
 
 #############
 ## history ##
