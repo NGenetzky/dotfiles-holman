@@ -1,5 +1,8 @@
-
+#!/usr/bin/env bash
 # src: https://gist.github.com/mwhite/6887990
+# If you add the following code to your .bashrc on a system with the default
+# git bash completion scripts installed, it will automatically create
+# completion-aware g<alias> bash aliases for each of your git aliases.
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
