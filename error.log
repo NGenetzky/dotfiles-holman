@@ -1,0 +1,10 @@
+
+/home/caeuser/.tmux.conf: 11: unknown option: renumber-windows             [0/0]
+/home/caeuser/.tmux.conf: 61: usage: split-window [-dhvP] [-p percentage|-l size
+/home/caeuser/.tmux.conf: 62: usage: split-window [-dhvP] [-p percentage|-l size
+
+/home/caeuser/.tmux.conf: 11: unknown option: renumber-windows                                                                   [0/0]
+/home/caeuser/.tmux.conf: 61: usage: split-window [-dhvP] [-p percentage|-l size] [-t target-pane] [command]
+/home/caeuser/.tmux.conf: 62: usage: split-window [-dhvP] [-p percentage|-l size] [-t target-pane] [command]
+
+
