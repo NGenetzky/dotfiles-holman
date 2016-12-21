@@ -54,9 +54,20 @@
     UnBundle 'tpope/vim-cucumber'
 " }
 
-" Language==C++ {
+" Language Dependent {
+
+" Disabled because it improperly maps to <C-D> and so it causes error.
+" Bundle 'WolfgangMehner/awk-support'
+" Bundle 'WolfgangMehner/bash-support'
+" Bundle 'WolfgangMehner/git-support'
+" Bundle 'WolfgangMehner/matlab-support'
+" Bundle 'WolfgangMehner/python-support'
+" Bundle 'WolfgangMehner/verilog-support'
+" Bundle 'WolfgangMehner/vim-support'
+
+" C++ {
 " C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
-Bundle 'vim-scripts/c.vim'
+" Bundle 'WolfgangMehner/c-support'
 
 " Disable Bundle when Exuberant Ctags is not installed.
 if executable("ctags")
@@ -68,6 +79,7 @@ endif
 
 " Shows the current tag structure in a pane.
 Bundle 'majutsushi/tagbar'
+" }
 " }
 
 " Work with External Programs {

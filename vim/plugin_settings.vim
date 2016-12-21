@@ -132,25 +132,6 @@ if &runtimepath =~ 'ctrlp' "{
 endif
 " }
 
-if &runtimepath =~ 'c' "{
-    " See https://github.com/vim-scripts/c.vim/blob/master/doc/csupport.txt
-    let g:C_MapLeader = '\'
-    let g:C_GlobalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
-    let g:C_GlobalTemplateFile   = expand('~/.dotfiles/vim/c-support/templates/Templates')
-    let g:C_LocalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
-    let g:C_LocalTemplateFile   = expand('~/.dotfiles/vim/c-support/templates/Templates')
-    let g:C_CodeSnippets        = expand('~/.dotfiles/vim/c-support/codesnippets')
-    let g:C_FormatDate          = '%D'
-    let g:C_FormatTime          = '%H:%M'
-    let g:C_FormatYear          = 'year %Y'
-    " Disable <c-j>. Context:
-    " if !exists("g:C_Ctrl_j") || ( exists("g:C_Ctrl_j") && g:C_Ctrl_j != 'off' )
-    let g:C_Ctrl_j='off'
-    " : insert file prolog in a new file ('yes', 'no')
-    let g:C_InsertFileHeader ='no'
-endif
-" }
-
 if &runtimepath =~ 'vim-fugitive' "{
     noremap <Leader>ga :Gwrite<CR>
     noremap <Leader>gc :Gcommit<CR>
@@ -997,3 +978,100 @@ if &runtimepath =~ 'vim-easytags' "{
     let g:easytags_file = $HOME . '/.vim/tags'
 endif
 "}
+
+if &runtimepath =~ 'bash-support' "{
+    " g:BASH_GlobalTemplateFile      root_dir.'bash-support/templates/Templates'
+    " g:BASH_LocalTemplateFile       $HOME.'/.vim/bash-support/templates/Templates'
+    " g:BASH_CustomTemplateFile      $HOME.'/.vim/templates/bash.templates'
+
+    " g:BASH_CodeSnippets            $HOME.'/.vim/bash-support/codesnippets'     (Linux/U**X)
+    "                             $VIM.'\vimfiles\bash-support/codesnippets/' (Windows)
+    " g:BASH_LoadMenus               'yes'
+    " g:BASH_CreateMenusDelayed      'no'
+    " g:BASH_Dictionary_File         $HOME."/.vim/bash-support/wordlists/bash.list"
+    " g:BASH_RootMenu                '&Bash.'
+    " g:BASH_GuiSnippetBrowser       'gui'
+
+    " g:BASH_OutputGvim              'vim'   (Linux/U**X)
+    "                             'xterm' (Windows)
+    " g:BASH_XtermDefaults           '-fa courier -fs 12 -geometry 80x24'
+    " g:BASH_Debugger                'term'
+    " g:BASH_LineEndCommColDefault   49
+    " g:BASH_SyntaxCheckOptionsGlob  ''
+    " g:BASH_Printheader             '%<%f%h%m%<  %=%{strftime('%x %X')}     Page %N'
+    " g:BASH_InsertFileHeader        'yes'
+    " g:BASH_Executable              $SHELL         (Linux/U**X)
+    "                             'bash.exe'     (Windows)
+    " g:BASH_ManualReader            'man'          (Linux/U**X)
+    "                             'man.exe'      (Windows)
+    " g:BASH_MapLeader               '\'
+    " g:BASH_Errorformat             '%f:\ line\ %l:\ %m'
+    " g:BASH_AlsoBash                ''
+endif
+"}
+
+if &runtimepath =~ 'c-support' "{
+    " See https://github.com/vim-scripts/c.vim/blob/master/doc/csupport.txt
+    let g:C_MapLeader = '\'
+    let g:C_GlobalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
+    let g:C_GlobalTemplateFile   = expand('~/.dotfiles/vim/c-support/templates/Templates')
+    let g:C_LocalTemplateDir    = expand('~/.dotfiles/vim/c-support/templates/')
+    let g:C_LocalTemplateFile   = expand('~/.dotfiles/vim/c-support/templates/Templates')
+    let g:C_CodeSnippets        = expand('~/.dotfiles/vim/c-support/codesnippets')
+    let g:C_FormatDate          = '%D'
+    let g:C_FormatTime          = '%H:%M'
+    let g:C_FormatYear          = 'year %Y'
+    " Disable <c-j>. Context:
+    " if !exists("g:C_Ctrl_j") || ( exists("g:C_Ctrl_j") && g:C_Ctrl_j != 'off' )
+    let g:C_Ctrl_j='off'
+    " : insert file prolog in a new file ('yes', 'no')
+    let g:C_InsertFileHeader ='no'
+
+    let g:C_UseTool_cmake    = 'no'
+    let g:C_UseTool_doxygen  = 'no'
+
+    " ----------------------------------------------------------------------------
+    " GLOBAL VARIABLE           DEFAULT VALUE                    TAG (see below)
+    " ----------------------------------------------------------------------------
+    " g:C_GlobalTemplateFile     plugin_dir.'c-support/templates/Templates'
+    " g:C_LocalTemplateFile      $HOME.'/.vim/c-support/templates/Templates'
+    " g:C_TemplateOverwrittenMsg 'yes'
+    " g:C_Ctrl_j                 'on'
+
+    " g:C_CodeSnippets           plugin_dir.'/c-support/codesnippets/'
+    " g:C_Dictionary_File        ''
+    " g:C_LoadMenus              'yes'
+    " g:C_MenuHeader             'yes'
+    " g:C_OutputGvim             'vim'
+    " g:C_Root                   '&C\/C\+\+.'
+    " g:C_XtermDefaults          '-fa courier -fs 12 -geometry 80x24'
+    " g:C_Printheader            "%<%f%h%m%<  %=%{strftime('%x %X')}     Page %N"
+    " g:C_MapLeader              '\'
+    " g:C_GuiSnippetBrowser      'gui'
+    " g:C_GuiTemplateBrowser     'gui'
+
+    " Linux/UNIX:
+    "  g:C_ObjExtension          '.o'
+    "  g:C_ExeExtension          ''
+    "  g:C_CCompiler             'gcc'
+    "  g:C_CplusCompiler         'g++'
+    "  g:C_Man                   'man'
+    " Windows:
+    "  g:C_ObjExtension          '.obj'
+    "  g:C_ExeExtension          '.exe'
+    "  g:C_CCompiler             'gcc.exe'
+    "  g:C_CplusCompiler         'g++.exe'
+    "  g:C_Man                   'man.exe'
+    " g:C_VimCompilerName        gcc
+    " g:C_CFlags                 '-Wall -g -O0 -c'
+    " g:C_LFlags                 '-Wall -g -O0'
+    " g:C_Libs                   '-lm'
+    " g:C_LineEndCommColDefault  49
+    " g:C_CExtension             'c'
+    " g:C_TypeOfH                'cpp'
+    " g:C_SourceCodeExtensions   'c cc cp cxx cpp CPP c++ C i ii'
+
+    " g:C_CodeCheckExeName       'check'
+    " g:C_CodeCheckOptions       '-K13'
+endif
+" }
