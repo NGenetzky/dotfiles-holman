@@ -61,9 +61,9 @@ highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
 
 " Overloading the default color scheme.
 " highlight  Normal      term=none   cterm=none  ctermfg=darkgrey  ctermbg=Black
-" highlight  DiffAdd     cterm=none  ctermfg=Green  ctermbg=bg   gui=none       guifg=Green  guibg=bg
-" highlight  DiffDelete  cterm=none  ctermfg=Red  ctermbg=bg   gui=none       guifg=Red  guibg=bg
-" highlight  DiffChange  cterm=none  ctermfg=White  ctermbg=bg   gui=none       guifg=White  guibg=bg
-" highlight  DiffText    cterm=none  ctermfg=Blue  ctermbg=bg  gui=none       guifg=Blue  guibg=bg
+highlight  DiffAdd     cterm=none  ctermfg=Green  ctermbg=black  gui=none  guifg=Green  guibg=black
+highlight  DiffDelete  cterm=none  ctermfg=Red    ctermbg=black  gui=none  guifg=Red    guibg=black
+highlight  DiffChange  cterm=none  ctermfg=White  ctermbg=black  gui=none  guifg=White  guibg=black
+highlight  DiffText    cterm=none  ctermfg=Blue   ctermbg=black  gui=none  guifg=Blue   guibg=black
 
 " }
