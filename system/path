@@ -19,7 +19,8 @@ pathrm() {
 ################################################################################
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export LD_LIBRARY_PATH=/home/dak/workspace/Kadoka/Kadoka/UserApplications/libraries/libs/
+
+#export LD_LIBRARY_PATH=/home/dak/workspace/Kadoka/Kadoka/UserApplications/libraries/libs/
 
 ################################################################################
 
@@ -34,9 +35,11 @@ pathadd "~/.local/bin"
 
 # Modelsim
 pathadd ~/altera/12.1/modelsim_ase/linuxaloem after
+pathadd ~/altera/13.0sp1/modelsim_ase/linuxaloem after
 
 # Quartus
 pathadd ~/altera_lite/16.0/quartus/bin after
+pathadd ~/altera/13.0sp1/quartus/bin
 
 # Daktronics
 pathadd "/home/dak/workspace/Kadoka/Kadoka/UserApplications/kptool/Build/"

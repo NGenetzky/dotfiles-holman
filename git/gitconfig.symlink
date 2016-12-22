@@ -20,7 +20,7 @@
 	submodulesummary = true
 [user]
 	name = Nate Genetzky
-	email = nathan.genetzky@daktronics.com
+	email = n@genetzky.us
 [alias]
 	exec = "!exec "
 	co = checkout
@@ -41,6 +41,9 @@
 	g = "!exec git gui &"
 	revert = checkout --
 	subup = submodule update --init
+	rl = "reflog"
+	sv = "stash save"
+	undo = "reset --soft HEAD~1"
 	gl = log --graph --oneline --date-order --decorate=short
 	gla = log --graph --oneline --date-order --decorate=short --all
 	gld = log --graph --oneline --date-order --decorate=short

@@ -107,8 +107,10 @@ Bundle 'rhysd/vim-clang-format'
 
 " Completion Engine {
 " Ultimate auto-completion system for Vim
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplete'
+if (704 < v:version)
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/neocomplete'
+endif
 
 " if has('python')
 "     Bundle 'Valloric/YouCompleteMe'
@@ -118,7 +120,7 @@ Bundle 'Shougo/neocomplete'
 " Snippet Engine {
 " UltiSnips requires python but is better
 " if executable("python")
-if has('python')
+if has('python') && (704 < v:version)
     " Supports all snippets in this repo(https://github.com/honza/vim-snippets).
     Bundle 'SirVer/ultisnips'
 else
