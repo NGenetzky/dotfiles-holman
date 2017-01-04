@@ -160,7 +160,8 @@ au! BufRead,BufNewFile *.md       set spell
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 let g:markdown_syntax_conceal = 0
 
-autocmd FileType c,cpp,cs,java,sv setlocal commentstring=//\ %s
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+autocmd FileType verilog,sv setlocal commentstring=//\ %s
 
 au BufNewFile,BufRead  *.bash_*  set filetype=sh
 
