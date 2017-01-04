@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 
 # http://stackoverflow.com/a/1580644
 find . -t d -exec chmod a+rwx \; # Make folders traversable and read/write
