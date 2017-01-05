@@ -107,7 +107,7 @@ Bundle 'rhysd/vim-clang-format'
 
 " Completion Engine {
 " Ultimate auto-completion system for Vim
-if (704 < v:version)
+if (704 <= v:version)
     Bundle 'Shougo/neocomplcache'
     Bundle 'Shougo/neocomplete'
 endif
