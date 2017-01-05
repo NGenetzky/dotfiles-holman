@@ -1,6 +1,6 @@
 
 function! OnReadStdin()
-    s:std_in=1
+    let s:std_in=1
 endfunction
 
 function! OnStartup()
