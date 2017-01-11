@@ -120,7 +120,7 @@ endif
 " Snippet Engine {
 " UltiSnips requires python but is better
 " if executable("python")
-if has('python') && (704 < v:version)
+if has('python') && (704 <= v:version)
     " Supports all snippets in this repo(https://github.com/honza/vim-snippets).
     Bundle 'SirVer/ultisnips'
 else
@@ -203,8 +203,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'spiiph/vim-space'
 
 " vimscript for creating gists
-" Bundle 'mattn/webapi-vim'
-" Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 " Tabmerge : Merge a tab's windows with the current tab 
 Bundle 'Tabmerge'
