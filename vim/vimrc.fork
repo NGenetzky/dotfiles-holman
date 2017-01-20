@@ -163,14 +163,17 @@ autocmd FileType verilog,sv setlocal commentstring=//\ %s
 autocmd FileType mkd setlocal spell
 autocmd FileType sh setlocal makeprg=./%
 
-au BufNewFile,BufRead  *.bash_*  set filetype=sh
-
 " autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType cpp,c,h setlocal foldmethod=syntax
-" Note, perl automatically sets foldmethod in the syntax file
+autocmd Syntax c,cpp,vim,xml,html,xhtml,h setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
-" }
+" Folds levels on open.
+" src: http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
+" set foldlevel=10
+" Can force the start level.
+" set foldlevelstart=10
+" Or use keys to set it to maximum.
+autocmd FileType * normal zR
 
 if $TMUX == ''
     " TMUX is not running
