@@ -231,6 +231,11 @@ Bundle 'qpkorr/vim-bufkill'
 " gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
 " Bundle 'gregsexton/gitv'
 
+" one colorscheme pack to rule them all
+Bundle 'flazz/vim-colorschemes'
+
+" Colorscheme for vim
+Bundle 'davidklsn/vim-sialoquent'
 
 " Bundle 'tomtom/tcomment_vim'
 

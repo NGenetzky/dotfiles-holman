@@ -6,23 +6,35 @@ set background=dark
 " ColorSchemes {
 
 " Favorites:
-colorscheme desert
+" colorscheme desert
+colorscheme anotherdark
 " colorscheme jellybeans
 
 " Others:
 "Color schemes (uncomment one of the schemes below)
+
 " colorscheme badwolf
+" colorscheme sialoquent
 " colorscheme xoria256
+
 if &runtimepath =~ 'vim-colors-solarized' " {
 " colorscheme solarized
 endif " 'vim-colors-solarized'
 " }
 
+" wobat: Lots of blue
+" colorscheme wombat
+
+" molokai: Some are vibrant, but many are dull.
+" colorscheme molokai
+
 " base16-atelierdune is very neon green.
 " colorscheme base16-atelierdune
+
 " bubblegum has way to much grey.
 " colorscheme bubblegum
-" darkburn isn't bad but a little dull
+
+" darkburn isn't bad but a little dull. Lots of a greyish-green
 " colorscheme darkburn
 
 " Missing:
@@ -58,7 +70,6 @@ highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
 " }
 
 " Highlight {
-
 " Overloading the default color scheme.
 " highlight  Normal      term=none   cterm=none  ctermfg=darkgrey  ctermbg=Black
 highlight  DiffAdd     cterm=none  ctermfg=Green  ctermbg=black  gui=none  guifg=Green  guibg=black
