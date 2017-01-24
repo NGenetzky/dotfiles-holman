@@ -27,7 +27,7 @@ vmap > >gv
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <S-L> :nohl<CR><C-L>
 
 " jk is escape in insert mode
 inoremap jk <esc>
