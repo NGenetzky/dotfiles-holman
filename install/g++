@@ -1,0 +1,2 @@
+
+[ -n "$(command -v dnf)" ] && dnf install gcc-c++
