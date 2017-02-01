@@ -156,12 +156,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 au! BufRead,BufNewFile *.markdown,*.md set filetype=mkd
 au BufNewFile,BufRead  *.bash*  set filetype=sh
-
-autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-autocmd FileType verilog,sv setlocal commentstring=//\ %s
+au BufNewFile,BufRead  *.sv  set filetype=verilog
 
 autocmd FileType mkd setlocal spell
+
+autocmd FileType verilog,sv setlocal commentstring=//\ %s
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 autocmd FileType sh setlocal makeprg=./%
+
+autocmd FileType verilog setlocal errorformat=\*\*\ %tRROR:\ %f(%l):\ %m,\*\*\ %tRROR:\ %m,\*\*\ %tARNING:\ %m,\*\*\ %tOTE:\ %m,%tRROR:\ %f(%l):\ %m,%tARNING\[%*[0-9]\]:\ %f(%l):\ %m,%tRROR:\ %m,%tARNING\[%*[0-9]\]:\ %m
 
 " autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType cpp,c,h setlocal foldmethod=syntax
