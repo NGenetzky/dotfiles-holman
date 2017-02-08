@@ -39,33 +39,11 @@ vnoremap crc :s/_\([a-z]\)/\u\1/g<CR>gUl
 vnoremap crs :s/\<\@!\([A-Z]\)/\_\l\1/g<CR>gul
 
 
-"" Tab nav
-noremap <leader>q gT
-noremap <leader>w gt
-noremap <C-t>h gT
-noremap <C-t>l gt
-
 "" Copy/Paste/Cut
 noremap YY "+y
 noremap PP "+gP
 noremap XX "+x
 
-" }
-
-" Unimparied like mappings {
-
-" Jump list
-nnoremap [j <C-O>
-nnoremap ]j <C-I>
-
-" Change list
-" [c]c ia already used for vimdiff
-nnoremap [x g;
-nnoremap ]x g,
-
-" Tabs
-noremap [y gT
-noremap ]y gt
 " }
 
 " G Mappings {
@@ -74,49 +52,6 @@ noremap ]y gt
 nnoremap gV `[v`]
 nnoremap gp `[v`]
 
-
-" Execute in various environments
-" In shell
-vnoremap ge y:read !<C-R>"<CR>
-" In shell with Do
-vnoremap gd DoThis
-" In python
-vnoremap gp y:read !python -c '<C-R>"'<CR>
-" In vimscript
-vnoremap gv y:@"<CR>
-" }
-
-" Window Control Mappings {
-" TODO: Replace gj and gk with other mapping
-"" Split Navigation (Required for C9.io where <C-W> would exit the browswer.)
-
-" Undo SPF13 Mappings that moves to window and minimized old window.
-silent! unmap <C-j>
-silent! unmap <C-k>
-" Maximize current split.
-nnoremap <C-_> <C-W>_
-" Use my own Navigation mappings moving around splits.
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
-
-" }
-
-" Function Key Mappings {
-
-nmap <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> <Plug>ToggleProject
-nmap <F4> :GundoToggle<CR>
-nmap <F5> :TagbarToggle<CR>
-nmap <F6> :ToggleGStatus<CR>
-
-" Defined in setup_syntastic
-nmap <F9> :SyntasticCheck<CR>
-nmap <F12> :SyntasticReset<CR>
-
-" Force the width to be 80 char wide
-nmap <F8> :vertical resize 80<CR>
 " }
 
 " Leader mappings {
