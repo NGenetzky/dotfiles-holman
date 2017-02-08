@@ -1,6 +1,10 @@
 
 info
+tags
+bookmarks
+.netrwhist
 
+bundle/
 backup/
 swap/
 undo/
