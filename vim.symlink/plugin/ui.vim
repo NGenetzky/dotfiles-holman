@@ -7,7 +7,9 @@ set background=dark
 
 " Favorites:
 " colorscheme desert
+if &runtimepath =~ 'anotherdark' "{
 colorscheme anotherdark
+endif "}
 " colorscheme jellybeans
 
 " Others:
