@@ -154,7 +154,7 @@ endif
 " Filetype specific {
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-au! BufRead,BufNewFile *.markdown,*.md set filetype=mkd
+au! BufRead,BufNewFile *.markdown,*.md set filetype=markdown
 au BufNewFile,BufRead  *.bash*  set filetype=sh
 au BufNewFile,BufRead  *.sv  set filetype=verilog
 
