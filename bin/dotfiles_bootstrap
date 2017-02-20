@@ -137,26 +137,7 @@ install_dotfiles () {
   done
 
   # ~/.vim dotfiles
-  mkdir ~/.vim -p
-  link_file $DOTFILES_ROOT/vim/vimrc $HOME/.vimrc
-  link_file $DOTFILES_ROOT/vim/gvimrc $HOME/.gvimrc
-  vim_dotfiles=( \
-      {events,functions,mappings,plugin_settings,ui}.vim \
-      vimrc{.fork,.spf13,.before,.bundles}{,.fork,.spf13} \
-      ycm_extra_conf.py
-  )
-  for f in ${vim_dotfiles[@]}
-  do
-    from="$DOTFILES_ROOT/vim/$f"
-    to="$HOME/.vim/$f"
-    [ -f $from ] && link_file $from $to
-
-    # Remove duplication
-    in_home="$HOME/.$f"
-    [ -f $in_home ] && unlink $in_home
-  done
-
-    from="$DOTFILES_ROOT/vim/vimrc.user/$USER.vim" && [ -f $from ] && link_file $from "$HOME/.vim/vimrc.user"
+  from="$DOTFILES_ROOT/vim/vimrc.user/$USER.vim" && [ -f $from ] && link_file $from "$HOME/.vim/vimrc.user"
 }
 
 setup_gitconfig
