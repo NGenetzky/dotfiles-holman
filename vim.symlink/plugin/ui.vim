@@ -9,10 +9,10 @@ set background=dark
 " colorscheme desert
 if &runtimepath =~ 'colorscheme' "{
 
-colorscheme 0x7A69_dark
+" colorscheme 0x7A69_dark
 " colorscheme 1989
 " colorscheme 256-grayvim
-" colorscheme 256-jungle
+colorscheme 256-jungle
 " colorscheme 256_noir
 " colorscheme 3dglasses
 " colorscheme abbott
