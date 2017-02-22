@@ -92,9 +92,15 @@ if executable("tmux") " {
 endif
 " }
 
-" Clang format integration
-Bundle 'rhysd/vim-clang-format'
+" Grep {
+Bundle 'dkprice/vim-easygrep'
+" }
 
+" Clang format integration {
+Bundle 'rhysd/vim-clang-format'
+" }
+
+" Interactive shell {
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer.
 " Bundle 'vim-scripts/Conque-Shell'
@@ -103,6 +109,8 @@ Bundle 'rhysd/vim-clang-format'
 " Disables because it requires skibyte/gdblib
 "Bundle 'skibyte/gdblib'
 "Bundle 'skibyte/gdb-from-vim'
+" }
+
 " }
 
 " Completion Engine {
