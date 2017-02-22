@@ -136,8 +136,7 @@ install_dotfiles () {
     link_file "$src" "$dst"
   done
 
-  # ~/.vim dotfiles
-  from="$DOTFILES_ROOT/vim/vimrc.user/$USER.vim" && [ -f $from ] && link_file $from "$HOME/.vim/vimrc.user"
+    from="~/.vim/vimrc.user.d/$USER.vim" && [ -f $from ] && link_file $from "$HOME/.vim/vimrc.user"
 }
 
 setup_gitconfig
