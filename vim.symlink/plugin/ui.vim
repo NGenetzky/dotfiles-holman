@@ -4,15 +4,12 @@
 set background=dark
 
 " ColorSchemes {
-
-" Favorites:
-" colorscheme desert
 if &runtimepath =~ 'colorscheme' "{
 
 " colorscheme 0x7A69_dark
 " colorscheme 1989
 " colorscheme 256-grayvim
-colorscheme 256-jungle
+" colorscheme 256-jungle
 " colorscheme 256_noir
 " colorscheme 3dglasses
 " colorscheme abbott
@@ -36,7 +33,6 @@ colorscheme 256-jungle
 " colorscheme asmanian_blood
 " colorscheme astronaut
 " colorscheme asu1dark
-" colorscheme atom
 " colorscheme automation
 " colorscheme autumnleaf
 " colorscheme autumn
@@ -303,7 +299,6 @@ colorscheme 256-jungle
 " colorscheme grey2
 " colorscheme greyblue
 " colorscheme grishin
-" colorscheme gruvbox
 " colorscheme gryffin
 " colorscheme guardian
 " colorscheme guepardo
@@ -498,7 +493,6 @@ colorscheme 256-jungle
 " colorscheme pacific
 " colorscheme paintbox
 " colorscheme PapayaWhip
-" colorscheme PaperColor
 " colorscheme parsec
 " colorscheme peaksea
 " colorscheme pencil
@@ -736,19 +730,12 @@ colorscheme 256-jungle
 " colorscheme legiblelight
 
 endif "}
+
+" Other ColorSchemes " {
 " colorscheme jellybeans
 
-" Others:
-"Color schemes (uncomment one of the schemes below)
-
-" colorscheme badwolf
 " colorscheme sialoquent
 " colorscheme xoria256
-
-if &runtimepath =~ 'vim-colors-solarized' " {
-" colorscheme solarized
-endif " 'vim-colors-solarized'
-" }
 
 " wobat: Lots of blue
 " colorscheme wombat
@@ -770,6 +757,66 @@ endif " 'vim-colors-solarized'
 " colorscheme base16-tomorrow
 " colorscheme base16-greenscreen 
 " colorscheme base16-eighties
+" }
+
+" Favorites {
+
+" A dark and fresh 24bit colorscheme for Vim, Airline and Lightline
+" colorscheme tender
+
+" colorscheme desert
+if &runtimepath =~ 'colorscheme' "{
+    " A color scheme for Vim, pieced together by Steve Losh. High-contrast with a dark background. 
+    " colorscheme badwolf
+
+    colorscheme atom
+
+    " colorscheme PaperColor
+
+    " Retro groove color scheme for Vim
+    " colorscheme gruvbox
+endif " }
+if &runtimepath =~ 'vim-colors-solarized' " {
+    " colorscheme solarized
+endif " 'vim-colors-solarized'
+" }
+
+" }
+
+" }
+
+function! ColorschemeOverride() "{
+    autocmd ColorScheme * highlight!  Normal term=none   cterm=none  ctermfg=none  ctermbg=none
+    " autocmd ColorScheme * highlight!  Function term=none   cterm=none  ctermfg=white  ctermbg=none
+    if (g:colors_name =~ "busybee")
+    elseif (g:colors_name =~ "256-jungle")
+    elseif (g:colors_name =~ "xoria256")
+    endif
+endfunction "}
+
+augroup highlight_override " {
+    autocmd!
+    autocmd ColorScheme * call ColorschemeOverride()
+    " autocmd BufEnter * highlight!  Normal term=none   cterm=none  ctermfg=none  ctermbg=none
+    autocmd ColorScheme * highlight!  Normal term=none   cterm=none  ctermfg=none  ctermbg=none
+augroup end
+" }
+
+" Highlight {
+" Overloading the default color scheme.
+" Normal {
+" Fix a bug with the background being highlighted.
+highlight!  Normal term=none   cterm=none  ctermfg=none  ctermbg=none
+call ColorschemeOverride()
+" }
+
+augroup highlight_diff " {
+    autocmd!
+    autocmd ColorScheme * highlight  DiffAdd     cterm=none  ctermfg=Green  ctermbg=DarkGrey  gui=none  guifg=Green  guibg=black
+    autocmd ColorScheme * highlight  DiffDelete  cterm=none  ctermfg=Red    ctermbg=DarkGrey  gui=none  guifg=Red    guibg=black
+    autocmd ColorScheme * highlight  DiffChange  cterm=none  ctermfg=LightGrey  ctermbg=DarkGrey  gui=none  guifg=White  guibg=DarkGrey
+    autocmd ColorScheme * highlight  DiffText    cterm=none  ctermfg=White   ctermbg=DarkYellow  gui=none  guifg=White   guibg=DarkYellow
+augroup end
 " }
 
 " ColorColumn {
@@ -796,13 +843,5 @@ highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
 "     autocmd ColorScheme * highlight ColorColumn term=reverse ctermbg=235 guibg=LightGrey
 " augroup end
 " }
-
-" Highlight {
-" Overloading the default color scheme.
-" highlight  Normal      term=none   cterm=none  ctermfg=darkgrey  ctermbg=Black
-highlight  DiffAdd     cterm=none  ctermfg=Green  ctermbg=DarkGrey  gui=none  guifg=Green  guibg=black
-highlight  DiffDelete  cterm=none  ctermfg=Red    ctermbg=DarkGrey  gui=none  guifg=Red    guibg=black
-highlight  DiffChange  cterm=none  ctermfg=LightGrey  ctermbg=DarkGrey  gui=none  guifg=White  guibg=DarkGrey
-highlight  DiffText    cterm=none  ctermfg=White   ctermbg=DarkYellow  gui=none  guifg=White   guibg=DarkYellow
 
 " }
