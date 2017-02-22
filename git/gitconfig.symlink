@@ -3,6 +3,7 @@
 	autocrlf = input
 	editor = vim
 	pager = less -FXRS -x4
+	excludesfile = ~/.gitignore.global
 [gc]
 	reflogExpire = 14 days
 	reflogExpireUnreachable = 30 days
