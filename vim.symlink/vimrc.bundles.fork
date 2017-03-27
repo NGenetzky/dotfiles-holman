@@ -79,7 +79,12 @@ endif
 
 " Shows the current tag structure in a pane.
 Bundle 'majutsushi/tagbar'
+
+" Vim plugin for c/c++ developers and Vim lovers
+" Bundle 'bbchung/clighter8'
+
 " }
+
 " }
 
 " Work with External Programs {
@@ -107,8 +112,9 @@ Bundle 'rhysd/vim-clang-format'
 " Bundle 'vim-scripts/Conque-GDB'
 "" A plugin to debug program with gdb by using vim
 " Disables because it requires skibyte/gdblib
-"Bundle 'skibyte/gdblib'
-"Bundle 'skibyte/gdb-from-vim'
+" Requires "python2 setup.py build && sudo python2 setup.py install to be run.
+" Bundle 'skibyte/gdblib'
+" Bundle 'skibyte/gdb-from-vim'
 " }
 
 " }
@@ -185,11 +191,26 @@ Bundle 'vimplugin/project.vim'
 Bundle 'MattesGroeger/vim-bookmarks'
 
 " }
-"" Syntax Bundles {
+" Syntax Bundles {
 Bundle 'sheerun/vim-polyglot'
 Bundle 'vim-scripts/crontab.vim'
 Bundle 'amal-khailtash/vim-do-syntax'
 " }
+
+" Colorscheme {
+    " precision colorscheme for the vim text editor
+    Bundle 'altercation/vim-colors-solarized'
+
+    " one colorscheme pack to rule them all
+    Bundle 'flazz/vim-colorschemes'
+
+    " Colorscheme for vim
+    Bundle 'davidklsn/vim-sialoquent'
+
+    Bundle 'tomasiser/vim-code-dark'
+
+" }
+
 
 " Others {
 " Syntastic is a syntax checking plugin for Vim that runs files through
@@ -239,12 +260,6 @@ Bundle 'qpkorr/vim-bufkill'
 " gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
 " Bundle 'gregsexton/gitv'
 
-" one colorscheme pack to rule them all
-Bundle 'flazz/vim-colorschemes'
-
-" Colorscheme for vim
-Bundle 'davidklsn/vim-sialoquent'
-
 " Bundle 'tomtom/tcomment_vim'
 
 Bundle 'Konfekt/FastFold'
@@ -279,9 +294,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.spf13")) && !exists("g:override_spf
 
     " A tree explorer plugin for vim
     "UnBundle 'scrooloose/nerdtree'
-
-    " precision colorscheme for the vim text editor
-    " UnBundle 'altercation/vim-colors-solarized'
 
     " Collection of color schemes for VIM
     " UnBundle 'spf13/vim-colors'

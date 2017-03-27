@@ -769,7 +769,7 @@ if &runtimepath =~ 'colorscheme' "{
     " A color scheme for Vim, pieced together by Steve Losh. High-contrast with a dark background. 
     " colorscheme badwolf
 
-    colorscheme atom
+    " colorscheme atom
 
     " colorscheme PaperColor
 
@@ -779,6 +779,10 @@ endif " }
 if &runtimepath =~ 'vim-colors-solarized' " {
     " colorscheme solarized
 endif " 'vim-colors-solarized'
+
+if &runtimepath =~ 'vim-code-dark' "{
+    colorscheme codedark
+endif
 " }
 
 " }
@@ -802,6 +806,8 @@ augroup highlight_override " {
 augroup end
 " }
 
+"}
+
 " Highlight {
 " Overloading the default color scheme.
 " Normal {
@@ -812,36 +818,11 @@ call ColorschemeOverride()
 
 augroup highlight_diff " {
     autocmd!
-    autocmd ColorScheme * highlight  DiffAdd     cterm=none  ctermfg=Green  ctermbg=DarkGrey  gui=none  guifg=Green  guibg=black
-    autocmd ColorScheme * highlight  DiffDelete  cterm=none  ctermfg=Red    ctermbg=DarkGrey  gui=none  guifg=Red    guibg=black
-    autocmd ColorScheme * highlight  DiffChange  cterm=none  ctermfg=LightGrey  ctermbg=DarkGrey  gui=none  guifg=White  guibg=DarkGrey
-    autocmd ColorScheme * highlight  DiffText    cterm=none  ctermfg=White   ctermbg=DarkYellow  gui=none  guifg=White   guibg=DarkYellow
+    autocmd  ColorScheme  *  highlight  DiffAdd     cterm=none  ctermfg=Green      ctermbg=DarkGrey    gui=none  guifg=Green  guibg=black
+    autocmd  ColorScheme  *  highlight  DiffDelete  cterm=none  ctermfg=Red        ctermbg=DarkGrey    gui=none  guifg=Red    guibg=black
+    autocmd  ColorScheme  *  highlight  DiffChange  cterm=none  ctermfg=LightGrey  ctermbg=DarkGrey    gui=none  guifg=White  guibg=DarkGrey
+    autocmd  ColorScheme  *  highlight  DiffText    cterm=none  ctermfg=White      ctermbg=DarkYellow  gui=none  guifg=White  guibg=DarkYellow
 augroup end
 " }
 
-" ColorColumn {
-
-" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
-" "highlight ColorColumn ctermbg=235 guibg=#2c2d27
-
-" if exists('+colorcolumn')
-"     " All columns past 80.
-"     let &colorcolumn=join(range(81,999),",")
-"     " Just column 80
-"     " set colorcolumn=80
-" else
-" " Color column - Highlight any text longer than 80 char.
-"     au BufWinEnter * let w:m2=matchadd('ColorColumn', '\%80v.\+',-1)
-" endif
-
-" highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
-highlight! ColorColumn term=reverse ctermbg=235 guibg=LightGrey
-" augroup colorcolumn
-"     autocmd!
-"     autocmd ColorScheme solarized highlight ColorColumn term=reverse ctermbg=1 guibg=LightRed
-"     autocmd ColorScheme * highlight ColorColumn term=reverse ctermbg=235 guibg=LightGrey
-" augroup end
-" }
-
-" }
+"}
