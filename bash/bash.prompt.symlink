@@ -1,3 +1,15 @@
+
+# vim: set ft=sh foldmarker={,} foldlevel=1 foldmethod=marker :
+
+function git_branch_ahead_behind {
+    # I don't think it supports remotes with different branch names.
+    # TODO: Investigate
+    curr_branch=$(git rev-parse --abbrev-ref HEAD);
+    curr_remote=$(git config branch.$curr_branch.remote);
+    curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
+    git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch | tr -s '\t' '|';
+}
+
 function prompt_command {
     local NOCOLOR="\[\033[0m\]"
     local BLACK="\[\033[0;30m\]"
@@ -32,10 +44,12 @@ function prompt_command {
     newPWD="${PWD}"
         #memuse=$(free -m | grep ^Mem: | sed "s/ * /\t/g" | cut -f 3 | sed "s/\t/\//g")
         #swpuse=$(free -m | grep ^Swap: | sed "s/ * /\t/g" | cut -f 3 | sed "s/\t/\//g")
+    
     gitbranch=$(git branch 2>/dev/null | grep ^\* | sed 's/^..//')
+    gitstatusline="${gitbranch}"
     
     #   Add all the accessories below ...
-    let p1size=$(echo -n "+--(${usernam}@${hostnam})--(${newPWD})--(${gitbranch})--($(date '+%d %b %H:%M:%S'))-" | wc -c | tr -d " ")
+    let p1size=$(echo -n "+--(${usernam}@${hostnam})--(${newPWD})--(${gitstatusline})--($(date '+%d %b %H:%M:%S'))-" | wc -c | tr -d " ")
     let f1size=${TERMWIDTH}-${p1size}
     
     f1=""
@@ -67,7 +81,7 @@ $BC$BXTLC$BXHL\
 $FC$BXHL{$CYAN\$usernam$BLUE@$LTPURPLE\$hostnam$FC}$BXHL\
 $FC$BXHL{$BROWN\${newPWD}$FC}$BXHL\
 $BC\${f1}$BXHL\
-$FC{$LTRED\${gitbranch}$FC}\
+$FC{$LTRED\${gitstatusline}$FC}\
 $BC$BXHL$FC\
 $BXHL{$RED$(date '+%d %b %H:%M:%S')$FC}$BXHL\
 \n\

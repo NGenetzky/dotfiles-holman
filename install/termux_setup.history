@@ -1,0 +1,11 @@
+termux_setup.history    
+
+  113  apt install proot
+  125  termux-chroot
+
+   83  apt install debianutils
+  125  apt install vim
+
+   11  cd .dotfiles/
+   44  bash ./bin/dotfiles_bootstrap 
+   14  ./bin/dotfiles_install 

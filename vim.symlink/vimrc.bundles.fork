@@ -92,9 +92,15 @@ if executable("tmux") " {
 endif
 " }
 
-" Clang format integration
-Bundle 'rhysd/vim-clang-format'
+" Grep {
+Bundle 'dkprice/vim-easygrep'
+" }
 
+" Clang format integration {
+Bundle 'rhysd/vim-clang-format'
+" }
+
+" Interactive shell {
 " Conque is a Vim plugin which allows you to run interactive programs, such as
 " bash on linux or powershell.exe on Windows, inside a Vim buffer.
 " Bundle 'vim-scripts/Conque-Shell'
@@ -105,9 +111,11 @@ Bundle 'rhysd/vim-clang-format'
 "Bundle 'skibyte/gdb-from-vim'
 " }
 
+" }
+
 " Completion Engine {
 " Ultimate auto-completion system for Vim
-if (704 < v:version)
+if (704 <= v:version)
     Bundle 'Shougo/neocomplcache'
     Bundle 'Shougo/neocomplete'
 endif
@@ -120,7 +128,7 @@ endif
 " Snippet Engine {
 " UltiSnips requires python but is better
 " if executable("python")
-if has('python') && (704 < v:version)
+if has('python') && (704 <= v:version)
     " Supports all snippets in this repo(https://github.com/honza/vim-snippets).
     Bundle 'SirVer/ultisnips'
 else
@@ -203,8 +211,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'spiiph/vim-space'
 
 " vimscript for creating gists
-" Bundle 'mattn/webapi-vim'
-" Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 " Tabmerge : Merge a tab's windows with the current tab 
 Bundle 'Tabmerge'
@@ -231,6 +239,11 @@ Bundle 'qpkorr/vim-bufkill'
 " gitk for Vim. http://www.gregsexton.org/portfolio/gitv/
 " Bundle 'gregsexton/gitv'
 
+" one colorscheme pack to rule them all
+Bundle 'flazz/vim-colorschemes'
+
+" Colorscheme for vim
+Bundle 'davidklsn/vim-sialoquent'
 
 " Bundle 'tomtom/tcomment_vim'
 

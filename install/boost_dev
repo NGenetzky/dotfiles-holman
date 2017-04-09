@@ -1,1 +1,3 @@
-apt install libboost-all-dev
+
+[ -n "$(command -v apt-get)" ] && apt install libboost-all-dev
+[ -n "$(command -v dnf)" ] && dnf install boost boost-devel

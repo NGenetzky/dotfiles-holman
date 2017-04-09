@@ -154,29 +154,31 @@ endif
 " Filetype specific {
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-au! BufRead,BufNewFile *.markdown,*.md set filetype=mkd
+au! BufRead,BufNewFile *.markdown,*.md set filetype=markdown
 au BufNewFile,BufRead  *.bash*  set filetype=sh
+au BufNewFile,BufRead  *.sv  set filetype=verilog
 
-autocmd FileType c,cpp,cs,java,sv setlocal commentstring=//\ %s
 autocmd FileType mkd setlocal spell
+
+autocmd FileType verilog,sv setlocal commentstring=//\ %s
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
+
 autocmd FileType sh setlocal makeprg=./%
-au BufNewFile,BufRead  *.bash_*  set filetype=sh
+
+autocmd FileType verilog setlocal errorformat=\*\*\ %tRROR:\ %f(%l):\ %m,\*\*\ %tRROR:\ %m,\*\*\ %tARNING:\ %m,\*\*\ %tOTE:\ %m,%tRROR:\ %f(%l):\ %m,%tARNING\[%*[0-9]\]:\ %f(%l):\ %m,%tRROR:\ %m,%tARNING\[%*[0-9]\]:\ %m
 
 " autocmd FileType vim setlocal foldmethod=marker
 " autocmd FileType cpp,c,h setlocal foldmethod=syntax
-" Note, perl automatically sets foldmethod in the syntax file
+autocmd Syntax c,cpp,vim,xml,html,xhtml,h setlocal foldmethod=syntax
 autocmd Syntax c,cpp,vim,xml,html,xhtml setlocal foldmethod=syntax
-autocmd Syntax c,cpp,vim,xml,html,xhtml,perl normal zR
-" }
+" Folds levels on open.
+" src: http://vim.wikia.com/wiki/All_folds_open_when_opening_a_file
+" set foldlevel=10
+" Can force the start level.
+" set foldlevelstart=10
+" Or use keys to set it to maximum.
+autocmd FileType * normal zR
 
 if $TMUX == ''
     " TMUX is not running
 endif
-
-source ~/.dotfiles/vim/ui.vim
-source ~/.dotfiles/vim/mappings.vim
-source ~/.dotfiles/vim/functions.vim
-source ~/.dotfiles/vim/projects.vim
-source ~/.dotfiles/vim/events.vim
-source ~/.dotfiles/vim/plugin_settings.vim
-

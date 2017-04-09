@@ -7,5 +7,6 @@ atom.symlink/packages
 atom.symlink/storage
 atom.symlink/themes
 
+marvim.symlink/.mv7
+
 git/gitconfig.local.symlink
-vim/bundle/*

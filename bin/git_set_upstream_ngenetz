@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
-
 if [ $# -eq 0 ]; then
-    echo 'ERROR:$1 should be branch_name'
-    exit 1;
+    # echo 'ERROR:$1 should be branch_name'
+    # exit 1;
+    set -x
+    curr_branch=$(git rev-parse --abbrev-ref HEAD);
+    git branch --set-upstream-to=origin/ngenetz/$curr_branch $curr_branch
 elif [ $# -eq 1 ]; then
+    set -x
     branch_name=$1
-    git checkout -b $1 -t origin/ngenetz$1
-    # git branch --set-upstream-to origin/ngenetz/$1
+    git branch --set-upstream-to=origin/ngenetz/$branch_name $branch_name
+
+    # TODO: If error then do this:
+    # git push origin $branch_name:ngenetz/$branch_name
 fi

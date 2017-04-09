@@ -1,0 +1,1 @@
+dnf group install "C Development tools and Libraries"

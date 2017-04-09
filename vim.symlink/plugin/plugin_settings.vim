@@ -1087,3 +1087,9 @@ if &runtimepath =~ 'vim-do' "{
 
 endif " }
 
+if &runtimepath =~ 'gist-vim' "{
+    let g:gist_open_url = 0
+    let g:gist_default_private = 0
+endif " }
+
+
