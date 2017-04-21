@@ -35,6 +35,8 @@ alias gff='git merge --ff-only '
 alias gsm='git submodule'
 alias gsubup='git submodule update --init'
 
+alias grc='git rebase --continue'
+
 alias gl='git log --graph --oneline --date-order --decorate=short'
 alias gla='git log --graph --oneline --date-order --decorate=short --all'
 alias gld='git log --graph --oneline --date-order --decorate=short'

@@ -42,6 +42,7 @@
 	rl = "reflog"
 	sv = "stash save"
 	undo = "reset --soft HEAD~1"
+    grc = git rebase --continue
 	gl = log --graph --oneline --date-order --decorate=short
 	gla = log --graph --oneline --date-order --decorate=short --all
 	gld = log --graph --oneline --date-order --decorate=short
