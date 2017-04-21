@@ -1,0 +1,48 @@
+[core]
+	safecrlf = false
+	autocrlf = false
+	editor = nano
+	pager = less -FXRS -x4
+[gc]
+	reflogExpire = 14 days
+	reflogExpireUnreachable = 30 days
+[color]
+	status = auto
+	ui = auto
+[gui]
+	commitmsgwidth = 100
+[push]
+	default = upstream
+[fetch]
+	recurseSubmodules = true
+	prune = true
+[status]
+	submodulesummary = true
+[user]
+	name = Daktronics Engineering
+	email = dakeng
+[alias]
+	exec = "!exec "
+	co = checkout
+	sw = checkout
+	ci = commit
+	amend = commit --amend
+	st = status
+	sts = status -s
+	stsi = status -s --ignored
+	br = branch
+	nb = checkout -b
+	mrg = merge --no-ff --edit
+	com = checkout master
+	sm = submodule
+	ff = merge --ff-only 
+	k = "!exec gitk --all --date-order &"
+	kf = "!exec gitk --all --first-parent &"
+	g = "!exec git gui &"
+	revert = checkout --
+	subup = submodule update --init
+	gl = log --graph --oneline --date-order --decorate=short
+	gla = log --graph --oneline --date-order --decorate=short --all
+	gld = log --graph --oneline --date-order --decorate=short
+	glad = log --graph --oneline --date-order --decorate=short --all
+	glaf = log --graph --oneline --decorate=short --all --first-parent
