@@ -64,6 +64,8 @@
 " Bundle 'WolfgangMehner/python-support'
 " Bundle 'WolfgangMehner/verilog-support'
 " Bundle 'WolfgangMehner/vim-support'
+"
+Bundle 'klen/python-mode'
 
 " C++ {
 " C/C++ IDE --  Write and run programs. Insert statements, idioms, comments etc. 
@@ -82,6 +84,12 @@ Bundle 'majutsushi/tagbar'
 
 " Vim plugin for c/c++ developers and Vim lovers
 " Bundle 'bbchung/clighter8'
+
+" }
+
+" Bitbake {
+
+Bundle 'kergoth/vim-bitbake'
 
 " }
 
@@ -115,6 +123,10 @@ Bundle 'rhysd/vim-clang-format'
 " Requires "python2 setup.py build && sudo python2 setup.py install to be run.
 " Bundle 'skibyte/gdblib'
 " Bundle 'skibyte/gdb-from-vim'
+" }
+
+" Geeknote {
+Bundle 'neilagabriel/vim-geeknote'
 " }
 
 " }

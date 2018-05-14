@@ -3,8 +3,8 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/workspace
-export WORKSPACE=~/workspace
+# export PROJECTS=~/workspace
+# export WORKSPACE=~/workspace
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -16,7 +16,6 @@ fi
 # Color Editor
 export TERM=xterm-256color
 set editing-mode vi
-
 
 #############
 ## Aliases ##
@@ -50,6 +49,10 @@ source $DOTFILES/bash/git_alias_completion.bash
 
 if [[ -f ~/.hipe/profile ]]; then
   source ~/.hipe/profile
+fi
+
+if [[ -f ~/.vaddio/vaddio.env.bash ]]; then
+    source ~/.vaddio/vaddio.env.bash
 fi
 
 #############

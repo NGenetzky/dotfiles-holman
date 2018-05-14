@@ -4,12 +4,14 @@
 	editor = vim
 	pager = less -FXRS -x4
 	excludesfile = ~/.gitignore.global
+	whitespace = trailing-space,tab-in-indent
 [gc]
 	reflogExpire = 14 days
 	reflogExpireUnreachable = 30 days
 [color]
 	status = auto
 	ui = auto
+    diff = auto
 [gui]
 	commitmsgwidth = 100
 [push]
